@@ -1,0 +1,214 @@
+
+/* -------- INICIO NAV PRIMARIO -------- */
+.nav {
+  background-color: #DDA800;
+  display: flex;
+  flex-direction: column;
+}
+.nav-primario {
+  width: 100%;
+  height: 70px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* -------- FIN NAV PRIMARIO -------- */
+
+/* -------- INICIO MENU HAMBURGUESA -------- */
+.menu-hamburguesa {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+.icon-ham {
+  height: 40px;
+}
+.abrir-hamburguesa {
+  border: none;
+  background-color: transparent;
+}
+/* -------- FIN MENU HAMBURGUESA -------- */
+
+/*-------- INICIO LOGO --------*/
+.name-page {
+  margin: 0 0 0 15px;
+  font-size: 30px;
+  color: #DDA800;
+}
+span {
+  color: #03588C;
+}
+/*-------- FIN LOGO --------*/
+
+/*-------- INICIO NAV SECUNDARIO --------*/
+.nav-secundario {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.nav-sec-fondo {
+  background-image: url(../../../assets/iconos/navbar-short.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 335px;
+}
+.nav-sec-contenido {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .buscador, .buscador input {
+    width: 300px!important;
+  }
+  .nav-sec-fondo {
+    display: none;
+  }
+}
+/*-------- FIN NAV SECUNDARIO --------*/
+
+/*-------- INICIO BOTON BUSCADOR --------*/
+.buscador {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+.buscador, .buscador input {
+  border-radius: 30px;
+  width: 400px;
+}
+.buscador input {
+  border: none;
+  outline: none;
+}
+.buscador-boton {
+  border: none;
+}
+/*-------- FIN BOTON BUSCADOR --------*/
+
+/*-------- INICIO MENU SESION --------*/
+.menu-sesion {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.menu-sesion > * {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.contador {
+  padding-top: 20px;
+  font-weight: bold;
+}
+.contenedor-sesion {
+  /* No cambiar esta propiedad, porque ayuda al comportamiento del hover del menu */
+  padding: 15px 15px; 
+}
+.icono-menu {
+  width: 25px;
+  height: 20px;
+}
+.contenedor-sesion:hover > .menu-vertical {
+  display: block;
+}
+.menu-vertical {
+  position: absolute;
+  display: none;
+  background-color: rgb(255, 255, 255);
+  width: auto;
+  height: auto;
+  right: 30px;
+  top: 55px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: -5px 3px 9px 0px rgba(37, 36, 36, 0.7);
+  -webkit-box-shadow: -5px 3px 9px 0px rgba(37, 36, 36, 0.7);
+  -moz-box-shadow: -5px 3px 9px 0px rgba(37, 36, 36, 0.7);
+}
+.menu-vertical:hover {
+  display: block;
+}
+.menu-vertical-head {
+  text-align: left;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-bottom: 2px solid #03588C;
+}
+.menu-vertical-head h3 {
+  margin: 0;
+  font-weight: 500;
+}
+.menu-vertical-head p {
+  margin: 0 0 8px;
+}
+.config-option {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+.config-option p {
+  padding-top: 7px;
+  margin-bottom: 7px!important;
+  
+}
+.config-option:last-of-type {
+  border-radius: 0px 0px 10px 10px;
+}
+.config-option:hover{
+  background-color: var(--bs-border-color);
+  cursor: pointer;
+}
+.img-menu-conf {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+/*-------- FIN MENU SESION --------*/
+
+/*-------- INICIO MENU DESPLEGABLE --------*/
+.menu-inicio {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+}
+.menu-inicio-text {
+  margin: 0 5px 0 0;
+}
+.menu-inicio-icono {
+  height: 20px;
+  width: 15px;
+  transition: all 0.25s;
+  z-index: -1;
+}
+.rotated {
+  transform: rotate(180deg);
+}
+
+.btn-group .dropdown-item {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown-item p {
+  margin: 0!important;
+}
+.dropdown-item:active {
+  background-color: var(--custom)!important;
+  color: var(--custom);
+}
+.dropdown-menu hr {
+  margin: 5px 0!important;
+}
+
+.pointer {
+  cursor: pointer;
+}

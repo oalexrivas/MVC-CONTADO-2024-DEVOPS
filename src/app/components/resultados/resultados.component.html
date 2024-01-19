@@ -1,0 +1,23 @@
+<div class="contenedor">
+    <!-- <p>resultados works!</p> -->
+
+    <h1 class="tituloBuscar">{{conectarServicio.busquedaSeleccionado}}</h1>
+    <ul>
+        <li class="listas" *ngFor="let dato of datos1 | filter: conectarServicio.busquedaSeleccionado">
+            <p>{{dato.id}}- </p>
+            <a (click)="irPDFView(dato.nombreDoc)">{{ dato.nombreDoc }}</a>
+        </li>
+        <!-- Hacer más grande el visualizador por temas de scroll bar -->
+    </ul>
+
+    <table>
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+
+    <!-- <mat-paginator [length]="datos1.length" [pageSize]="cantidadPorPagina" (page)='paginar($event)'
+	[pageSizeOptions]="opcionesDeCantidades" showFirstLastButtons>
+
+    </mat-paginator> -->
+
+</div>

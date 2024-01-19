@@ -1,0 +1,185 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-4"> Registros </p>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-between mb-3">
+      <h3>
+        {{
+          opcion == 2 ? 'Creando registro' : 
+          opcion == 3 ? 'Editando registro' :
+          opcion == 4 ? 'Detalle registro' : 'Historial de Registros'
+        }}
+      </h3>
+    </div>
+    
+    <div *ngIf="opcion == 1">
+      <div class="p-2 row shadow-2 card">
+        <div>
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-4">
+              <label for="tipo" class="form-label">Tipo de registro:</label>
+              <select (change)="filtro()" [(ngModel)]="filtroTipo" class="form-select">
+                <option value="natural">Natural</option>
+                <option value="juridico">Jurídico</option>
+                <option value="donante">Donante</option>
+                <option value="sas">Sociedad por Acciones Simplificadas (SAS)</option>
+                <option value="proveedor">Proveedor</option>
+                <!-- Agrega más opciones según tus tipos de usuario -->
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-2 row shadow-2 card">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover text-center">
+            <thead>
+              <tr>
+                <th scope="col">Nombre/Razón social</th>
+                <th scope="col">DUI</th>
+                <th scope="col">NIT</th>
+                <th scope="col">Actividad</th>
+                
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of lista">
+                <td>{{usuario.nombre}}</td>
+                <td>{{usuario.dui}}</td>
+                <td>{{usuario.nit}}</td>
+                <td>{{usuario.actividad}}</td>
+                <td>
+                  <button class="btn" (click)="operacion(usuario.id, 4)"><i class='bx bx-show'></i></button>
+                  <button class="btn" (click)="operacion(usuario.id, 3)"><i class='bx bxs-pencil'></i></button>
+                  <button class="btn" (click)="seleccionar(usuario.id)" data-bs-toggle="modal" data-bs-target="#confirmacionModal" ><i class='bx bx-trash'></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="opcion != 1">
+      <form [formGroup]="formulario">
+        <div class="row g-3 align-items-center mb-3">
+          <div class="col-auto">
+            <label for="tipo" class="col-form-label">Tipo de registro:</label>
+          </div>
+          <div class="col-auto">
+            <select formControlName="tipo" (change)="onUserTypeChange()" class="form-select">
+              <option value="natural">Natural</option>
+              <option value="juridico">Jurídico</option>
+              <option value="donante">Donante</option>
+              <option value="sas">Sociedad por Acciones Simplificadas (SAS)</option>
+              <option value="proveedor">Proveedor</option>
+              <!-- Agrega más opciones según tus tipos de usuario -->
+            </select>
+          </div>
+        </div>
+
+        <div class="card mb-2 p-2 bg-custom-soft">
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-6">
+              <label for="nombre" class="form-label">Nombre o razón social:</label>
+              <input type="text" formControlName="nombre" class="form-control">
+            </div>
+            <div class="form-group mb-1 col-12 col-md-6">
+              <label for="nombre" class="form-label">Nombre comercial:</label>
+              <input type="text" formControlName="nombre" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-6">
+              <label for="correo" class="form-label">Correo (para factura electrónica):</label>
+              <input type="text" formControlName="correo" class="form-control">
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-6">
+              <label for="telefono" class="form-label">Telefono:</label>
+              <input type="text" formControlName="telefono" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-4">
+              <label for="dui" class="form-label">DUI :</label>
+              <input type="text" formControlName="dui" class="form-control">
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-4">
+              <label for="nit" class="form-label">NIT :</label>
+              <input type="text" formControlName="nit" class="form-control">
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-4">
+              <label for="nrc" class="form-label">NRC :</label>
+              <input type="text" formControlName="nrc" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-4">
+              <label for="campoNuevo" class="form-label">Campo Nuevo :</label>
+              <input type="text" formControlName="campoNuevo" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-2 p-2 bg-custom-soft">
+          <div class="row">
+            <div class="form-group required mb-1 col-12 col-md-3">
+              <label class="form-label" for="pais">País</label>
+              <select class="form-select" formControlName="pais">
+                <option selected>Seleccionar uno</option>
+                <option value="sv">El Salvador</option>
+              </select>
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-3">
+              <label class="form-label" for="departamento">Departamento</label>
+              <select class="form-select" formControlName="departamento">
+                <option selected>Seleccionar uno</option>
+              </select>
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-3">
+              <label class="form-label" for="municipio">Municipio</label>
+              <select class="form-select" formControlName="municipio">
+                <option selected>Seleccionar uno</option>
+              </select>
+            </div>
+            <div class="form-group required mb-1 col-12 col-md-3">
+              <label for="complemento" class="form-label">Complemento</label>
+              <input formControlName="complemento" type="text" class="form-control" >
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+      <button *ngIf="opcion != 1" class="btn btn-secondary" (click)="operacion(0, 1)"> Atras </button>
+      <button *ngIf="opcion == 1" class="btn btn-warning" (click)="operacion(0, 2)"> Nuevo </button>
+      <button *ngIf="opcion == 2 || opcion == 3" class="btn btn-danger ms-4" (click)="guardar()">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal confirmar eliminación -->
+  <div class="modal fade" id="confirmacionModal" aria-hidden="true" aria-labelledby="confirmacionModalLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="confirmacionModalLabel">Confirmación de eliminación</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="seleccionado!=null">
+          Está seguro que desea eliminar al registro <b>{{seleccionado.nombre?seleccionado.nombre:''}}</b>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Cancelar</button>
+          <button class="btn btn-danger" (click)="borrar()" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

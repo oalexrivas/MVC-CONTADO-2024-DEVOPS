@@ -1,0 +1,16 @@
+<div class="input-group">
+  <input
+    type="text"
+    class="form-control"
+    #d="ngbDatepicker"
+    ngbDatepicker
+    placeholder="yyyy-mm-dd"
+    [minDate]="{year: 1900, month: 1, day: 1}"
+    [maxDate]="{year: 2099, month: 12, day: 31}"
+    [displayMonths]="displayMonths"
+    [navigation]="navigation"
+    [outsideDays]="outsideDays"
+    [attr.disabled]="disabled"
+  />
+  <button class="btn btn-outline-secondary bx bx-calendar" [attr.disabled]="disabled" (click)="d.toggle()"></button>
+</div>

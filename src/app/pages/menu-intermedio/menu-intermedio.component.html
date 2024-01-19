@@ -1,0 +1,162 @@
+<div class="pt-5">
+  <!-- <div class="mt-5 d-flex justify-content-center mt-10">
+    <input type="search">
+  </div> -->
+
+  <!-- Se agrego el [[ngClass]=""] para que se pudiese cambiar el height automaticamente-->
+  <div class="contenedor-categorias" [ngClass]="mostrarContenidoFinanzas == true ? 'autoHeight' : 'heightSet'" [ngClass]="mostrarContenidoContabilidad == true ? 'autoHeight' : 'heightSet'" [ngClass]="mostrarContenido == true ? 'autoHeight' : 'heightSet'"><!--contenedor contenedor-categorias   -finanzas-->
+    <div class="contenedor-btn">
+      <button class="boton-principal btn-finanza" (click)="btnActivoF()"
+        (click)="mostrarContenidoFinanzas = !mostrarContenidoFinanzas"
+        [ngClass]="mostrarContenidoFinanzas == true ? 'grey' : ''">
+        <span>Finanzas</span>
+        <img class="img-Icono" src="../assets/iconos/Logo-Finanzas.png" alt="Imagen de Finanzas" draggable="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+      </button>
+      <div *ngIf="mostrarContenidoFinanzas" class="contenedor-desp btn-finanza-desp"> <!--contenedor-desp-->
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Compras</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Ventas </p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Bancos</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Inventarios</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Presupuesto</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Finanzas.png" alt="" draggable="false">
+          </button>
+          <p>Costeo</p>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor-btn">
+      <button class="boton-principal btn-contabilida" (click)="btnActivoC()"
+        (click)="mostrarContenidoContabilidad = !mostrarContenidoContabilidad"
+        [ngClass]="mostrarContenidoContabilidad == true ? 'grey' : ''">
+        <span>Contabilidad</span>
+        <img src="../assets/iconos/Logo-Contabilidad.png" alt="Imagen de Finanzas" draggable="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+      </button>
+      <div *ngIf="mostrarContenidoContabilidad" class="contenedor-desp btn-contabilida-desp">
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Planificacion</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Marco Legal</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Estados Financieros</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Factura Electronica</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Impuestos y Tributos</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-Contabilidad.png" alt="" draggable="false">
+          </button>
+          <p>Soporte</p>
+        </div>
+      </div>
+    </div>
+    <div class="contenedor-btn">
+      <button class="boton-principal btn-RRHH" (click)="btnActivo()"
+        (click)="mostrarContenido = !mostrarContenido"
+        [ngClass]="mostrarContenido == true ? 'grey' : ''">
+        <span>RRHH y Clientes</span>
+        <img src="../assets/iconos/Logo-RRHH.png" alt="Imagen de Finanzas" draggable="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+        </svg>
+      </button>
+      <div *ngIf="mostrarContenido" class="contenedor-desp btn-RRHH-desp">
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Colaboradores</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Clientes </p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Confinciadibilidad</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Politica de datos</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Mapeo de Procesos</p>
+        </div>
+        <div class="item-desp">
+          <button class="btn-secundario">
+            <img src="../assets/iconos/Logo-RRHH.png" alt="" draggable="false">
+          </button>
+          <p>Metricas y Rentabilidad</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

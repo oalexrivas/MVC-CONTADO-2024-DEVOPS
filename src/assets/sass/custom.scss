@@ -1,0 +1,69 @@
+/**
+  INFO: 
+    Para utilizar este archivo o hacer modificaciones es necesario descargar la extensión "Live SASS Compiler"
+  para VisualCode, aparecerá un botón abajo llamado "Watch Sass" al activarlo, podemos guardar este archivo y 
+  se deberá compilar automáticamente, en la ruta /assets/custom.min.css y /assets/custom.min.css.map 
+  Según la configuración del archivo "settings.json" local de tu VisualCode. Así como explican en este video 
+  https://youtu.be/nCX3QVl_PiI?si=S_CfNtY7fytMg5Hp&t=458
+  
+  La configuración debería quedar así:
+
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/src/assets/css"
+    }
+  ]
+
+**/
+
+// Custom variables
+$soft: #f0f0f0;
+$medium: #DDDDDD;
+$soft-dark: #343a40;
+$medium-dark: #212529;
+
+$custom-accent: #DDA800;
+
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+
+// Nuevas variables de color
+$custom-theme-colors: (
+  "custom": $white,
+  "custom-soft": $soft,
+  "custom-medium": $medium,
+);
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+// Propiedades específicas para el modo oscuro
+@include color-mode(dark) {
+  
+  .logo-dark-text {
+    color: $white;
+  }
+  .invert-img-color {
+    filter: invert(1);
+  }
+  .bg-custom {
+    background-color: $black!important;
+  }
+  .bg-custom-medium {
+    background-color: $medium-dark!important;
+  }
+  .bg-custom-soft {
+    background-color: $soft-dark!important;
+  }
+
+}
+
+// Otros cambios generales 
+
+// Cambio de color para el focus en los input
+.form-control:focus {
+  border-color: $custom-accent;
+  box-shadow: 0 0 0 0.25rem rgba($custom-accent, .25);
+}

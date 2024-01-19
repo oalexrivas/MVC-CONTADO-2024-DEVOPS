@@ -1,0 +1,170 @@
+<nav class="nav fixed-top flex flex-col">
+  <div class="nav-primario bg-custom">
+    <div class="menu-hamburguesa">
+      <button class="abrir-hamburguesa" (click)="desplegarMenuHam()"><img class="icon-ham invert-img-color" src="../assets/iconos/menuHamburguesa.svg" alt="Menu"></button>
+      <h1 class="name-page">Bee<span class="logo-dark-text">contable</span></h1>
+    </div>
+    <div class="menu-sesion">
+      <div class="btn-group">
+        <button id="dropdownMenuButton1" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="invert-img-color" src="../assets/iconos/menuTheme.svg" alt="theme">
+        </button>
+        <ul aria-labelledby="dropdownMenuButton1" class="dropdown-menu">
+          <li (click)="dataService.cambiarTema('light')" class="dropdown-item" [ngClass]=" dataService.tema == 'light' ? 'bg-custom-soft' : ''">
+            <p>Claro</p> <img class="invert-img-color" src="../assets/iconos/menuThemeLight.svg" alt="theme">
+          </li>
+          <li (click)="dataService.cambiarTema('dark')" class="dropdown-item" [ngClass]=" dataService.tema == 'dark' ? 'bg-custom-soft' : ''">
+            <p>Oscuro</p> <img class="invert-img-color" src="../assets/iconos/menuThemeDark.svg" alt="theme">
+          </li>
+          <hr>
+          <li (click)="dataService.cambiarEscalaGrises()" class="dropdown-item" [ngClass]="dataService.escalaGrises == false ? '' : 'escalaGrises bg-custom-soft'">
+            <p>Gris</p>
+            <img class="invert-img-color" src="../assets/iconos/check.svg" alt="theme" [ngClass]="dataService.escalaGrises==true?'':'d-none'">
+          </li>
+        </ul>
+      </div>
+      <p class="contador">(Admin)</p>
+      <div class="contenedor-sesion">
+        <img class="icono-menu invert-img-color" src="../assets/iconos/navUser.svg" alt="Usuario">
+        <div class="menu-vertical bg-custom-soft">
+          <div class="menu-vertical-head">
+            <h3>Sergio Nortero</h3>
+            <p>Admin|Contador 0001</p>
+          </div>
+          <div class="menu-config">
+            <div class="config-option" (click)="opcionMenu('contabilidad'); dataService.toggleMenuOption(2);">
+              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+              <p>Inicio</p>
+            </div>
+            <div class="config-option" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
+              <p>Configuración</p>
+            </div>
+            <div class="config-option" data-bs-toggle="modal" data-bs-target="#soporteModal">
+              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+              <p>Soporte Técnico</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/Icono-Cerrar-Sesión.png" alt="User">
+              <p>Cerrar Sesión</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div title="Usuario activo">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="green" viewBox="0 0 512 512"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+      </div>
+      <!--
+      <div class="contenedor-sesion">
+        <img class="icono-menu" src="../assets/iconos/Icono Usuario-05.png" alt="Usuario">
+        <div class="menu-vertical bg-custom-soft">
+          <div class="menu-vertical-head">
+            <h3>Sergio Nortero</h3>
+            <p>Estudiante 001</p>
+          </div>
+          <div class="menu-config">
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+              <p>Inicio</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
+              <p>Configuración contable</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
+              <p>Registro generales</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+              <p>Cambiar Contraseña</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/Icono-Historial.png" alt="User">
+              <p>Historial de Cambios</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+              <p>Soporte Técnico</p>
+            </div>
+            <div class="config-option">
+              <img class="img-menu-conf" src="../assets/iconos/Icono-Cerrar-Sesión.png" alt="User">
+              <p>Cerrar Sesión</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="icono-menu invert-img-color" src="../assets/iconos/navSettings.svg" alt="Configuración">-->
+    </div>
+  </div>
+  <div class="nav-secundario">
+    <div class="nav-sec-fondo invert-img-color"></div>
+    <div class="nav-sec-contenido">
+      <div class="buscador bg-custom-medium">
+        <button routerLink="/resultados/resultados" class="buscador-boton bg-custom-medium" >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
+        <input 
+          class="bg-custom-medium" type="text" 
+          [(ngModel)]="valorBusqueda"
+          (ngModelChange)="buscar()"
+          placeholder="Buscar en este ERP Contable" />
+      </div>
+    </div>
+    <div class="menu-inicio" (click)="desplegarMenuSuperior()">
+      <!-- -->
+      <p class="menu-inicio-text text-custom">Inicio</p>
+      <img class="menu-inicio-icono" [ngClass]="dataService.isOpenMenuSuperior == false ? '' : 'rotated'"
+         src="../assets/iconos/Icono_Desplegable.png" alt="inicio">
+    </div>
+  </div>
+
+  <div class="position-absolute top-100 start-50 translate-middle-x card col-10 m-4 shadow-lg bg-custom-soft" *ngIf="this.dataService.buscando">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div></div>
+        <h6>Resultados:</h6>
+        <button type="button" class="btn-close" (click)="resetBusqueda()" aria-label="Close"></button>
+      </div>
+      <div class="list-group">
+        <div 
+          *ngFor="let doc of encontrados"
+          class="list-group-item list-group-item-action pointer"
+          (click)="seleccionarBusqueda(doc.nombreDoc)"
+        > 
+          {{ doc.nombreDoc }}
+        </div>
+      </div>
+      <app-pdf-view
+        *ngIf="seleccionado != ''"
+        [height]="'60vh'"
+        [src]="seleccionado"
+      ></app-pdf-view>
+    </div>
+  </div>
+
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="soporteModal" tabindex="-1" aria-labelledby="soporteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="soporteModalLabel">Soporte técnico</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Puede contactarse para cualquier gestión llamando al <br/><a class="text-info" href="tel:+50377777777">+503 7777 7777</a></p>
+        <p>O a nuestro whatsapp 
+          <a href="https://wa.me/+50377777777">
+            <svg class xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="green" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          </a>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

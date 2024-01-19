@@ -1,0 +1,33 @@
+<div class="container-fluid ">
+  <div class="aside bg-custom-medium">
+    <div [ngClass]="service.isOpen != true ? 'aside-head' : 'closed-aside-head'">
+      <img
+        class="aside-head-img"
+        src={{menus[0].logo}}
+        alt={{menus[0].titulo}}
+      />
+      <h3>{{menus[0].titulo | uppercase}}</h3>
+    </div>
+    <div class="aside-options">
+      <ng-container *ngFor="let menu of menus"> 
+        <ng-container *ngIf="menu.titulo.toUpperCase() != menus[0].titulo.toUpperCase()">
+          <a [routerLink]="menu.ruta" type="button" class="btn btn-sm"
+          [ngClass]="[menu.titulo == tituloS ? 'btn-opt' : '']">
+
+            <div
+              class="bg-custom-soft"
+              (click)="tituloS = menu.titulo"
+              [ngClass]="[service.isOpen != true ? 'aside-opt' : 'closed-aside-opt']"
+              title="{{menu.titulo}}"
+            >
+              <img [src]="menu.logo" alt="{{menu.titulo}}" />
+              <h3>{{ menu.titulo }}</h3>
+              
+            </div>
+
+          </a>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+/* ------------------ASIDE -------------------- */
+.aside {
+  border: 2px solid #EDC664;
+  border-radius: 10px;
+  min-height: calc(100vh - 170px);
+}
+.aside-head, .closed-aside-head {
+  width: auto;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #7F7F7F;
+  border-radius: 10px;
+  color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #EDC664;
+  gap: 10px;
+}
+.aside-head-img {
+  width: 70px;
+}
+.aside-head h3 {
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 20px;
+}
+.aside-options {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.aside-options a {
+  margin: 4px 8px;
+  padding: 0;
+}
+.aside-opt, .closed-aside-opt {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
+  border-radius: 10px;
+  gap: 20px;
+}
+.aside-opt img , .closed-aside-opt img {
+  max-width: 55px;
+  border-radius: 5px;
+  /*margin-right: 10px;*/
+}
+.aside-opt h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+}
+
+.btn-opt > div {
+  border: 3px solid #edc664;
+  border-radius: 10px;
+}
+
+@media (max-width: 1250px) {
+  .aside-head {
+    flex-direction: column;
+    gap: 0;
+  }
+  .aside-head h3 {
+    padding-top: 0;
+    margin: 0;
+    font-size: 12px;
+  }
+  .aside-opt {
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .aside-opt h3 {
+    margin: 0;
+    font-size: 13px;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Para cerrar el menu lateral manualmente */
+.closed-aside-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.closed-aside-head h3 {
+  padding-top: 0;
+  margin: 0;
+  font-size: 12px;
+}
+.closed-aside-opt {
+  flex-direction: column;
+  justify-content: center;
+  font-size: 12px;
+  gap: 10px;
+}
+.closed-aside-opt h3 {
+  margin: 0;
+  font-size: 13px;
+  justify-content: center;
+  text-align: center;
+}

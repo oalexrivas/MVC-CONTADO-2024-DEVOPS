@@ -1,0 +1,153 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-5">Mi Perfil - Administrador</p>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-between mb-3">
+      <p><b>Admin 0001</b></p>
+      <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#contraModal">
+        Cambiar contraseña
+      </button>
+    </div>
+    <div class="card mb-2 p-2 bg-custom-soft">
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_nom" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="i_nom" required [attr.disabled]="opcion==0?true:null">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_ape" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="i_ape" required [attr.disabled]="opcion==0?true:null">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_nit" class="form-label">NIT <em class="text-secondary">(no editable)</em></label>
+          <input type="text" class="form-control" id="i_nit" required disabled="true" readonly="true">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_dui" class="form-label">DUI <em class="text-secondary">(no editable)</em></label>
+          <input type="text" class="form-control" id="i_dui" required disabled="true" readonly="true">
+        </div>
+        <div class="form-group mb-1 col-12 col-md-6">
+          <label for="i_nrc" class="form-label">NRC <em class="text-secondary">(no editable)</em></label>
+          <input type="text" class="form-control" id="i_nrc" disabled="true" readonly="true">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_mai" class="form-label">Correo</label>
+          <input type="email" class="form-control" id="i_mai" required [attr.disabled]="opcion==0?true:null">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_tel" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="i_tel" required [attr.disabled]="opcion==0?true:null">
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 p-2 bg-custom-soft">
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label class="form-label" for="i_dir_pais">País</label>
+          <select class="form-select" id="i_dir_pais" required [attr.disabled]="opcion==0?true:null">
+            <option selected>Seleccionar uno</option>
+          </select>
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label class="form-label" for="i_dir_dep">Departamento</label>
+          <select class="form-select" id="i_dir_dep" required [attr.disabled]="opcion==0?true:null">
+            <option selected>Seleccionar uno</option>
+          </select>
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label class="form-label" for="i_dir_mun">Municipio</label>
+          <select class="form-select" id="i_dir_mun" required [attr.disabled]="opcion==0?true:null">
+            <option selected>Seleccionar uno</option>
+          </select>
+        </div>
+        <div class="form-group required mb-3 col-12 col-md-3">
+          <label for="i_dir" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="i_dir" required [attr.disabled]="opcion==0?true:null">
+        </div>
+      </div>
+    </div>
+    <div class="card mb-2 p-2 bg-custom-soft">
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label for="i_creden" class="form-label">Credencial CVCP</label>
+          <input class="form-control" type="text" id="i_creden" required [attr.disabled]="opcion==0?true:null">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label for="i_file" class="form-label">Contrato</label>
+          <input class="form-control" type="file" id="i_file" required accept=".pdf, .jpg, .jpeg, .png" required [attr.disabled]="opcion==0?true:null">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label for="i_file" class="form-label">Período desde</label>
+          <app-custom-datepicker 
+            [displayMonths]="1"
+            [navigation]="'select'"
+            [outsideDays]="'visible'"
+            [disabled]="opcion==0?true:null"
+          />
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-3">
+          <label for="i_file" class="form-label">Hasta</label>
+          <app-custom-datepicker 
+          [displayMonths]="1"
+          [navigation]="'select'"
+          [outsideDays]="'visible'"
+          [disabled]="opcion==0?true:null"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_file2" class="form-label">Antedecentes Penales</label>
+          <input type="file" class="form-control" id="i_file2" accept=".pdf, .jpg, .jpeg, .png" [attr.disabled]="opcion==0?true:null">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i_file3" class="form-label">Solvencial Policia</label>
+          <input type="file" class="form-control" id="i_file3" accept=".pdf, .jpg, .jpeg, .png" [attr.disabled]="opcion==0?true:null">
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn" (click)="operacion()" [ngClass]="opcion == 0?'btn-warning':'btn-danger'">
+        {{ opciones[opcion] }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="contraModal" tabindex="-1" aria-labelledby="contraModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contraModalLabel">Cambio de contraseña</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-1 col-12">
+            <label for="i_c1" class="form-label">Contraseña</label>
+            <div class="input-group">
+              <input type="{{ mostrarP1 ? 'text' : 'password' }}" class="form-control border-end-0" id="i_c1">
+              <a (click)="mostrarP1 = !mostrarP1" class="input-group-text bg-transparent"><i class="bx {{mostrarP1 == false ? 'bx-hide': 'bxs-show'}}"></i></a>
+            </div>
+          </div>
+          <div class="mb-1 col-12">
+            <label for="i_c2" class="form-label">Repita la contraseña</label>
+            <div class="input-group">
+              <input type="{{ mostrarP2 ? 'text' : 'password' }}" class="form-control border-end-0" id="i_c2">
+              <a (click)="mostrarP2 = !mostrarP2" class="input-group-text bg-transparent"><i class="bx {{mostrarP2 == false ? 'bx-hide': 'bxs-show'}}"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button"  class="btn btn-primary" (click)="cambioContra()" data-bs-dismiss="modal">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

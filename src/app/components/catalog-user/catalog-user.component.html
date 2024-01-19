@@ -1,0 +1,420 @@
+<div class="base">
+    <div class="contenedor">
+        <h3>Catálogo de Cuentas</h3>
+        <section class="contenedor-indicaciones">
+            <ul>
+                <li class="indicaciones">
+                    <p>Indicación General 01</p>
+                    <img class="icon-indicacion" src="/assets/iconos/Icon_Desplegable_Gris.png" alt="Icon Gris">
+                </li>
+                <li class="indicaciones">
+                    <p>Indicación General 02</p>
+                    <img class="icon-indicacion" src="/assets/iconos/Icon_Desplegable_Gris.png" alt="Icon Gris">
+                </li>
+                <li class="indicaciones">
+                    <p>Indicación General 03</p>
+                    <img class="icon-indicacion" src="/assets/iconos/Icon_Desplegable_Gris.png" alt="Icon Gris">
+                </li>
+            </ul>
+        </section>
+
+        <section class="admin-catalogo">
+            <h3>Admin - Catálogo de Cuentas</h3>
+
+            <div class="options">
+                <button class="btn-main ">
+                    <img class="icon-opt" src="/assets/iconos/Icono_Agregar_Gris.png" alt="Agregar">
+                    <p>Nueva Categoría</p>
+                </button>
+                <button class="btn-main">
+                    <img class="icon-opt" src="/assets/iconos/Icono_Agregar_Gris.png" alt="Agregar">
+                    <p>Sincronización</p>
+                </button>
+                <button class="btn-main btn-eliminar">
+                    <img class="icon-opt" src="/assets/iconos/Icono_Eliminar_Gris.png" alt="Agregar">
+                    <p>Eliminar</p>
+                </button>
+            </div>
+        </section>
+
+
+        <section class="contenedor-tabla">
+            <div>
+                <div class="tabla-head gridTemplate">
+                    <p>N°</p>
+                    <p>Nivel</p>
+                    <p>Cuenta</p>
+                    <p>Editar Sub-Categoria</p>
+                </div>
+                <div class="tabla gridTemplate">
+                    <p class="contenido-tabla">001</p>
+                    <p class="contenido-tabla displayFlex">
+                        1
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                    </p>
+                    <div class="contenido-tabla displayFlex">
+                        <p>Activo</p>
+                        <div>
+                            <img src="/assets/iconos/Icono_Editar.png" alt="">
+                            <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        </div>
+                    </div>
+                    <div class="contenido-tabla displayFlex">
+                        <img src="/assets/iconos/Icono_Agregar_Gris.png" alt="">
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                        <img src="/assets/iconos/Icono_Guardar_Gris-05.png" alt="">
+                        <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        <button (click)="desplegarActivo = !desplegarActivo">
+                            <img src="/assets/iconos/Icono_Desplegable.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="desplegable" [ngClass]="desplegarActivo === false ? 'desplegarNo' : ''">
+                    <div class="desplegable-head">
+                        <p>Nivel</p>
+                        <p>Código</p>
+                        <p>Nombre de la Cuenta</p>
+                    </div>
+                    <div class="mt-3">
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--------------------------------------->
+            <div>
+                <div class="tabla gridTemplate">
+                    <p class="contenido-tabla">001</p>
+                    <p class="contenido-tabla displayFlex">
+                        1
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                    </p>
+                    <div class="contenido-tabla displayFlex">
+                        <p>Invetarios</p>
+                        <div>
+                            <img src="/assets/iconos/Icono_Editar.png" alt="">
+                            <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        </div>
+                    </div>
+                    <div class="contenido-tabla displayFlex">
+                        <img src="/assets/iconos/Icono_Agregar_Gris.png" alt="">
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                        <img src="/assets/iconos/Icono_Guardar_Gris-05.png" alt="">
+                        <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        <button (click)="desplegarInvetarios = !desplegarInvetarios">
+                            <img src="/assets/iconos/Icono_Desplegable.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="desplegable" [ngClass]="desplegarInvetarios === false ? 'desplegarNo' : ''">
+                    <div class="desplegable-head">
+                        <p>Nivel</p>
+                        <p>Código</p>
+                        <p>Nombre de la Cuenta</p>
+                    </div>
+                    <div class="mt-3">
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--------------------------------------->
+            <div>
+                <div class="tabla gridTemplate">
+                    <p class="contenido-tabla">001</p>
+                    <p class="contenido-tabla displayFlex">
+                        1
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                    </p>
+                    <div class="contenido-tabla displayFlex">
+                        <p>Pagos Anticipados</p>
+                        <div>
+                            <img src="/assets/iconos/Icono_Editar.png" alt="">
+                            <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        </div>
+                    </div>
+                    <div class="contenido-tabla displayFlex">
+                        <img src="/assets/iconos/Icono_Agregar_Gris.png" alt="">
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                        <img src="/assets/iconos/Icono_Guardar_Gris-05.png" alt="">
+                        <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        <button (click)="desplegarPagos = !desplegarPagos">
+                            <img src="/assets/iconos/Icono_Desplegable.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="desplegable" [ngClass]="desplegarPagos === false ? 'desplegarNo' : ''">
+                    <div class="desplegable-head">
+                        <p>Nivel</p>
+                        <p>Código</p>
+                        <p>Nombre de la Cuenta</p>
+                    </div>
+                    <div class="mt-3">
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--------------------------------------->
+            <div>
+                <div class="tabla gridTemplate">
+                    <p class="contenido-tabla">001</p>
+                    <p class="contenido-tabla displayFlex">
+                        1
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                    </p>
+                    <div class="contenido-tabla displayFlex">
+                        <p>Activo No Corriente</p>
+                        <div>
+                            <img src="/assets/iconos/Icono_Editar.png" alt="">
+                            <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        </div>
+                    </div>
+                    <div class="contenido-tabla displayFlex">
+                        <img src="/assets/iconos/Icono_Agregar_Gris.png" alt="">
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                        <img src="/assets/iconos/Icono_Guardar_Gris-05.png" alt="">
+                        <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        <button (click)="desplegarActivosNoCorrientes = !desplegarActivosNoCorrientes">
+                            <img src="/assets/iconos/Icono_Desplegable.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="desplegable" [ngClass]="desplegarActivosNoCorrientes === false ? 'desplegarNo' : ''">
+                    <div class="desplegable-head">
+                        <p>Nivel</p>
+                        <p>Código</p>
+                        <p>Nombre de la Cuenta</p>
+                    </div>
+                    <div class="mt-3">
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--------------------------------------->
+            <div>
+                <div class="tabla gridTemplate">
+                    <p class="contenido-tabla">001</p>
+                    <p class="contenido-tabla displayFlex">
+                        1
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                    </p>
+                    <div class="contenido-tabla displayFlex">
+                        <p>DEPRECIACIÓN ACUMULADA DE PROPIEDAD PLANTA Y EQUIPO</p>
+                        <div>
+                            <img src="/assets/iconos/Icono_Editar.png" alt="">
+                            <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        </div>
+                    </div>
+                    <div class="contenido-tabla displayFlex">
+                        <img src="/assets/iconos/Icono_Agregar_Gris.png" alt="">
+                        <img src="/assets/iconos/Icono_Editar.png" alt="">
+                        <img src="/assets/iconos/Icono_Guardar_Gris-05.png" alt="">
+                        <img src="/assets/iconos/Icono_Eliminar_Gris.png" alt="">
+                        <button (click)="desplegarActivosIntangibles = !desplegarActivosIntangibles">
+                            <img src="/assets/iconos/Icono_Desplegable.png" alt="">
+                        </button>
+                    </div>
+                </div>
+                <div class="desplegable" [ngClass]="desplegarActivosIntangibles === false ? 'desplegarNo' : ''">
+                    <div class="desplegable-head">
+                        <p>Nivel</p>
+                        <p>Código</p>
+                        <p>Nombre de la Cuenta</p>
+                    </div>
+                    <div class="mt-3">
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                        <div class="desplegable-contenido">
+                            <p>1</p>
+                            <p>11</p>
+                            <p>Activo Corriente</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--------------------------------------->
+        </section>
+    </div>
+</div>

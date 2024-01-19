@@ -1,0 +1,184 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-5">Registro de contabilidades</p>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-between mb-3">
+      <h3>
+        {{
+          opcion == 0 ? 'Listado de contabilidades' : 'Creando contabilidad'
+        }}
+      </h3>
+    </div>
+    <div class="p-2 row shadow-2 card" *ngIf="opcion == 0 ? true:false">
+      <table class="table table-responsive table-striped table-hover text-center">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Nombre comercial</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Tipo moneda</th>
+            <th scope="col">Cifras significativas</th>
+            <th scope="col">Tipo aproximación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Empresa 1</td>
+            <td>Empresa Uno SA de CV</td>
+            <td>empresa1&#64;gmail.com</td>
+            <td>USD</td>
+            <td>3</td>
+            <td>defecto</td>
+            <td>
+              <i class='bx bx-show p-1'></i>
+              <i class='bx bxs-pencil p-1' ></i>
+              <i class='bx bx-trash p-1'></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Empresa 2</td>
+            <td>Empresa Dos SA de CV</td>
+            <td>empresa2&#64;gmail.com</td>
+            <td>GTQ</td>
+            <td>2</td>
+            <td>exceso</td>
+            <td>
+              <i class='bx bx-show p-1'></i>
+              <i clas class='bx bxs-pencil p-1'></i>
+              <i class='bx bx-trash p-1'></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Empresa 3</td>
+            <td>Empresa Tres SA de CV</td>
+            <td>empresa3&#64;gmail.com</td>
+            <td>USD</td>
+            <td>2</td>
+            <td>defecto</td>
+            <td>
+              <i class='bx bx-show p-1'></i>
+              <i class='bx bxs-pencil p-1' ></i>
+              <i class='bx bx-trash p-1'></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="opcion == 1">
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-nom" class="form-label">Nombre o razón social</label>
+          <input type="text" class="form-control" id="i-nom">
+        </div>
+        <div class="form-group mb-1 col-12 col-md-6">
+          <label for="i-nomc" class="form-label">Nombre comercial</label>
+          <input type="text" class="form-control" id="i-nomc">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-mai" class="form-label">Correo (para factura electrónica)</label>
+          <input type="email" class="form-control" id="i-mai">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-tel" class="form-label">Teléfono</label>
+          <input type="text" class="form-control" id="i-tel">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-nit" class="form-label">NIT</label>
+          <input type="text" class="form-control" id="i-nit">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-nrc" class="form-label">NRC</label>
+          <input type="text" class="form-control" id="i-nrc">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12">
+          <label for="i-dir" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="i-dir">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-est" class="form-label">Tipo establecimiento</label>
+          <select class="form-select" id="i-est">
+            <option value="1">Tipo 1</option>
+            <option value="2">Tipo 2</option>
+            <option value="3">Tipo 3</option>
+          </select>
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-6">
+          <label for="i-act" class="form-label">Giro o actividad económica</label>
+          <select class="form-select" id="i-act">
+            <option value="1">Act 1</option>
+            <option value="2">Act 2</option>
+            <option value="3">Act 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group required mb-1 col-12 col-md-4">
+          <label for="i-tdm" class="form-label">Tipo de moneda</label>
+          <select class="form-select" id="i-tdm">
+            <option value="1">USD</option>
+            <option value="2">GTQ</option>
+            <option value="3">SVC</option>
+          </select>
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-4">
+          <label for="i-cfs" class="form-label">Cantidad de decimales</label>
+          <input type="number" class="form-control" id="i-cfs">
+        </div>
+        <div class="form-group required mb-1 col-12 col-md-4">
+          <label for="i-aprx" class="form-label">Tipo de aproximación</label>
+          <select class="form-select" id="i-aprx">
+            <option value="1">Por defecto (1.414 = 1.41)</option>
+            <option value="2">Por exceso (1.414 = 1.42)</option>
+          </select>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-danger" (click)="operacion()">
+          Guardar
+        </button>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end mt-3">
+      <button class="btn" (click)="operacion()" [ngClass]="opcion == 0 ? 'btn-warning' : 'btn-secondary'">
+        {{opcion == 0 ? 'Nuevo' : 'Atras'}}
+      </button>
+    </div>
+  </div>
+
+    <!-- Modal detalle -->
+  <div class="modal fade" id="detalleModal" tabindex="-1" aria-labelledby="detalleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="detalleModalLabel">Cambio de contraseña</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-1 col-12">
+            <label for="i-c1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="i-nom" readonly="true">
+          </div>
+          <div class="mb-1 col-12">
+            <label for="i-c2" class="form-label">Repita la contraseña</label>
+            <input type="password" class="form-control" id="i-ape" readonly="true">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

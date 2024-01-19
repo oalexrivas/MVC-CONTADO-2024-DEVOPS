@@ -1,0 +1,9 @@
+.contenedor {
+    padding: 1rem;
+    border-radius: 10px;
+    overflow: auto;
+}
+a{
+    cursor: pointer;
+    text-decoration: underline;
+}

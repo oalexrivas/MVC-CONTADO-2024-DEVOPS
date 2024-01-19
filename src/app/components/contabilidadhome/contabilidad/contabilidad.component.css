@@ -1,0 +1,406 @@
+p, h5 {
+    margin: 0;
+}
+
+/* ------------MAIN------------- */
+
+.contenedor-main {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #989898;
+}
+
+.main-head {
+    padding: 20px 10px;
+
+    display: flex;
+    justify-content: center;
+}
+.main-head h3 {
+    margin: 0;
+}
+.main-head img {
+    width: 50px;
+}
+
+.main-head a {
+    cursor: pointer;
+}
+
+.main-head .titulo-main {
+    padding: 15px 30px;
+    border-radius: 5px;
+    border: 1px solid #acacac;
+}
+
+.main-head .titulo-main h3 {
+    font-size: 24px;
+
+}
+
+.row .col-6 .adelante, .row .col-6 .atras {
+  padding: 5px 10px;
+  background: #ededed;
+  border-radius: 5px;
+  border: 1px solid #acacac;
+}
+.example-tab-icon {
+   margin-right: 8px;
+   margin-bottom: 10px;
+ 
+ }
+.mat-tab-label {
+    background-color: #f0f0f0; 
+}
+.mat-tab-label.mat-tab-label-active {
+    background-color: #ffffff; /* Cambia esto según tus preferencias */
+    font-weight: bold; /* Otras modificaciones de estilo según tus preferencias */
+}
+.row .col-6 .adelante .ir-adelante, .row .col-6 .atras .ir-atras {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.fade {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .mat-tab-label-active {
+    background-color: #e0e0e0; /* Cambia el color de fondo según tus preferencias */
+  }
+  
+.ir-adelante p, .ir-atras p {
+  margin: 0;
+}
+
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+.informacionPersonal {
+    background: #e8e8e8;
+    padding: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.informacionPersonal-head {
+    display: flex;
+    gap: 40px;
+}
+.greyBackground {
+    background: #d8d8d8;
+    color: black;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 20px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+}
+.codigoGeneracion {
+    width: 70%;
+    line-height: 3em;
+}
+.comprobante {
+    text-align: center;
+    width: 30%;
+}
+.comprobante > p:nth-child(3) {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.informacionPersonal-1 {
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 20px;
+    background: #d8d8d8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+.contenedor-input {
+    width: 47%;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+.contenedor-input label {
+    margin-right: 10px;
+}
+.contenedor-input input {
+    width: 60%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+/*--------------------------------------------------------------*/
+.mdc-tab.mat-mdc-tab {
+    padding: 20px!important;
+}
+.tabla_factura {
+    width: 100%;
+    max-height: 100px;
+    background: #e8e8e8;
+    border-radius: 5px;
+}
+th, td:first-child {
+    vertical-align: top;
+    border-right: 1px solid #c2c3c3;
+    border-bottom: 1px solid #c2c3c3;
+    border-spacing: 0;
+}
+.tabla_factura .tabla-head {
+    margin-top: 10px;
+}
+.tabla_factura .tabla-head th {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.tabla_factura .tabla-head th:nth-child(2) {
+    width: 50%;
+}
+.tabla_factura .tabla-head th p{
+    margin: 0;
+    padding: 10px 5px;
+    border-radius: 5px;
+    background: #529bc6;
+    text-align: center;
+    color: #bed8e9;
+}
+.contenido-tabla > td > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenido-tabla > td input {
+    text-align: right;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.contenido-tabla > td > div > p {
+    padding: 5px 10px;
+    margin: 0;
+    background: #c0c0c0;
+}
+.contenido-tabla > td input:first-child {
+    text-align: center;
+}
+
+.tabla_factura > tr:nth-child(even) {
+    background: #dbd9da;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=text]::-webkit-inner-spin-button,
+input[type=text]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number],
+input[type=text] {
+    -moz-appearance:textfield;
+}
+
+.masInfo-factura {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.masInfo-factura > .info-content {
+    width: 80%;
+}
+.masInfo-factura > .info-content > .datos  table{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.masInfo-factura > .info-content > .datos  table > tr > th {
+    background: #cdd5e0;
+}
+.masInfo-factura > .info-content > .datos  table > tr > td {
+    background: #d3d3d3;
+}
+.masInfo-factura > .info-content > .datos  table > tr > td label{
+    width: 50%;
+}
+
+.masInfo-factura > .info-content > .datos  table > tr > td > input {
+    border: none;
+}
+.texto {
+    /* margin-top: 50px; */
+    width: 100%;
+}
+.texto:last-of-type {
+    margin: 0;
+}
+.texto label {
+    width: 100%;
+    background: #cdd5e0;
+}
+.texto textarea {
+    width: 100%;
+    height: 100px;
+    max-height: 100px;
+}
+
+.masInfo-factura > aside {
+    background: #acacac;
+    width: 50%;
+}
+
+
+.division {
+    display: flex;
+    margin-bottom: 5px;
+}
+.division p {
+    padding: 10px 20px;
+    margin: 0;
+}
+.division .fondoblanco {
+    width: 70%;
+    padding: 5px;
+    background: #e8e8e8;
+}
+.division .info {
+    background: #529bc6;
+    color: #fff;
+}
+.division .signo {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c1c1c1;
+}
+.division .total {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1e3b6;
+}
+
+
+
+.botones {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botones > button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: #ffdf80;
+}
+
+
+
+
+
+
+.footer_contabilidad {
+    width: 50%;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px 10px;
+    text-align: center;
+    background: #f2f2f2;
+}
+.footer_contabilidad p {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+.consumidorFinal {
+  padding: 10px;
+  /* background: #727272; */
+}
+
+.consumidorFinal > .fila > .botonesContenedor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.consumidorFinal > .fila > .botonesContenedor >.botonesConsumidor > button,
+.consumidorFinal > .fila > .botonesContenedor >.botonesConsumidorL > button {
+  background: #529bc6;
+  margin-right: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+.consumidorFinal > .fila > .botonesContenedor >.botonesConsumidor > button:last-child,
+.consumidorFinal > .fila > .botonesContenedor >.botonesConsumidorL > button:last-child {
+  margin: 0;
+}
+
+
+.consumidorFinal > .consumidorInfo > .head {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.consumidorFinal > .consumidorInfo > .head > p {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.consumidorFinal > .consumidorInfo > .contenido > .info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.consumidorFinal > .consumidorInfo > .contenido > .info > .inputs {
+    width: 100%;
+    background-color: burlywood;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.consumidorFinal > .consumidorInfo > .contenido > .info > .selects {
+    width: 250px;
+    background-color: burlywood;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+.toggleClass {
+    display: none;
+}

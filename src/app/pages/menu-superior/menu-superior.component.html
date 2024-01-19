@@ -1,0 +1,16 @@
+<div class="menu-inicio container" [ngClass]="service.isOpenMenuSuperior == true ? '' : 'menu-inicio-hide'">
+  <div (click)="toggleMenuOption(1); opcionMenu('finanzas')" class="btn-main bg-custom-soft"  [ngClass]="service.isMenuSelected(1) ? 'btn-activo':''">
+    <img class="head-img" src="/assets/iconos/Logo-Finanzas.png" alt="finanzas" />
+    <p>FINANZAS</p>
+  </div>
+
+  <div (click)="toggleMenuOption(2); opcionMenu('contabilidad')" class="btn-main bg-custom-soft" [ngClass]="service.isMenuSelected(2) ? 'btn-activo':''">
+    <img class="head-img" src="/assets/iconos/Logo-Contabilidad.png" alt="contabilidad" />
+    <p>CONTABILIDAD</p>
+  </div>
+
+  <div (click)="toggleMenuOption(3); opcionMenu('rrhh')" class="btn-main bg-custom-soft" [ngClass]="service.isMenuSelected(3) ? 'btn-activo':''">
+    <img class="head-img" src="/assets/iconos/Logo-RRHH.png" alt="rrhh" />
+    <p>RRHH Y CLIENTES</p>
+  </div>
+</div>

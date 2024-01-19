@@ -1,0 +1,2030 @@
+<main>
+
+  <div [ngClass]="creditdoFiscal == false ? 'toggleClass' : ''">
+    <div class="main-head">
+      <div class="volver">
+        <a>
+          <img
+            src="/assets/iconos/Icono_Desplegable_Gris-04.png"
+            alt="Regresar"
+          />
+        </a>
+      </div>
+      <div class="titulo-main">
+        <h3>Módulo: DTE - Comprobante de Crédito Fiscal</h3>
+      </div>
+      <!-- <div class="adelante">
+                    <a class="ir-adelante" (click)="comprobarenvio();mostrar +1 ">
+                        <p>Adelante</p>
+                        <img src="assets/iconos/Icono_Flecha_Gris-05.png" alt="Adelante">
+                    </a>
+                </div> -->
+      <!-- <div class="atras">
+                    <a class="ir-atras" (click)="comprobarenvio();mostrar +1 ">
+                        <p>Atras</p>
+                        <img src="assets/iconos/Icono_Flecha_Gris- copia.png" alt="Adelante">
+                    </a>
+                  </div> -->
+    </div>
+    <!----------------------------------------------->
+
+    <div class="main-content">
+      <form class="contenido-ingreso_factura">
+        <div class="informacionPersonal">
+          <div class="informacionPersonal-head">
+            <div class="codigoGeneracion greyBackground">
+              <p>
+                Código de Generación: 45245287-25AS-ASD4-5DAS-ASD52FW15D21D
+              </p>
+              <p>Número de Control: DTE-00-001M0000-000000000004040</p>
+              <p>
+                Sello de Recepción: 1652ASD216AD16S5D13FAS8D213F5843ASD2
+              </p>
+            </div>
+            <div class="comprobante greyBackground">
+              <p>COMPROBANTE DE CREDITO FISCAL</p>
+              <p>15DS000C</p>
+              <p>N° 0001</p>
+              <p>REGISTRO No. 239881-0</p>
+              <p>NIT: 0614-280390-112-1</p>
+            </div>
+          </div>
+          <div class="informacionPersonal-1">
+            <div class="contenedor-input">
+              <label for="razonSocial">Nombre razón social: </label>
+              <input
+                type="text"
+                name="razonSocial"
+                placeholder="ABC S.A de S.V"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="DUI">DUI o NIT: </label>
+              <input
+                type="text"
+                name="DUI"
+                placeholder="1564-1523-156-12"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="actividadEconomica">Actividad Económica: </label>
+              <input
+                type="text"
+                name="actividadEconomica"
+                placeholder="Venas de llantas"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="NRC">NRC: </label>
+              <input type="text" name="NRC" placeholder="51678" />
+            </div>
+            <div class="contenedor-input">
+              <label for="Dirección">Dirección: </label>
+              <input
+                type="text"
+                name="Dirección"
+                placeholder="Avenida Las Camelias, Casa #4, San Salvador"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="Distrito">Tipo de Distrito: </label>
+              <input
+                type="text"
+                name="Distrito"
+                placeholder="Zona Sur, San Salvador"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="Departamento">Departamento: </label>
+              <input
+                type="text"
+                name="Departamento"
+                placeholder="San Salvador"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="web">Sitio web: </label>
+              <input
+                type="text"
+                name="web"
+                placeholder="web: www.ejemplo.com"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="Municipio">Municipio: </label>
+              <input type="text" name="Municipio" placeholder="Soyapango" />
+            </div>
+            <div class="contenedor-input">
+              <label for="Venta">Venta a cuenta de: </label>
+              <input type="text" name="Venta" placeholder="N/A" />
+            </div>
+          </div>
+          <div class="informacionPersonal-1">
+            <div class="contenedor-input">
+              <label for="Comercial">Nombre Comercial: </label>
+              <input
+                type="text"
+                name="Comercial"
+                placeholder="Aguacate Melons"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="Telefono">Teléfono: </label>
+              <input type="text" name="Telefono" placeholder="2323-3232" />
+            </div>
+            <div class="contenedor-input">
+              <label for="Establecimiento">Tipo de Establecimiento: </label>
+              <input type="text" name="Establecimiento" placeholder="N/A" />
+            </div>
+            <div class="contenedor-input">
+              <label for="SitioWeb">Sitio web: </label>
+              <input
+                type="text"
+                name="SitioWeb"
+                placeholder="www.ejemplo.com"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="pago">Condiciones de pago: </label>
+              <input type="text" name="pago" placeholder="N/A" />
+            </div>
+            <div class="contenedor-input">
+              <label for="Correo">Correo electrónico: </label>
+              <input
+                type="text"
+                name="Correo"
+                placeholder="ejemplo@gmail.com"
+              />
+            </div>
+            <div class="contenedor-input">
+              <label for="remison">N° y Fecha de nota de remisión: </label>
+              <input type="text" name="remison" placeholder="-----" />
+            </div>
+          </div>
+        </div>
+        <!------------------------------>
+        <!-- Hacer un formulario y adentro hacer una tabla -->
+        <table class="tabla_factura">
+          <tr class="tabla-head">
+            <th><p>Cantidad</p></th>
+            <th><p>Descripción</p></th>
+            <th><p>Precio Unitario</p></th>
+            <th><p>Ventas No Sujetas</p></th>
+            <th><p>Ventas Exentas</p></th>
+            <th><p>Ventas Afectas</p></th>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+          <tr class="contenido-tabla">
+            <td>
+              <input type="text" placeholder="X" />
+            </td>
+            <td>
+              <input type="text" />
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+            <td>
+              <div>
+                <p>$</p>
+                <input type="number" placeholder="X" />
+              </div>
+            </td>
+          </tr>
+        </table>
+        <!---------------------------->
+
+        <div class="masInfo-factura">
+          <div class="info-content">
+            <div class="texto">
+              <label for="text">Son:</label>
+              <textarea></textarea>
+            </div>
+            <div class="datos">
+              <table>
+                <tr>
+                  <th>Operacion Superior a: $ 00.00</th>
+                  <th></th>
+                </tr>
+                <!------------------------->
+                <tr>
+                  <td>
+                    <label for="recieveFor">Recibido por: </label>
+                    <input type="text" name="recieveFor" />
+                  </td>
+                  <td>
+                    <label for="givenFor">Entregado por: </label>
+                    <input type="text" name="givenFor" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="name">Nombre: </label>
+                    <input type="text" name="name" />
+                  </td>
+                  <td>
+                    <label for="nameEntregado">Nombre: </label>
+                    <input type="text" name="nameEntregado" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="identificacion">DUI o NIT: </label>
+                    <input type="text" name="identificacion" />
+                  </td>
+                  <td>
+                    <label for="identificacionEntregadp">DUI o NIT: </label>
+                    <input type="text" name="identificacionEntregadp" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label for="firma">Firma: </label>
+                    <input type="text" name="firma" />
+                  </td>
+                  <td>
+                    <label for="firmaEntregado">Firma: </label>
+                    <input type="text" name="firmaEntregado" />
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="texto">
+              <label for="text">Son:</label>
+              <textarea></textarea>
+            </div>
+          </div>
+          <aside>
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+            <div class="division">
+              <div class="fondoblanco">
+                <p class="info">Sumas</p>
+              </div>
+              <p class="signo">$</p>
+              <p class="total">00.00</p>
+            </div>
+            <!----------------------------->
+          </aside>
+        </div>
+
+        <div class="botones">
+          <button>Borrar</button>
+          <button>Guardar Local</button>
+          <button>Enviar a MH</button>
+        </div>
+      </form>
+    </div>
+    <div class="footer_contabilidad">
+      <p>Estado de envío DTE - CCF</p>
+    </div>
+  </div>
+
+  <div class="contenedor-main bg-custom-soft" [ngClass]="consumidorFinal == false ? 'toggleClass' : ''">
+    <div class="row main-head">
+      <div class="row pb-4 d-flex justify-content-center">
+        <div class="col-11 titulo-main bg-custom-medium">
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <p class="fs-3">Consumidor Final</p>
+            </div>
+          </div>
+        </div>
+        <div class="adelante"></div>
+      </div>
+      <div class="row pb-3 justify-content-center">
+        <div class="col-6 d-flex justify-content-end">
+        </div>
+        <div class="col-6 d-flex justify-content-start">
+        </div>
+      </div>
+    </div>
+    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
+      <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">record_voice_over</mat-icon>
+            EMISOR
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <p class="fw-bold">Datos del Emisor</p>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre Comercial</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NCR</span>
+                <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NIT</span>
+                <input type="tex*t" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Complemento</span>
+                <input type="tex*t" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Correo</span>
+                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">hearing</mat-icon>
+          RECEPTOR
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <p class="fw-bold">Datos del Receptor</p>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo documento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                  <option value="36">NIT</option>
+                  <option value="13">DUI</option>
+                  <option value="37">Otro</option>
+                  <option value="03">Pasaporte</option>
+                  <option value="02">Carnet de residente</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">N° de documento</span>
+                <input type="tex*t" class="form-control" placeholder="N° de documento" aria-label="DUI" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NRC</span>
+                <input type="tex*t" class="form-control" placeholder="NRC" aria-label="DUI" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Complemento</span>
+                <input type="tex*t" class="form-control" placeholder="Dirección" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Correo</span>
+                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">description</mat-icon>
+          DESCRIPCIÓN
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <form class="contenido-ingreso_factura">
+                  <table class="tabla_factura">
+                    <tr class="tabla-head">
+                      <th><p>Cantidad</p></th>
+                      <th><p>Descripción</p></th>
+                      <th><p>Precio Unitario</p></th>
+                      <th><p>Ventas No Sujetas</p></th>
+                      <th><p>Ventas Exentas</p></th>
+                      <th><p>Ventas Afectas</p></th>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="masInfo-factura">
+                    <div class="info-content">
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                      <div class="datos">
+                        <table>
+                          <tr>
+                            <th>Operacion Superior a: $ 00.00</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="recieveFor">Recibido por: </label>
+                              <input type="text" name="recieveFor" />
+                            </td>
+                            <td>
+                              <label for="givenFor">Entregado por: </label>
+                              <input type="text" name="givenFor" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="name">Nombre: </label>
+                              <input type="text" name="name" />
+                            </td>
+                            <td>
+                              <label for="nameEntregado">Nombre: </label>
+                              <input type="text" name="nameEntregado" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="identificacion">DUI o NIT: </label>
+                              <input type="text" name="identificacion" />
+                            </td>
+                            <td>
+                              <label for="identificacionEntregadp">DUI o NIT: </label>
+                              <input type="text" name="identificacionEntregadp" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="firma">Firma: </label>
+                              <input type="text" name="firma" />
+                            </td>
+                            <td>
+                              <label for="firmaEntregado">Firma: </label>
+                              <input type="text" name="firmaEntregado" />
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                    </div>
+                    <aside>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                    </aside>
+                  </div>
+
+                  <div class="botones">
+                    <button>Borrar</button>
+                    <button>Guardar Local</button>
+                    <button>Enviar a MH</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">send</mat-icon>
+          ENVIO
+        </ng-template>
+        Contenido Envio
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">not_interested</mat-icon>
+          INVALIDACIÓN
+        </ng-template>
+        Contenido
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">crop</mat-icon>
+          CONTIGENCIA
+        </ng-template>
+        Contenido
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="contenedor-main bg-custom-soft" [ngClass]="creditdoFiscal == false ? 'toggleClass' : ''">
+    <div class="row main-head">
+      <div class="row pb-4 d-flex justify-content-center">
+        <div class="col-11 titulo-main bg-custom-medium">
+          <div class="row">
+            <div class="d-flex justify-content-center">
+              <p class="fs-3">Consumidor Final</p>
+            </div>
+          </div>
+        </div>
+        <div class="adelante"></div>
+      </div>
+      <div class="row pb-3 justify-content-center">
+        <div class="col-6 d-flex justify-content-end">
+        </div>
+        <div class="col-6 d-flex justify-content-start">
+        </div>
+      </div>
+    </div>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">record_voice_over</mat-icon>
+            EMISOR
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <p class="fw-bold">Datos del Emisor</p>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre Comercial</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NCR</span>
+                <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NIT</span>
+                <input type="tex*t" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Complemento</span>
+                <input type="tex*t" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Correo</span>
+                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">hearing</mat-icon>
+          RECEPTOR
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <p class="fw-bold">Datos del Receptor</p>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo documento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                  <option value="36">NIT</option>
+                  <option value="13">DUI</option>
+                  <option value="37">Otro</option>
+                  <option value="03">Pasaporte</option>
+                  <option value="02">Carnet de residente</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">N° de documento</span>
+                <input type="tex*t" class="form-control" placeholder="N° de documento" aria-label="DUI" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-2">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NRC</span>
+                <input type="tex*t" class="form-control" placeholder="NRC" aria-label="DUI" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Complemento</span>
+                <input type="tex*t" class="form-control" placeholder="Dirección" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Correo</span>
+                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Dirección" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">description</mat-icon>
+          DESCRIPCIÓN
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <form class="contenido-ingreso_factura">
+                  <table class="tabla_factura">
+                    <tr class="tabla-head">
+                      <th><p>Cantidad</p></th>
+                      <th><p>Descripción</p></th>
+                      <th><p>Precio Unitario</p></th>
+                      <th><p>Ventas No Sujetas</p></th>
+                      <th><p>Ventas Exentas</p></th>
+                      <th><p>Ventas Afectas</p></th>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="masInfo-factura">
+                    <div class="info-content">
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                      <div class="datos">
+                        <table>
+                          <tr>
+                            <th>Operacion Superior a: $ 00.00</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="recieveFor">Recibido por: </label>
+                              <input type="text" name="recieveFor" />
+                            </td>
+                            <td>
+                              <label for="givenFor">Entregado por: </label>
+                              <input type="text" name="givenFor" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="name">Nombre: </label>
+                              <input type="text" name="name" />
+                            </td>
+                            <td>
+                              <label for="nameEntregado">Nombre: </label>
+                              <input type="text" name="nameEntregado" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="identificacion">DUI o NIT: </label>
+                              <input type="text" name="identificacion" />
+                            </td>
+                            <td>
+                              <label for="identificacionEntregadp">DUI o NIT: </label>
+                              <input type="text" name="identificacionEntregadp" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="firma">Firma: </label>
+                              <input type="text" name="firma" />
+                            </td>
+                            <td>
+                              <label for="firmaEntregado">Firma: </label>
+                              <input type="text" name="firmaEntregado" />
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                    </div>
+                    <aside>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                    </aside>
+                  </div>
+
+                  <div class="botones">
+                    <button>Borrar</button>
+                    <button>Guardar Local</button>
+                    <button>Enviar a MH</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">send</mat-icon>
+          ENVIO
+        </ng-template>
+        <div class="p-3">
+          <div class="row">
+            <div class="col-12">
+              <div>
+                <form class="contenido-ingreso_factura">
+                  <table class="tabla_factura">
+                    <tr class="tabla-head">
+                      <th><p>Cantidad</p></th>
+                      <th><p>Descripción</p></th>
+                      <th><p>Precio Unitario</p></th>
+                      <th><p>Ventas No Sujetas</p></th>
+                      <th><p>Ventas Exentas</p></th>
+                      <th><p>Ventas Afectas</p></th>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="contenido-tabla">
+                      <td>
+                        <input type="text" placeholder="X" />
+                      </td>
+                      <td>
+                        <input type="text" />
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                      <td>
+                        <div>
+                          <p>$</p>
+                          <input type="number" placeholder="X" />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="masInfo-factura">
+                    <div class="info-content">
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                      <div class="datos">
+                        <table>
+                          <tr>
+                            <th>Operacion Superior a: $ 00.00</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="recieveFor">Recibido por: </label>
+                              <input type="text" name="recieveFor" />
+                            </td>
+                            <td>
+                              <label for="givenFor">Entregado por: </label>
+                              <input type="text" name="givenFor" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="name">Nombre: </label>
+                              <input type="text" name="name" />
+                            </td>
+                            <td>
+                              <label for="nameEntregado">Nombre: </label>
+                              <input type="text" name="nameEntregado" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="identificacion">DUI o NIT: </label>
+                              <input type="text" name="identificacion" />
+                            </td>
+                            <td>
+                              <label for="identificacionEntregadp">DUI o NIT: </label>
+                              <input type="text" name="identificacionEntregadp" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <label for="firma">Firma: </label>
+                              <input type="text" name="firma" />
+                            </td>
+                            <td>
+                              <label for="firmaEntregado">Firma: </label>
+                              <input type="text" name="firmaEntregado" />
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="texto">
+                        <label for="text">Son:</label>
+                        <textarea></textarea>
+                      </div>
+                    </div>
+                    <aside>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                      <div class="division">
+                        <div class="fondoblanco">
+                          <p class="info">Sumas</p>
+                        </div>
+                        <p class="signo">$</p>
+                        <p class="total">00.00</p>
+                      </div>
+                    </aside>
+                  </div>
+
+                  <div class="botones">
+                    <button>Borrar</button>
+                    <button>Guardar Local</button>
+                    <button>Enviar a MH</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</main>

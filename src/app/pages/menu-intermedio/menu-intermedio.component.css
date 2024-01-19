@@ -1,0 +1,132 @@
+.contenedor-categorias {
+  background-color: #E2E2E2;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px 20px;
+  overflow: auto;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn-finanza {
+  background-color: #84D19C;
+}
+
+.btn-finanza-desp {
+  background-color: #ACE2BB;
+}
+
+.btn-contabilida {
+  background-color: #EDC664;
+}
+
+.btn-contabilida-desp {
+  background-color: #F9DEA7;
+}
+
+.btn-RRHH {
+  background-color: #ABABDB;
+}
+
+.btn-RRHH-desp {
+  background-color: #CECEE0;
+}
+
+.autoHeight {
+  height: auto;
+}
+
+.heightSet {
+  /* 80vh */
+  height: auto;
+}
+
+.contenedor-btn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 30px 20px 30px 20px;
+}
+
+.boton-principal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  height: 57vh;
+  width: 26vw;
+  border: 2px solid #7F7F7F;
+  border-radius: 15px;
+}
+
+.grey {
+  background-color: #C9C9C9;
+  border: none;
+}
+
+.boton-principal span {
+  color: gray;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.boton-principal img {
+  /* background-color: #CECEE0; */
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+
+.btn-activo {
+  background-color: #727272;
+}
+
+.contenedor-desp {
+  width: 95%;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: auto;
+   border-radius: 15px;
+   border: 2px solid #7F7F7F;
+  }
+
+  .item-desp {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+
+  .btn-secundario {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 10vw;
+    height: 18vh;
+    border: none;
+    border-radius: 15px;
+  }
+
+  .btn-secundario img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .item-desp p {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font: bold;
+  }
+
+  .contenedor-desp::-webkit-scrollbar {
+    display: none;
+  }

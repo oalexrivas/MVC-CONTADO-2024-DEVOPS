@@ -1,0 +1,47 @@
+p, h5 {
+    margin: 0;
+}
+
+.content {
+    padding: 20px;
+    background-color: bisque;
+}
+
+.botones {
+    width: 300px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botones button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;   
+}
+
+.selected {
+    background-color: wheat;
+    border: 1px solid black;
+}
+
+.contenido {
+    padding: 20px;
+    margin: 10px;
+}
+
+.contenido .info {
+    background-color: burlywood;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+.contenido .info:last-child {
+    margin: 0;
+}

@@ -1,0 +1,39 @@
+/* ---------------NAVEGACION----------------------- */
+.menu-inicio {
+  grid-area: nav;
+  /* background-color: blue; */
+  padding: 0px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.2s;
+  font-size: 15px;
+}
+.menu-inicio-hide {
+  margin-top: -110px;
+}
+
+.menu-inicio .btn-main {
+  /* background: #ce72ce; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 30%;
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+.btn-main p {
+  margin: 0!important;
+}
+
+.btn-activo {
+  background-color: #27c2ed!important;
+}
+
+img {
+  height: 60px;
+}

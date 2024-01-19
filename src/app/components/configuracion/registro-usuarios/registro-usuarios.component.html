@@ -1,0 +1,304 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-5">Registro de usuarios contadores</p>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-between mb-3">
+      <h3>
+        {{
+          opcion == 2 ? 'Creando usuario' : 
+          opcion == 3 ? 'Editando usuario' :
+          opcion == 4 ? 'Detalle usuario' : 'Listado de usuarios'
+        }}
+      </h3>
+    </div>
+    <div class="p-2 row shadow-2 card" *ngIf="opcion == 1">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">DUI</th>
+              <th scope="col">Telefono</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of lista">
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.apellido}}</td>
+              <td>{{usuario.dui}}</td>
+              <td>{{usuario.telefono}}</td>
+              <td>
+                <button class="btn" (click)="operacion(usuario.id, 4)"><i class='bx bx-show'></i></button>
+                <button class="btn" (click)="operacion(usuario.id, 3)"><i class='bx bxs-pencil'></i></button>
+                <button class="btn" (click)="seleccionar(usuario.id)" data-bs-toggle="modal" data-bs-target="#contraModal"><i class='bx bxs-key'></i></button>
+                <button class="btn" (click)="seleccionar(usuario.id)" data-bs-toggle="modal" data-bs-target="#confirmacionModal" ><i class='bx bx-trash'></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="opcion != 1">
+      <div class="card mb-2 p-2 bg-custom-soft">
+        <div class="row">
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i-nom" class="form-label">Nombre</label>
+            <input id="i-nom" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.nombre : ''}}" 
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i-ape" class="form-label">Apellido</label>
+            <input id="i-ape" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.apellido : ''}}"
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i_dui" class="form-label">DUI </label>
+            <input id="i_dui" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.dui : ''}}" 
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i_nit" class="form-label">NIT</label>
+            <input id="i_nit" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.nit : ''}}"
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group mb-1 col-12 col-md-6">
+            <label for="i_nrc" class="form-label">NRC</label>
+            <input id="i_nrc" type="text" class="form-control" 
+              value="{{ opcion != 2 ? seleccionado.nrc : ''}}"
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i_mai" class="form-label">Correo</label>
+            <input id="i_mai" type="email" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.correo : ''}}" 
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-6">
+            <label for="i_tel" class="form-label">Teléfono</label>
+            <input id="i_tel" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.telefono : ''}}"
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2 p-2 bg-custom-soft">
+        <div class="row">
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label class="form-label" for="i_dir_pais">País</label>
+            <select class="form-select" id="i_dir_pais"
+              disabled="{{esEditable()}}">
+              <option selected>Seleccionar uno</option>
+              <option value="sv">El Salvador</option>
+            </select>
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label class="form-label" for="i_dir_dep">Departamento</label>
+            <select class="form-select" id="i_dir_dep"
+              disabled="{{esEditable()}}">
+              <option selected>Seleccionar uno</option>
+            </select>
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label class="form-label" for="i_dir_mun">Municipio</label>
+            <select class="form-select" id="i_dir_mun"
+              disabled="{{esEditable()}}">
+              <option selected>Seleccionar uno</option>
+            </select>
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label for="i_dir" class="form-label">Complemento</label>
+            <input id="i_dir" type="text" class="form-control" required
+              value="{{ opcion != 2 ? seleccionado.complemento : ''}}" 
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+        </div>
+      </div>
+      <div class="card mb-2 p-2 bg-custom-soft">
+        <div class="row">
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label for="i_creden" class="form-label">Credencial CVCP</label>
+            <input id="i_creden" class="form-control" type="text" required
+              value="{{ opcion != 2 ? seleccionado.credencialCvcp : ''}}" 
+              readonly="{{esEditable()}}" disabled="{{esEditable()}}">
+          </div>
+          <div class="form-grou required mb-1 col-12 col-md-3">
+            <label for="i_file" class="form-label">Contrato</label>
+            <input class="form-control" type="file" id="i_file" required accept=".pdf, .jpg, .jpeg, .png"
+            disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label for="i_file" class="form-label">Período desde</label>
+            <app-custom-datepicker 
+              [displayMonths]="1"
+              [navigation]="'select'"
+              [outsideDays]="'visible'"
+              [disabled]="esEditable()"
+            />
+          </div>
+          <div class="form-group required mb-1 col-12 col-md-3">
+            <label for="i_file" class="form-label">Hasta</label>
+            <app-custom-datepicker 
+              [displayMonths]="1"
+              [navigation]="'select'"
+              [outsideDays]="'visible'"
+              [disabled]="esEditable()"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group mb-1 col-12 col-md-6">
+            <label for="i_file2" class="form-label">Antedecentes Penales</label>
+            <input type="file" class="form-control" id="i_file2" accept=".pdf, .jpg, .jpeg, .png"
+              disabled="{{esEditable()}}">
+          </div>
+          <div class="form-group mb-1 col-12 col-md-6">
+            <label for="i_file3" class="form-label">Solvencial Policia</label>
+            <input type="file" class="form-control"  id="i_file3" accept=".pdf, .jpg, .jpeg, .png"
+              disabled="{{esEditable()}}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button *ngIf="opcion != 1" class="btn btn-primary me-2"
+        data-bs-toggle="modal" data-bs-target="#credencialesLogModal"> Historial Credenciales 
+      </button>
+      <button *ngIf="opcion != 1" class="btn btn-secondary" (click)="operacion(0, 1)"> Atras </button>
+      <button *ngIf="opcion == 1" class="btn btn-warning" (click)="operacion(0, 2)"> Nuevo </button>
+      <button *ngIf="opcion == 2 || opcion == 3" class="btn btn-danger ms-4" (click)="guardar()">
+        Guardar
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Modal cambio contraseña -->
+  <div class="modal fade" id="contraModal" tabindex="-1" aria-labelledby="contraModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="contraModalLabel">Cambio de contraseña</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p *ngIf="seleccionado!=null">Usuario: <b>{{seleccionado.nombre?seleccionado.nombre:''}}</b></p>
+          <div class="mb-1 col-12">
+            <label for="i_c1" class="form-label">Contraseña</label>
+            <div class="input-group">
+              <input type="{{ mostrarP1 ? 'text' : 'password' }}" class="form-control border-end-0" id="i_c1">
+              <a (click)="mostrarP1 = !mostrarP1" class="input-group-text bg-transparent"><i class="bx {{mostrarP1 == false ? 'bx-hide': 'bxs-show'}}"></i></a>
+            </div>
+          </div>
+          <div class="mb-1 col-12">
+            <label for="i_c2" class="form-label">Repita la contraseña</label>
+            <div class="input-group">
+              <input type="{{ mostrarP2 ? 'text' : 'password' }}" class="form-control border-end-0" id="i_c2">
+              <a (click)="mostrarP2 = !mostrarP2" class="input-group-text bg-transparent"><i class="bx {{mostrarP2 == false ? 'bx-hide': 'bxs-show'}}"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button"  class="btn btn-primary" (click)="cambioContra()" data-bs-dismiss="modal">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal confirmar eliminación -->
+  <div class="modal fade" id="confirmacionModal" aria-hidden="true" aria-labelledby="confirmacionModalLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="confirmacionModalLabel">Confirmación de eliminación</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="seleccionado!=null">
+          Está seguro que desea eliminar al usuario <b>{{seleccionado.nombre?seleccionado.nombre:''}}</b>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Cancelar</button>
+          <button class="btn btn-danger" (click)="borrar()" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal log de credenciales -->
+  <div class="modal fade" id="credencialesLogModal" aria-hidden="true" aria-labelledby="credencialesLogModalLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="credencialesLogModalLabel">Historial de credenciales de usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="seleccionado!=null">
+          Credenciales usuario: <b>{{seleccionado.nombre?seleccionado.nombre:''}}</b>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover text-center">
+              <thead>
+                <tr>
+                  <th scope="col">Número</th>
+                  <th scope="col">Documento</th>
+                  <th scope="col">Desde</th>
+                  <th scope="col">Hasta</th>
+                  <th scope="col">Ver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of lista">
+                  <td>{{usuario.credencialCvcp}}</td>
+                  <td>Contrato_cvcp.pdf</td>
+                  <td>2023/09/01</td>
+                  <td>2023/12/31</td>
+                  <td>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#pdfViewerModal">
+                      <i class='bx bx-show'></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-target="#credencialesLogModal" data-bs-toggle="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal visor pdf credenciales -->
+   <div class="modal fade" id="pdfViewerModal" aria-hidden="true" aria-labelledby="pdfViewerModalLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="pdfViewerModalLabel">Contrato_cvcp.pdf</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-pdf-view
+            *ngIf="seleccionado != ''"
+            [src]="'sample.pdf'"
+            [height]="'80vh'"
+          ></app-pdf-view>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

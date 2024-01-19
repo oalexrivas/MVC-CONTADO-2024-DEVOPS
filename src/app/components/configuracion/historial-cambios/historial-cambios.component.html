@@ -1,0 +1,45 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-5">Historial de cambios</p>
+  </div>
+
+  <div>
+    <div class="d-flex justify-content-center align-items-end mb-3">
+      
+      <div class="mb-1 col-12 col-md-6">
+        <label for="i_historial" class="form-label">Historial a cargar</label>
+        <select class="form-select" id="i_historial" [(ngModel)]="historialSeleccionado">
+          <option *ngFor="let h of historialLista" value="{{h}}">{{ h }}</option>
+        </select>
+      </div>
+      <div class="px-2"></div>
+      <div class="mb-1">
+        <button class="btn btn-secondary" (click)="buscarHistorial()">Cargar</button>
+      </div>
+    </div>
+    
+    <div class="p-2 row shadow-2 card">
+      
+      <div *ngIf="historial.length == 0" class="d-flex justify-content-center fs-5 pt-4">
+        <p>Seleccione una opcion y haga clic en Cargar para ver el registro de cambios de dicha opción </p>
+      </div>
+
+      <div *ngIf="historial.length != 0">
+        <table class="table table-responsive table-striped table-hover text-center">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let col of getArrayKeysFromObject(historial[0])">{{ col }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let his of historial">
+              <td *ngFor="let row of getArrayValuesFromObject(his)"> {{ row }} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  
+</div>
