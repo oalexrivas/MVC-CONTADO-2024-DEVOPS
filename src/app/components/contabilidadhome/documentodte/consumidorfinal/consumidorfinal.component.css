@@ -24,3 +24,17 @@ th{
  .titulo-main h3 {
   font-size: 24px;
 }
+.example-tab-icon {
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+
+.mat-tab-group.mat-primary .mat-tab-list .mat-tab-label {
+   background-color: #ff0000;
+   border-bottom: 2px solid #ff0000 !important;
+}
+
+.mat-tab-group.mat-primary .mat-tab-list .mat-tab-label.mat-tab-label-active {
+   background-color: #f60000;
+   font-weight: bold;
+}

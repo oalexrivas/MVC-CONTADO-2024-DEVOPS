@@ -542,13 +542,6 @@
             </div>
           </div>
         </div>
-        <div class="adelante"></div>
-      </div>
-      <div class="row pb-3 justify-content-center">
-        <div class="col-6 d-flex justify-content-end">
-        </div>
-        <div class="col-6 d-flex justify-content-start">
-        </div>
       </div>
     </div>
     <mat-tab-group (selectedIndexChange)="tabChanged($event)">
@@ -559,7 +552,7 @@
         </ng-template>
         <div class="p-3">
           <div class="row">
-            <p class="fw-bold">Datos del Emisor</p>
+            <p class="fw-bold" style="margin-bottom: 20px;">Datos del Emisor</p>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nombre</span>
@@ -636,7 +629,7 @@
         </ng-template>
         <div class="p-3">
           <div class="row">
-            <p class="fw-bold">Datos del Receptor</p>
+            <p class="fw-bold" style="margin-bottom: 20px;">Datos del Receptor</p>
             <div class="col-12 col-md-4">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nombre</span>
@@ -1095,14 +1088,120 @@
           <mat-icon class="example-tab-icon">not_interested</mat-icon>
           INVALIDACIÓN
         </ng-template>
-        Contenido
+          <div class="p-3">
+            <div class="row">
+              <p class="fw-bold" style="margin-bottom: 20px;">Datos del Invalidacion</p>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Receptor</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Seleccionar uno</option>
+                    <option value="opcion1">Mark</option>
+                    <option value="opcion2">Jacob</option>
+                    <option value="opcion3">Jacob</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Razon Invalidacion</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected>Seleccionar uno</option>
+                    <option value="opcion1">Error en los datos</option>
+                    <option value="opcion2">Cancelación de servicios</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-3">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1"># Factura</span>
+                  <input type="tex*t" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-3">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">NCR</span>
+                  <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-3">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Fecha</span>
+                  <input type="date" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              
+              <div class="col-12 col-md-12">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Comentario</span>
+                  <textarea class="form-control" placeholder="" aria-label="NCR" aria-describedby="basic-addon1"></textarea>
+                </div>
+              </div>            
+            </div>
+          </div>
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon class="example-tab-icon">crop</mat-icon>
           CONTIGENCIA
         </ng-template>
-        Contenido
+        <div class="p-3">
+          <div class="row">
+            <p class="fw-bold" style="margin-bottom: 20px;">Datos del Contigencia</p>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Responsable</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                  <option value="opcion1">Mark</option>
+                  <option value="opcion2">Jacob</option>
+                  <option value="opcion3">Jacob</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"># Doc</span>
+                <input type="tex*t" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">NCR</span>
+                <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo Contigencia</label>
+                <select class="form-select" id="inputGroupSelect01">
+                  <option selected>Seleccionar uno</option>
+                  <option value="opcion1">Contingencia en Línea</option>
+                  <option value="opcion2">Comprobantes en Papel</option>
+                  <option value="opcion3">Autoridad Fiscal</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Monto</span>
+                <input type="tex*t" class="form-control" placeholder="$" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fecha</span>
+                <input type="date" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-12">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Comentario</span>
+                <textarea class="form-control" placeholder="" aria-label="NCR" aria-describedby="basic-addon1"></textarea>
+              </div>
+            </div>            
+          </div>
+        </div>
       </mat-tab>
     </mat-tab-group>
   </div>
