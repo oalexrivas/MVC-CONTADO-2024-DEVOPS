@@ -88,4 +88,24 @@ export class NavComponent {
   opcionMenu(opcion:string) {
     this.opcionMenuService.setDatos(opcion);
   }
+  generarToken(): string {
+    // Longitud del token deseada
+    const longitudToken = 20;
+  
+    // Caracteres posibles para el token
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  
+    let token = '';
+    for (let i = 0; i < longitudToken; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+      token += caracteres.charAt(indiceAleatorio);
+    }
+  
+    return token;
+  }
+  ingresar(){
+    const token = this.generarToken();
+    
+    console.log('Token generado:', token);
+  }
 }

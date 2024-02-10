@@ -32,10 +32,13 @@ export class MenuLateralComponent implements OnInit {
     let menu : object = {
       "configuracion": [
         {titulo: "Configuración", logo: "../assets/iconos/IconoConfiguración-Gris.png"},
-        {titulo: "Perfil de usuario", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/perfil"},
-        {titulo: "Registro de usuarios", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/usuarios"},
         {titulo: "Registro de contabilidades", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/contabilidades"},
-        {titulo: "Historial de cambios", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/historial-cambios"}
+        {titulo: "Token & Historial", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/token"},
+        {titulo: "Perfil de usuario", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/perfil"},
+        {titulo: "Historial de DTE", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/usuarios"}
+        
+        
+        
       ],
       "contabilidad":[
         {titulo: "Contabilidad", logo: "../../../assets/iconos/Logo-Contabilidad.png"},

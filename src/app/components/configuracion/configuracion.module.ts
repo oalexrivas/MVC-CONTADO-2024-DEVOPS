@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PerfilComponent } from './perfil/perfil.component';
 import { RegistroUsuariosComponent } from './registro-usuarios/registro-usuarios.component';
 import { RegistroContabilidadesComponent } from './registro-contabilidades/registro-contabilidades.component';
+import { RegistroTokenComponent } from './token-contabilidades/token-contabilidades.component';
 import { HistorialCambiosComponent } from './historial-cambios/historial-cambios.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CustomDatepickerComponent } from '../_base-components/input-datepicker/custom-datepicker.component';
@@ -18,7 +19,8 @@ import { PdfViewComponent } from '../pdf-view/pdf-view.component';
     PerfilComponent,
     RegistroUsuariosComponent,
     RegistroContabilidadesComponent,
-    HistorialCambiosComponent
+    HistorialCambiosComponent,
+    RegistroTokenComponent
   ],
   imports: [
     CommonModule,
