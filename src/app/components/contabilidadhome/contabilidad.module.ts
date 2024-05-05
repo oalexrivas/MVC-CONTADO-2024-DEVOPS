@@ -13,6 +13,8 @@ import { RegistrosComponent } from './registros/registros.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
     MatTabsModule,
     FormsModule,
+    MatExpansionModule,
     ReactiveFormsModule,
     MatIconModule,
   ]

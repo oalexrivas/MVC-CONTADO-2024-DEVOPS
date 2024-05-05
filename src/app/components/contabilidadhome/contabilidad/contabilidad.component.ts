@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
-import {MatIconModule} from '@angular/material/icon';
-import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import Swal from 'sweetalert2';
 
@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
   selector: 'app-contabilidad',
   templateUrl: './contabilidad.component.html',
   styleUrls: ['./contabilidad.component.css'],
+
+ 
   animations: [
     trigger('fade', [
       state('void', style({ opacity: 0 })),
@@ -21,7 +23,10 @@ import Swal from 'sweetalert2';
   
 })
 export class ContabilidadComponent implements OnInit{
+  panelOpenState = false;
   form: FormGroup;
+
+  
 
   creditdoFiscal: boolean = false;
   consumidorFinal: boolean = true;

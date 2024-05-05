@@ -13,6 +13,7 @@ import { RegistroproveedoresComponent } from './registros/registroproveedores/re
 import { CustomDatepickerComponent } from './_base-components/input-datepicker/custom-datepicker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @NgModule({
   declarations: [
     FilterPipe,

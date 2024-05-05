@@ -538,18 +538,27 @@
         <div class="col-11 titulo-main bg-custom-medium">
           <div class="row">
             <div class="d-flex justify-content-center">
-              <p class="fs-3">Consumidor Final</p>
+              <p class="fs-3">CREDITO FISCAL</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <mat-tab-group (selectedIndexChange)="tabChanged($event)">
-      <mat-tab>
-        <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">record_voice_over</mat-icon>
-            EMISOR
-        </ng-template>
+
+    
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>record_voice_over</mat-icon>
+             <h4 style="margin-left: 10px;margin-top: 8px;">EMISOR</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+    
+          </mat-panel-description>
+        </mat-expansion-panel-header>
         <div class="p-3">
           <div class="row">
             <p class="fw-bold" style="margin-bottom: 20px;">Datos del Emisor</p>
@@ -621,12 +630,18 @@
             </div>
           </div>
         </div>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">hearing</mat-icon>
-          RECEPTOR
-        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>hearing</mat-icon>
+            <h4 style="margin-left: 10px;margin-top: 8px;">RECEPTOR</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
         <div class="p-3">
           <div class="row">
             <p class="fw-bold" style="margin-bottom: 20px;">Datos del Receptor</p>
@@ -707,12 +722,18 @@
             </div>
           </div>
         </div>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">description</mat-icon>
-          DESCRIPCIÓN
-        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>description</mat-icon>
+            <h4 style="margin-left: 10px;margin-top: 8px;">DESCRIPCIÓN</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
         <div class="p-3">
           <div class="row">
             <div class="col-12">
@@ -1075,104 +1096,71 @@
             </div>
           </div>
         </div>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">send</mat-icon>
-          ENVIO
-        </ng-template>
-        Contenido Envio
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">send</mat-icon>
-          NOTIFICACION PDF
-        </ng-template>
-        NOTIFICACION CLIENTE
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">not_interested</mat-icon>
-          INVALIDACIÓN
-        </ng-template>
-          <div class="p-3">
-            <div class="row">
-              <p class="fw-bold" style="margin-bottom: 20px;">Datos del Invalidacion</p>
-              <div class="col-12 col-md-6">
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="inputGroupSelect01">Receptor</label>
-                  <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Seleccionar uno</option>
-                    <option value="opcion1">Mark</option>
-                    <option value="opcion2">Jacob</option>
-                    <option value="opcion3">Jacob</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12 col-md-6">
-                <div class="input-group mb-3">
-                  <label class="input-group-text" for="inputGroupSelect01">Razon Invalidacion</label>
-                  <select class="form-select" id="inputGroupSelect01">
-                    <option selected>Seleccionar uno</option>
-                    <option value="opcion1">Error en los datos</option>
-                    <option value="opcion2">Cancelación de servicios</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1"># Factura</span>
-                  <input type="tex*t" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">NCR</span>
-                  <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="col-12 col-md-3">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Fecha</span>
-                  <input type="date" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              
-              <div class="col-12 col-md-12">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Comentario</span>
-                  <textarea class="form-control" placeholder="" aria-label="NCR" aria-describedby="basic-addon1"></textarea>
-                </div>
-              </div>            
-            </div>
-          </div>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">crop</mat-icon>
-          CONTIGENCIA
-        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>send</mat-icon>
+            <h4 style="margin-left: 10px;margin-top: 8px;">Envio</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div>
+      <br>
+    </div>
+    
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>not_interested</mat-icon>
+            <h4 style="margin-left: 10px;margin-top: 8px;">INVALIDACIÓN</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
         <div class="p-3">
           <div class="row">
-            <p class="fw-bold" style="margin-bottom: 20px;">Datos del Contigencia</p>
+            <p class="fw-bold" style="margin-bottom: 20px;">EMISOR</p>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Responsable</label>
+                <span class="input-group-text" id="basic-addon1">Nombre</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nombre Responsable</span>
+                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo Documento</label>
                 <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                  <option value="opcion1">Mark</option>
-                  <option value="opcion2">Jacob</option>
-                  <option value="opcion3">Jacob</option>
+                  <option selected></option>
+                  <option selected>NIT</option>
+                  <option selected>DUI</option>
+                  <option selected>PASAPORTE</option>
                 </select>
               </div>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"># Doc</span>
-                <input type="tex*t" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1">NIT</span>
+                <input type="tex*t" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
               </div>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-4">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">NCR</span>
                 <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
@@ -1180,37 +1168,164 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Tipo Contigencia</label>
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                  <option value="opcion1">Contingencia en Línea</option>
-                  <option value="opcion2">Comprobantes en Papel</option>
-                  <option value="opcion3">Autoridad Fiscal</option>
-                </select>
+                <span class="input-group-text" id="basic-addon1">Telefono</span>
+                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
               </div>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-6">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Monto</span>
-                <input type="tex*t" class="form-control" placeholder="$" aria-label="NCR" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1">Correo</span>
+                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
               </div>
             </div>
-            <div class="col-12 col-md-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Fecha</span>
-                <input type="date" class="form-control" placeholder="#" aria-label="NCR" aria-describedby="basic-addon1">
-              </div>
-            </div>
-            <div class="col-12 col-md-12">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Comentario</span>
-                <textarea class="form-control" placeholder="" aria-label="NCR" aria-describedby="basic-addon1"></textarea>
-              </div>
-            </div>            
           </div>
         </div>
-      </mat-tab>
-    </mat-tab-group>
+      </mat-expansion-panel>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon>crop</mat-icon>
+            <h4 style="margin-left: 10px;margin-top: 8px;">CONTIGENCIA</h4>
+          </mat-panel-title>
+          <mat-panel-description>
+             {{panelOpenState ? '' : ''}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <div class="p-3">
+            <div class="row">
+              <p class="fw-bold" style="margin-bottom: 20px;">EMISOR</p>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre</span>
+                  <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Nombre Responsable</span>
+                  <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Tipo Documento</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option selected>NIT</option>
+                    <option selected>DUI</option>
+                    <option selected>PASAPORTE</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">NIT</span>
+                  <input type="tex*t" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">NCR</span>
+                  <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option selected>SAN SALVADOR</option>
+                    <option selected>SANTA ANA</option>
+                    <option selected>SAN MIGUEL</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option selected>SAN SALVADOR</option>
+                    <option selected>SANTA ANA</option>
+                    <option selected>SAN MIGUEL</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Complemento</span>
+                  <input type="tex*t" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Telefono</span>
+                  <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Correo</span>
+                  <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">Tipo Contigencia</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option selected>No disponibilidad del sistema MH</option>
+                    <option selected>No disponibilidad del sistema MH</option>
+                    <option selected>No disponibilidad del sistema MH</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Motivo Contigencia</span>
+                  <input type="tex*t" class="form-control" placeholder="" aria-label="Complemento" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Fecha Inicio</span>
+                  <input type="date" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Fecha Final</span>
+                  <input type="date" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="row">
+              <p class="fw-bold" style="margin-bottom: 20px;">DOCUMENTOS</p>
+              <div class="col-12 col-md-6">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupSelect01">DTE</label>
+                  <select class="form-select" id="inputGroupSelect01">
+                    <option selected></option>
+                    <option selected>FACTURA ELECTRONICA</option>
+                    <option selected>CREDITO FISCAL</option>
+                    <option selected>CONSUMIDOR FINAL</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="input-group mb-3">
+                  <span class="input-group-text" id="basic-addon1">Seleccionar archivo</span>
+                  <input type="tex*t" class="form-control" placeholder="Ningun archivo selec." aria-label="NCR" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+          </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
   </div>
   <div class="contenedor-main bg-custom-soft" [ngClass]="creditdoFiscal == false ? 'toggleClass' : ''">
     <div class="row main-head">
@@ -1218,7 +1333,7 @@
         <div class="col-11 titulo-main bg-custom-medium">
           <div class="row">
             <div class="d-flex justify-content-center">
-              <p class="fs-3">Consumidor Final</p>
+              
             </div>
           </div>
         </div>

@@ -8,3 +8,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); /* IE6-9 */
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
