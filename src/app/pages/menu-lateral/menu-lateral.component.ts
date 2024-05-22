@@ -41,12 +41,13 @@ export class MenuLateralComponent implements OnInit {
         
       ],
       "contabilidad":[
-        {titulo: "Contabilidad", logo: "../../../assets/iconos/Logo-Contabilidad.png"},
-        {titulo: "Registros", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: "/contabilidad/registros"},
+        {titulo: "Contabilidad", logo: "../../../assets/iconos/configuracion.png"},
+        {titulo: "Registros", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/registros"},
         /*{titulo: "Registro clientes", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},*/
         /*{titulo: "Registro proveedores", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},*/
-        {titulo: "Factura de credito fiscal", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: "/contabilidad/documentodte/creditofiscal"},
-        {titulo: "Factura de consumidor final", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: "/contabilidad/documentodte/consumidorfinal"}
+        {titulo: "Credito Fiscal", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/creditofiscal"},
+        {titulo: "Consumidor Final", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Historial Token", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/consumidorfinal"}
       ],
       "finanzas":[
         {titulo: "Finanzas", logo: "../../../assets/iconos/Logo-Contabilidad.png"},
