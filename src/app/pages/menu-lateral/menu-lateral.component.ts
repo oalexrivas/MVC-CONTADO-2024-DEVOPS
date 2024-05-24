@@ -47,7 +47,7 @@ export class MenuLateralComponent implements OnInit {
         /*{titulo: "Registro proveedores", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},*/
         {titulo: "Credito Fiscal", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/creditofiscal"},
         {titulo: "Consumidor Final", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
-        {titulo: "Historial Token", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/consumidorfinal"}
+        {titulo: "Historial Token", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/registrotoken"}
       ],
       "finanzas":[
         {titulo: "Finanzas", logo: "../../../assets/iconos/Logo-Contabilidad.png"},

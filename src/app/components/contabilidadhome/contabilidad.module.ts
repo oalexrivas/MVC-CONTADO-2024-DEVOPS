@@ -10,6 +10,7 @@ import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RouterModule } from '@angular/router';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RegistrosComponent } from './registros/registros.component';
+import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +23,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CreditofiscalComponent,
     ConsumidorfinalComponent,
     ContabilidadComponent,
-    RegistrosComponent
+    RegistrosComponent,
+    RegistroTokenComponent
   ],
   imports: [
     CommonModule,
