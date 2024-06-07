@@ -36,71 +36,25 @@
             <p>Admin|Contador 0001</p>
           </div>
           <div class="menu-config">
-            <div class="config-option" (click)="opcionMenu('contabilidad'); dataService.toggleMenuOption(2);">
-              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
+            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'" (click)="opcionMenu('contabilidad'); dataService.toggleMenuOption(2);">
+              <img class="img-menu-conf" src="../assets/iconos/avatar.png" alt="User">
               <p>Inicio</p>
             </div>
-            <div class="config-option" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
-              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
+            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <img class="img-menu-conf" src="../assets/iconos/configuraciones.png" alt="User">
               <p>Configuración</p>
             </div>
-            <div class="config-option" data-bs-toggle="modal" data-bs-target="#soporteModal">
-              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
-              <p>Soporte Técnico</p>
+            <div class="config-option" *ngIf="userRole === 'administrador'" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <img class="img-menu-conf" src="../assets/iconos/agregar.png" alt="User">
+              <p>Usuarios</p>
             </div>
-            <div class="config-option" data-bs-toggle="modal" data-bs-target="#soporteModal">
-              <img class="img-menu-conf" src="../assets/iconos/icons8-moneda-en-mano-50.png" alt="User">
-              <p>Generar Token</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/Icono-Cerrar-Sesión.png" alt="User">
+            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
+              <img class="img-menu-conf" src="../assets/iconos/cerrar-sesion.png" alt="User">
               <p>Cerrar Sesión</p>
             </div>
           </div>
         </div>
       </div>
-      
-      <!--
-      <div class="contenedor-sesion">
-        <img class="icono-menu" src="../assets/iconos/Icono Usuario-05.png" alt="Usuario">
-        <div class="menu-vertical bg-custom-soft">
-          <div class="menu-vertical-head">
-            <h3>Sergio Nortero</h3>
-            <p>Estudiante 001</p>
-          </div>
-          <div class="menu-config">
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
-              <p>Inicio</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
-              <p>Configuración contable</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/IconoConfiguración-Gris.png" alt="User">
-              <p>Registro generales</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
-              <p>Cambiar Contraseña</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/Icono-Historial.png" alt="User">
-              <p>Historial de Cambios</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/IconoUsuario-Inicio.png" alt="User">
-              <p>Soporte Técnico</p>
-            </div>
-            <div class="config-option">
-              <img class="img-menu-conf" src="../assets/iconos/Icono-Cerrar-Sesión.png" alt="User">
-              <p>Cerrar Sesión</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img class="icono-menu invert-img-color" src="../assets/iconos/navSettings.svg" alt="Configuración">-->
     </div>
   </div>
   <div class="nav-secundario">

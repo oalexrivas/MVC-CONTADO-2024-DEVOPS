@@ -12,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class MenuLateralComponent implements OnInit {
   public tituloS:string="";
-  public menus: Array<MenuLateral> = []
+  public menus: Array<MenuLateral> = [];
+  public userRole: string = 'administrador';
 
   constructor(public service:DataService,public opcionMenuService:MenuOpcionService, private router: Router) { }
 
@@ -30,38 +31,31 @@ export class MenuLateralComponent implements OnInit {
 
   menu(valor:string){
     let menu : object = {
+
       "configuracion": [
-        {titulo: "Configuración", logo: "../assets/iconos/IconoConfiguración-Gris.png"},
-        {titulo: "Registro de contabilidades", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/contabilidades"},
-        {titulo: "Token & Historial", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/token"},
-        {titulo: "Perfil de usuario", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/perfil"},
-        {titulo: "Historial de DTE", logo: "../assets/iconos/IconoConfiguración-Gris.png", ruta: "/configuracion/registro/usuarios"}
-        
-        
-        
+        {titulo: "Configuración", logo: "../assets/iconos/configuraciones.png"},
+        {titulo: "Registro Contabilidad", logo: "../assets/iconos/perfil.png", ruta: "/configuracion/registro/contabilidades"},
+        {titulo: "Historial DTE", logo: "../assets/iconos/historial-de-transacciones.png", ruta: "/configuracion/registro/usuarios"},
+        {titulo: "Historial TOKEN", logo: "../../../assets/iconos/historial-de-transacciones.png",ruta: "/contabilidad/registrotoken"}
       ],
       "contabilidad":[
-        {titulo: "Contabilidad", logo: "../../../assets/iconos/configuracion.png"},
-        {titulo: "Registros", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/registros"},
-        /*{titulo: "Registro clientes", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},*/
-        /*{titulo: "Registro proveedores", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},*/
-        {titulo: "Credito Fiscal", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/creditofiscal"},
-        {titulo: "Consumidor Final", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
-        {titulo: "Historial Token", logo: "../../../assets/iconos/configuracion.png",ruta: "/contabilidad/registrotoken"}
+        {titulo: "Contabilidad", logo: "../../../assets/iconos/contabilidad.png"},
+        {titulo: "Registros", logo: "../../../assets/iconos/lista-de-verificacion.png",ruta: "/contabilidad/registros"},
+        {titulo: "Factura Electronica", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Comprobante de crédito fiscal", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/creditofiscal"},
+        {titulo: "Nota de remisión", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Nota de débito", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Nota de débito", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Comprobante de retención", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Comprobante de liquidación", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Documento contable de liquidación", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Facturas de exportación", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Factura de sujeto excluido", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
+        {titulo: "Comprobante de donación ", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"}
       ],
       "finanzas":[
         {titulo: "Finanzas", logo: "../../../assets/iconos/Logo-Contabilidad.png"},
         {titulo: "Inicio", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: "/finanzas/finanzasinicio"},
-        /*{titulo: "Base Legal", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Ordenes", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Quedan", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "C.X Pagan", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Anticipos", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Estados de Cuenta", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Compras Locales", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Importaciones Internacionales", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Informes de Compras", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""},
-        {titulo: "Registro F. Sujeto Excluido", logo: "../../../assets/iconos/Logo-Contabilidad.png",ruta: ""}*/
       ],
       "rrhh":[
         {titulo: "RRHH", logo: "../../../assets/iconos/Logo-Contabilidad.png"},

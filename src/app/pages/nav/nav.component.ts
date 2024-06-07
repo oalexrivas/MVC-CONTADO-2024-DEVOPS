@@ -27,6 +27,8 @@ export class NavComponent {
   filteredOptions: Observable<string[]> | undefined;
   menuInicioShow: boolean = false;
 
+  userRole: string = 'administrador';
+
   constructor(private router: Router, public dataService:DataService, public opcionMenuService:MenuOpcionService) {
   }
 
@@ -44,7 +46,6 @@ export class NavComponent {
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
-
   async buscar() {
     // Seteamos bandera de búsqueda para cambios visuales
     this.dataService.buscando = this.valorBusqueda != "";
@@ -57,7 +58,6 @@ export class NavComponent {
       this.encontrados = this.dataService.arregloFiltrado;
     }
   }
-  
   seleccionarBusqueda(seleccionado: string) {
     this.dataService.busquedaSeleccionado = seleccionado;
     console.log(seleccionado)
@@ -65,7 +65,6 @@ export class NavComponent {
     let actual: any = this.encontrados.find(e => e.nombreDoc = this.seleccionado);
     this.encontrados = [actual];
   }
-
   resetBusqueda() {
     if (this.seleccionado != "") {
       // Si hay algo escrito en la barra de búsqueda solo se oculta el pdf-view
@@ -78,7 +77,6 @@ export class NavComponent {
       this.seleccionado = "";
     }
   }
-
   desplegarMenuHam() {
     this.dataService.toggle();
   }
