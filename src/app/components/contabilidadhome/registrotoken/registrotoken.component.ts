@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistroToken } from 'src/app/pages/interfaces/registrotoken';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registros',
@@ -8,11 +9,12 @@ import { RegistroToken } from 'src/app/pages/interfaces/registrotoken';
   styleUrls: ['./registrotoken.component.css']
 })
 export class RegistroTokenComponent implements OnInit {
-
   public formulario: FormGroup;
   public opcion: number = 1;
-
   editable = false;
+  
+  seleccionado: any = null;
+  
   listaBase: RegistroToken[] = [
     { id: 1, tipo: "natural", token: "ZX9K7W5Q-P8JL3N2F-R4T6V1MD-B2HG8Y4S", creacion: "23-05-2024" },
     { id: 2, tipo: "natural", token: "QW8L6X3T-M1RK7P9F-B2T5J8NL-Y4H6D3V2", creacion: "23-05-2024" },
@@ -20,12 +22,13 @@ export class RegistroTokenComponent implements OnInit {
     { id: 4, tipo: "donante", token: "MN4T8J5K-R7P3W2Q1-B9H6L8DF-Y2K1V7T5", creacion: "23-05-2024" }
   ];
   lista: RegistroToken[] = [];
-  seleccionado: any = null;
+  
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     let usuarioInicial: RegistroToken = { id: 0, tipo: "natural", token: "", creacion: "" }
     this.formulario = this.convertirAFormulario(usuarioInicial);
   }
+  
   ngOnInit() {
     // Asignar la listaBase directamente a la lista
     this.lista = [...this.listaBase];
@@ -58,7 +61,38 @@ export class RegistroTokenComponent implements OnInit {
       tokenInput.value = token;
     }
   }
-  
+  obtenerDepartamentos(): void {
+    const query = `
+      query {
+        obtenerDepartamento {
+          id
+          codigoDepartamento
+          nombreDepartamento
+        }
+      }
+    `;
 
+    this.http.post<any>('http://localhost:4000/', { query }).subscribe(result => {
+      console.log(result);
+    });
+  }
+  obtenerMunicipio(): void {
+    const query = `
+    query Query {
+      obtenerMunicipio {
+        id
+        codigoMunicipio
+        nombreMunicipio
+        idDepartamento
+      }
+    }
+    `;
+
+    this.http.post<any>('http://localhost:4000/', { query }).subscribe(result => {
+      console.log(result);
+    });
+  }
+
+  
 }
 

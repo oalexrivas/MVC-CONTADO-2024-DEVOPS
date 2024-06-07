@@ -8,13 +8,14 @@ import { ConsumidorfinalComponent } from './documentodte/consumidorfinal/consumi
 import { MatTableModule } from '@angular/material/table';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RouterModule } from '@angular/router';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule} from '@angular/material/tabs';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatExpansionModule,
     ReactiveFormsModule,
     MatIconModule,
+    HttpClientModule,
+    
   ]
 })
 export class ContabilidadModule { }
