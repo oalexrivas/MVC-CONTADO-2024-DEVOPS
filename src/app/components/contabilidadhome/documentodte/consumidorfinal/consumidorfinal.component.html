@@ -6,42 +6,39 @@
           <div class="card-body">
             <div class="row p-4" (click)="verMenu=!verMenu">
               <div class="col-12 p-2 titulo-main d-flex justify-content-center bg-custom-soft">
-                <div class=" rounded d-flex justify-content-center" style="width: 450px;">
-                  <p class="fs-5">Módulo - Factura Consumido Final</p>
+                <div class="rounded d-flex justify-content-center align-items-center text-center" style="width: 550px;">
+                  <p class="fs-5 text-justify" style="margin: 0;">Módulo - Factura Consumido Final</p>
                 </div>
               </div>
             </div>
             <div class="row pb-3">
-              <div class="col-6 d-flex justify-content-end">
-                <a class="btn btn-success" routerLink="/contabilidad/ingresoconsumidorfinal">Nuevo FAC</a>
-              </div>
-              <div class="col-6 d-flex justify-content-start">
-                <a class="btn btn-warning" routerLink="/contabilidad/ingresoconsumidorfinal">Editar FAC</a>
+              <div class="col-12 d-flex justify-content-left">
+                <a class="btn btn-success ml-auto" routerLink="/contabilidad/ingresoconsumidorfinal">Nuevo FAC</a>
               </div>
             </div>
             <div class="p-2 row shadow-2 table-responsive">
               <table class="table table-striped table-hover text-center">
                 <thead>
                   <tr>
-                    <th scope="col">N° de orden</th>
-                    <th scope="col">Lugar y fecha de emisión</th>
-                    <th scope="col">Id del comprador</th>
-                    <th scope="col">Id del vendedor</th>
-                    <th scope="col">Descripción</th>
+                    <th scope="col">TIPO</th>
+                    <th scope="col">N°</th>
+                    <th scope="col">COMPRADOR</th>
+                    <th scope="col">TIPO PAGO</th>
+                    <th scope="col">DESCRIPCION</th>
+                    <th scope="col">FECHA</th>
                     <th scope="col"*ngIf="verMenu">Precio de pago</th>
                     <th scope="col"*ngIf="verMenu">Tiempo de entrega</th>
-                    <th>PÁG 1/1 <i class="bx bx-printer"></i></th>
+                    <th>ACCIONES</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="redondedoInicio">1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td >&#64;mdo</td>
-                    <td *ngIf="verMenu">&#64;mdo</td>
-                    <td *ngIf="verMenu">&#64;mdo</td>
-                    <td class="redondedoFinal">&#64;mdo</td>
+                    <td class="redondedoInicio">FAC</td>
+                    <td>1</td>
+                    <td>Mark Otto</td>
+                    <td>CONTADO</td>
+                    <td>FAC-1 CONTADO</td>
+                    <td>11-6-2024</td>
                     <td class="redondeoCompleto">
                       <i class='bx bx-lock-open-alt p-1'></i>
                       <i class='bx bxs-download p-1' ></i>
@@ -52,13 +49,12 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="redondedoInicio">2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td >&#64;fat</td>
-                    <td *ngIf="verMenu">&#64;fat</td>
-                    <td *ngIf="verMenu">&#64;fat</td>
-                    <td class="redondedoFinal">&#64;fat</td>
+                    <td class="redondedoInicio">FAC</td>
+                    <td>2</td>
+                    <td>Mark Otto</td>
+                    <td>CONTADO</td>
+                    <td>FAC-1 CONTADO</td>
+                    <td>11-6-2024</td>
                     <td class="redondeoCompleto">
                       <i class='bx bx-lock-open-alt p-1'></i>
                       <i class='bx bxs-download p-1' ></i>
@@ -69,13 +65,12 @@
                     </td>
                   </tr>
                   <tr>
-                    <td class="redondedoInicio">3</td>
-                    <td>Thornton</td>
-                    <td>Thornton</td>
-                    <td >&#64;twitter</td>
-                    <td *ngIf="verMenu">&#64;twitter</td>
-                    <td *ngIf="verMenu">&#64;twitter</td>
-                    <td class="redondedoFinal">&#64;twitter</td>
+                    <td class="redondedoInicio">FAC</td>
+                    <td>3</td>
+                    <td>Mark Otto</td>
+                    <td>CONTADO</td>
+                    <td>FAC-1 CONTADO</td>
+                    <td>11-6-2024</td>
                     <td class="redondeoCompleto">
                       <i class='bx bx-lock-open-alt p-1'></i>
                       <i class='bx bxs-download p-1' ></i>
@@ -87,13 +82,10 @@
                   </tr>
                 </tbody>
               </table>
-
-
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

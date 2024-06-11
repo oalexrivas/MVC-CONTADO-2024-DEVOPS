@@ -5,6 +5,13 @@ import { ContabilidadRoutingModule } from './contabilidad-routing.module';
 import { ContabilidadinicioComponent } from './contabilidadinicio/contabilidadinicio.component';
 import { CreditofiscalComponent } from './documentodte/creditofiscal/creditofiscal.component';
 import { ConsumidorfinalComponent } from './documentodte/consumidorfinal/consumidorfinal.component';
+import { NotaremisionComponent } from './documentodte/notaremision/notaremision.component';
+import { NotadebitoComponent } from './documentodte/notadebito/notadebito.component';
+import { ComprobanteretencionComponent } from './documentodte/comprobanteretencion/comprobanteretencion.component';
+import { ComprobanteliquidacionComponent } from './documentodte/comprobanteliquidacion/comprobanteliquidacion.component';
+import { DocumentocontableliquidacionComponent } from './documentodte/documentocontableliquidacion/documentocontableliquidacion.component';
+import { FacturaexportacionComponent } from './documentodte/facturaexportacion/facturaexportacion.component';
+import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RouterModule } from '@angular/router';
@@ -23,8 +30,15 @@ import { HttpClientModule } from '@angular/common/http';
     ContabilidadinicioComponent,
     CreditofiscalComponent,
     ConsumidorfinalComponent,
+    NotaremisionComponent,
+    NotadebitoComponent,
+    ComprobanteretencionComponent,
+    ComprobanteliquidacionComponent,
+    DocumentocontableliquidacionComponent,
+    FacturaexportacionComponent,
     ContabilidadComponent,
     RegistrosComponent,
+    FacturasujetoexcluidoComponent,
     RegistroTokenComponent
   ],
   imports: [
