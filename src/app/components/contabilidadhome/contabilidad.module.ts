@@ -12,6 +12,7 @@ import { ComprobanteliquidacionComponent } from './documentodte/comprobanteliqui
 import { DocumentocontableliquidacionComponent } from './documentodte/documentocontableliquidacion/documentocontableliquidacion.component';
 import { FacturaexportacionComponent } from './documentodte/facturaexportacion/facturaexportacion.component';
 import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
+import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion/comprobantedonacion.component';
 import { MatTableModule } from '@angular/material/table';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RouterModule } from '@angular/router';
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComprobanteliquidacionComponent,
     DocumentocontableliquidacionComponent,
     FacturaexportacionComponent,
+    ComprobantedonacionComponent,
     ContabilidadComponent,
     RegistrosComponent,
     FacturasujetoexcluidoComponent,

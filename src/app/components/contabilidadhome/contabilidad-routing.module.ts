@@ -9,6 +9,7 @@ import { DocumentocontableliquidacionComponent } from './documentodte/documentoc
 import { CreditofiscalComponent } from './documentodte/creditofiscal/creditofiscal.component';
 import { FacturaexportacionComponent } from './documentodte/facturaexportacion/facturaexportacion.component';
 import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
+import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion/comprobantedonacion.component';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'documentodte/comprobanteliquidacion', component:ComprobanteliquidacionComponent},
   {path: 'documentodte/documentocontableliquidacion', component:DocumentocontableliquidacionComponent},
   {path: 'documentodte/facturasujetoexcluido', component:FacturasujetoexcluidoComponent},
+  {path: 'documentodte/comprobantedonacion', component:ComprobantedonacionComponent},
   {path: 'documentodte/facturaexportacion', component:FacturaexportacionComponent},
   {path: 'ingresoconsumidorfinal', component:ContabilidadComponent},
 ];

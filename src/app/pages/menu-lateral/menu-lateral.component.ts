@@ -50,7 +50,7 @@ export class MenuLateralComponent implements OnInit {
         {titulo: "Documento contable de liquidación", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/documentocontableliquidacion"},
         {titulo: "Facturas de exportación", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/facturaexportacion"},
         {titulo: "Factura de sujeto excluido", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/facturasujetoexcluido"},
-        {titulo: "Comprobante de donación ", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"}
+        {titulo: "Comprobante de donación ", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/comprobantedonacion"}
       ],
       "finanzas":[
         {titulo: "Finanzas", logo: "../../../assets/iconos/Logo-Contabilidad.png"},
