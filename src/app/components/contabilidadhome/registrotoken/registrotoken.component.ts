@@ -15,14 +15,10 @@ export class RegistroTokenComponent implements OnInit {
   
   seleccionado: any = null;
   
-  listaBase: RegistroToken[] = [
-    { id: 1, tipo: "natural", token: "ZX9K7W5Q-P8JL3N2F-R4T6V1MD-B2HG8Y4S", creacion: "23-05-2024" },
-    { id: 2, tipo: "natural", token: "QW8L6X3T-M1RK7P9F-B2T5J8NL-Y4H6D3V2", creacion: "23-05-2024" },
-    { id: 3, tipo: "sas", token: "PL7K9X2M-T8HJ3W5S-R1L4N6DF-Y9G2V8Q3", creacion: "23-05-2024" },
-    { id: 4, tipo: "donante", token: "MN4T8J5K-R7P3W2Q1-B9H6L8DF-Y2K1V7T5", creacion: "23-05-2024" }
-  ];
+  // Inicialmente vacío, luego se llenará con los datos obtenidos de la consulta
   lista: RegistroToken[] = [];
   
+  tokenData: any = null;  // Variable para almacenar los datos del token
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     let usuarioInicial: RegistroToken = { id: 0, tipo: "natural", token: "", creacion: "" }
@@ -30,18 +26,20 @@ export class RegistroTokenComponent implements OnInit {
   }
   
   ngOnInit() {
-    // Asignar la listaBase directamente a la lista
-    this.lista = [...this.listaBase];
+    // Llamar a obtenerToken cuando el componente se inicializa
+    this.obtenerToken();
   }
+  
   convertirAFormulario(usuario: RegistroToken) {
     const fb = this.fb;
-    return fb.group<RegistroToken>({
+    return fb.group({
       id: fb.control(usuario.id, []),
       tipo: fb.control(usuario.tipo, Validators.required),
       token: fb.control(usuario.token, Validators.required),
       creacion: fb.control(usuario.creacion, []),
     });
   }
+  
   generarTokenAleatorio(): void {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     const tokenLength = 20; // 20 characters divided into groups of 5
@@ -61,6 +59,7 @@ export class RegistroTokenComponent implements OnInit {
       tokenInput.value = token;
     }
   }
+  
   obtenerDepartamentos(): void {
     const query = `
       query {
@@ -76,6 +75,7 @@ export class RegistroTokenComponent implements OnInit {
       console.log(result);
     });
   }
+  
   obtenerMunicipio(): void {
     const query = `
     query Query {
@@ -92,7 +92,36 @@ export class RegistroTokenComponent implements OnInit {
       console.log(result);
     });
   }
-
   
+  obtenerToken(): void {
+    const query = `
+    query Query {
+      obtenerRegistroToken {
+        id
+        idPersona
+        tokenActual
+        tokenAnterior
+        fechaGeneracion
+      }
+    }
+    `;
+    this.http.post<any>('http://localhost:4000/', { query }).subscribe({
+      next: result => {
+        this.tokenData = result.data.obtenerRegistroToken;  
+        this.lista = this.tokenData.map((item: any) => ({
+          id: item.id,
+          tipo: "tipoNoDisponible",  
+          token: item.tokenActual,
+          creacion: item.fechaGeneracion
+        }));
+        console.log(JSON.stringify(this.lista));  
+      },
+      error: error => {
+        console.error('Error fetching data:', error);
+      }
+    });
+  }
 }
+
+
 
