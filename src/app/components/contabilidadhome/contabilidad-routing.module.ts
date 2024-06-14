@@ -5,7 +5,6 @@ import { NotaremisionComponent } from './documentodte/notaremision/notaremision.
 import { NotadebitoComponent } from './documentodte/notadebito/notadebito.component';
 import { ComprobanteretencionComponent } from './documentodte/comprobanteretencion/comprobanteretencion.component';
 import { ComprobanteliquidacionComponent } from './documentodte/comprobanteliquidacion/comprobanteliquidacion.component';
-import { DocumentocontableliquidacionComponent } from './documentodte/documentocontableliquidacion/documentocontableliquidacion.component';
 import { CreditofiscalComponent } from './documentodte/creditofiscal/creditofiscal.component';
 import { FacturaexportacionComponent } from './documentodte/facturaexportacion/facturaexportacion.component';
 import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'documentodte/notadebito', component:NotadebitoComponent},
   {path: 'documentodte/comprobanteretencion', component:ComprobanteretencionComponent},
   {path: 'documentodte/comprobanteliquidacion', component:ComprobanteliquidacionComponent},
-  {path: 'documentodte/documentocontableliquidacion', component:DocumentocontableliquidacionComponent},
   {path: 'documentodte/facturasujetoexcluido', component:FacturasujetoexcluidoComponent},
   {path: 'documentodte/comprobantedonacion', component:ComprobantedonacionComponent},
   {path: 'documentodte/facturaexportacion', component:FacturaexportacionComponent},

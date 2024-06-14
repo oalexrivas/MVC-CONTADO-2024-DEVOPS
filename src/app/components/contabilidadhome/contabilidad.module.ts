@@ -9,7 +9,6 @@ import { NotaremisionComponent } from './documentodte/notaremision/notaremision.
 import { NotadebitoComponent } from './documentodte/notadebito/notadebito.component';
 import { ComprobanteretencionComponent } from './documentodte/comprobanteretencion/comprobanteretencion.component';
 import { ComprobanteliquidacionComponent } from './documentodte/comprobanteliquidacion/comprobanteliquidacion.component';
-import { DocumentocontableliquidacionComponent } from './documentodte/documentocontableliquidacion/documentocontableliquidacion.component';
 import { FacturaexportacionComponent } from './documentodte/facturaexportacion/facturaexportacion.component';
 import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
 import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion/comprobantedonacion.component';
@@ -35,7 +34,6 @@ import { HttpClientModule } from '@angular/common/http';
     NotadebitoComponent,
     ComprobanteretencionComponent,
     ComprobanteliquidacionComponent,
-    DocumentocontableliquidacionComponent,
     FacturaexportacionComponent,
     ComprobantedonacionComponent,
     ContabilidadComponent,
