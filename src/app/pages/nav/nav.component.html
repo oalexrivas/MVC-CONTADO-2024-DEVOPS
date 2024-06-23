@@ -44,7 +44,7 @@
               <img class="img-menu-conf" src="../assets/iconos/configuraciones.png" alt="User">
               <p>Configuración</p>
             </div>
-            <div class="config-option" *ngIf="userRole === 'administrador'" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+            <div class="config-option" *ngIf="userRole === 'administrador'" (click)="opcionMenu('usuario'); dataService.toggleMenuOption(0);">
               <img class="img-menu-conf" src="../assets/iconos/agregar.png" alt="User">
               <p>Usuarios</p>
             </div>

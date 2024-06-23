@@ -38,6 +38,10 @@ export class MenuLateralComponent implements OnInit {
         {titulo: "Historial DTE", logo: "../assets/iconos/historial-de-transacciones.png", ruta: "/configuracion/registro/usuarios"},
         {titulo: "Historial TOKEN", logo: "../../../assets/iconos/historial-de-transacciones.png",ruta: "/contabilidad/registrotoken"}
       ],
+      "usuario": [
+        {titulo: "Usuarios", logo: "../assets/iconos/agregar.png"},
+        {titulo: "Lista Usuario", logo: "../assets/iconos/agregar.png", ruta: "/contabilidad/registrousuario"}
+      ],
       "contabilidad":[
         {titulo: "Contabilidad", logo: "../../../assets/iconos/contabilidad.png"},
         {titulo: "Registros", logo: "../../../assets/iconos/lista-de-verificacion.png",ruta: "/contabilidad/registros"},

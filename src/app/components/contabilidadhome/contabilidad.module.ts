@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatTabsModule} from '@angular/material/tabs';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
+import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContabilidadComponent,
     RegistrosComponent,
     FacturasujetoexcluidoComponent,
-    RegistroTokenComponent
+    RegistroTokenComponent,
+    RegistroUsuarioComponent
   ],
   imports: [
     CommonModule,

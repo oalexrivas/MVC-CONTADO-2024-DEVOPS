@@ -12,10 +12,12 @@ import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
+import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 
 const routes: Routes = [
   {path: 'registros', component:RegistrosComponent},
   {path: 'registrotoken', component:RegistroTokenComponent},
+  {path: 'registrousuario', component:RegistroUsuarioComponent},
   {path: 'documentodte/consumidorfinal', component:ConsumidorfinalComponent},
   {path: 'documentodte/creditofiscal', component:CreditofiscalComponent},
   {path: 'documentodte/notaremision', component:NotaremisionComponent},
