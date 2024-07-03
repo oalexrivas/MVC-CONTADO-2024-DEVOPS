@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegistroToken } from 'src/app/pages/interfaces/registrotoken';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-registros',
@@ -12,24 +12,17 @@ export class RegistroTokenComponent implements OnInit {
   public formulario: FormGroup;
   public opcion: number = 1;
   editable = false;
-  
   seleccionado: any = null;
-  
-  // Inicialmente vacío, luego se llenará con los datos obtenidos de la consulta
   lista: RegistroToken[] = [];
-  
-  tokenData: any = null;  // Variable para almacenar los datos del token
+  tokenData: any = null;  
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     let usuarioInicial: RegistroToken = { id: 0, tipo: "natural", token: "", creacion: "" }
     this.formulario = this.convertirAFormulario(usuarioInicial);
   }
-  
   ngOnInit() {
-    // Llamar a obtenerToken cuando el componente se inicializa
     this.obtenerToken();
   }
-  
   convertirAFormulario(usuario: RegistroToken) {
     const fb = this.fb;
     return fb.group({
@@ -39,61 +32,18 @@ export class RegistroTokenComponent implements OnInit {
       creacion: fb.control(usuario.creacion, []),
     });
   }
-  
-  generarTokenAleatorio(): void {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const tokenLength = 20; // 20 characters divided into groups of 5
-    let token = '';
-  
-    for (let i = 0; i < tokenLength; i++) {
-      if (i > 0 && i % 5 === 0) {
-        token += '-';
-      }
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      token += characters[randomIndex];
+  getCookie(name: string): string | null {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
-  
-    // Actualiza el valor del input con el ID 'tokenInput'
-    const tokenInput = document.getElementById('tokenInput') as HTMLInputElement;
-    if (tokenInput) {
-      tokenInput.value = token;
-    }
+    return null;
   }
-  
-  obtenerDepartamentos(): void {
-    const query = `
-      query {
-        obtenerDepartamento {
-          id
-          codigoDepartamento
-          nombreDepartamento
-        }
-      }
-    `;
-
-    this.http.post<any>('http://localhost:4000/', { query }).subscribe(result => {
-      console.log(result);
-    });
-  }
-  
-  obtenerMunicipio(): void {
-    const query = `
-    query Query {
-      obtenerMunicipio {
-        id
-        codigoMunicipio
-        nombreMunicipio
-        idDepartamento
-      }
-    }
-    `;
-
-    this.http.post<any>('http://localhost:4000/', { query }).subscribe(result => {
-      console.log(result);
-    });
-  }
-  
   obtenerToken(): void {
+    const token = this.getCookie('token'); // Asumiendo que tienes una función getCookie
     const query = `
     query Query {
       obtenerRegistroToken {
@@ -105,7 +55,13 @@ export class RegistroTokenComponent implements OnInit {
       }
     }
     `;
-    this.http.post<any>('http://localhost:4000/', { query }).subscribe({
+    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  
+    this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
       next: result => {
         this.tokenData = result.data.obtenerRegistroToken;  
         this.lista = this.tokenData.map((item: any) => ({

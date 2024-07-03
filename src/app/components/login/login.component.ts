@@ -11,7 +11,6 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
   public mostrarPassword: boolean = false;
   usuarioData: any = null;
@@ -32,10 +31,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.cambiarTema(this.dataService.getPreferredTheme());
     this.dataService.cambiarEscalaGrises(true);
-    this.obtenerUsuario();
-  }
-  openDialog(){
-    
+    //this.obtenerUsuario();
   }
   obtenerDatos(): void {
     const datos = this.loginForm.value;
@@ -51,25 +47,63 @@ export class LoginComponent implements OnInit {
     `;
     this.http.post<any>('http://localhost:4000/', { query }).subscribe({
       next: result => {
-        this.usuarioData = result.data.obtenerUsuario; // Almacenar como objeto
+        this.usuarioData = result.data.obtenerUsuario;
       },
       error: error => {
         console.error('Error fetching data:', error);
       }
     });
   }
-  validarUsuario(): void {
-    const datos = this.loginForm.value;
-    const usuarioEncontrado = this.usuarioData.find((user: any) => 
-      user.codUsuario === datos.usuario && user.clave === datos.password
-    );
-
-    if (usuarioEncontrado) {
-      this.router.navigate(['contabilidad/documentodte/consumidorfinal']);
-    } else {
-      alert('Datos Incorrectos');
-    }
+  generarToken(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      const datos = this.loginForm.value;
+      const query = `
+        mutation IniciarSesion($parametros: usuarioLoginInput) {
+          iniciarSesion(parametros: $parametros) {
+            token
+          }
+        }
+      `;
+      const variables = {
+        parametros: {
+          usuario: datos.usuario,
+          clave: datos.password
+        }
+      };
+      this.http.post<any>('http://localhost:4000/', { query, variables }).subscribe(
+        result => {
+          if (result.data && result.data.iniciarSesion && result.data.iniciarSesion.token) {
+            const token = result.data.iniciarSesion.token;
+            this.setCookie('token', token, 7);
+            resolve(true);
+          } else {
+            alert('Usuario o Contraseña incorrecto');
+            resolve(false);
+          }
+        },
+        error => {
+          console.error('Error en la petición', error);
+          alert('Usuario o Contraseña incorrecto');
+          resolve(false);
+        }
+      );
+    });
   }
+  
+  setCookie(name: string, value: string, days: number): void {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+  validarUsuario(): void {
+    this.generarToken().then(success => {
+      if (success) {
+        this.router.navigate(['contabilidad/documentodte/consumidorfinal']);
+      }
+    });
+  }
+  
 }
 
 

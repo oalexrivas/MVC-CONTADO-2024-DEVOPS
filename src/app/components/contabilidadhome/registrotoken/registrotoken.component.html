@@ -6,17 +6,6 @@
   <div>
     <div>
       <div class="p-2 row shadow-2 card">
-        <div class="col-12">
-          <div class="form-group required mb-1">
-            <label for="token" class="form-label">TOKEN GENERADO</label>
-            <input id="tokenInput" type="text" formControlName="token" class="form-control" style="width: 100%;">
-          </div>
-        </div>
-        <div class="d-flex justify-content-end mt-3">
-          <button class="btn btn-warning" (click)="obtenerDepartamentos()">Crear Token</button>
-        </div>
-      </div>
-      <div class="p-2 row shadow-2 card">
         <div class="table-responsive">
           <table class="table table-striped table-hover text-center">
             <thead>
@@ -44,7 +33,6 @@
       </div>
     </div>
   </div>
-  <!-- Modal confirmar eliminación -->
   <div class="modal fade" id="confirmacionModal" aria-hidden="true" aria-labelledby="confirmacionModalLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

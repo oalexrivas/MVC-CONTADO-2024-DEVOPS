@@ -3,6 +3,61 @@
   <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
     <p class="fs-4">Registros Usuario</p>
   </div>
+  <form [formGroup]="formulario">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+        <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="text-danger">
+          Nombre es requerido.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Apellido</span>
+        <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido" aria-label="Apellido" aria-describedby="basic-addon1">
+        <div *ngIf="formulario.get('apellido')?.invalid && formulario.get('apellido')?.touched" class="text-danger">
+          Apellido es requerido.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Cod-Usuario</span>
+        <input type="text" class="form-control" formControlName="codUsuario" placeholder="Cod-Usuario" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
+        <div *ngIf="formulario.get('codUsuario')?.invalid && formulario.get('codUsuario')?.touched" class="text-danger">
+          Código de usuario es requerido.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Contraseña</span>
+        <input type="text" class="form-control" formControlName="password" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon1">
+        <div *ngIf="formulario.get('password')?.invalid && formulario.get('password')?.touched" class="text-danger">
+          Contraseña es requerida.
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Correo</span>
+        <input type="text" class="form-control" formControlName="correo" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+        <div *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched" class="text-danger">
+          Correo es requerido y debe ser un correo válido.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pb-3">
+    <div class="col-12 d-flex justify-content-end">
+      <button type="button" class="btn btn-success ml-auto" (click)="ingresarUsuario()">Crear Usuario</button>
+    </div>
+  </div>
+</form>
+
   <div>
     <div>
       <div class="p-2 row shadow-2 card">
