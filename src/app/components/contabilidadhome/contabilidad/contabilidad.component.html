@@ -551,17 +551,17 @@
           <mat-icon>record_voice_over</mat-icon>
           <h4 style="margin-left: 10px;margin-top: 18px;">EMISOR</h4>
         </ng-template>
-        <div class="p-3">
+        <div class="p-3" [formGroup]="form">
           <p class="fw-bold" style="margin-bottom: 20px;">Datos del Emisor</p>
           <div class="row justify-content-center">
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Comprador</label>
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                  <option>DF PROYECTOS S.A. DE C.V.</option>
-                  <option>DG REMODELACIONES, S.A. DE C.V.</option>
-                  <option>DIARPA, S.A DE C.V</option>
+                <select class="form-select" id="inputGroupSelect01" formControlName="comprador">
+                  <option value="">Seleccionar uno</option>
+                  <option value="DF PROYECTOS S.A. DE C.V.">DF PROYECTOS S.A. DE C.V.</option>
+                  <option value="DG REMODELACIONES, S.A. DE C.V.">DG REMODELACIONES, S.A. DE C.V.</option>
+                  <option value="DIARPA, S.A DE C.V">DIARPA, S.A DE C.V</option>
                 </select>
               </div>
             </div>
@@ -571,70 +571,64 @@
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nombre</span>
-                <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1" formControlName="nombre">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Nombre Comercial</span>
-                <input type="tex*t" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1" formControlName="nombreComercial">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
-                <select class="form-select" id="inputGroupSelect01" disabled>
-                  <option selected>Seleccionar uno</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon1" formControlName="actividad">
               </div>
             </div>
             <div class="col-12 col-md-2">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">NCR</span>
-                <input type="tex*t" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1" formControlName="ncr">
               </div>
             </div>
             <div class="col-12 col-md-4">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">NIT</span>
-                <input type="tex*t" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1" formControlName="nit">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Correo</span>
-                <input type="tex*t" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1" formControlName="correo">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
-                <select class="form-select" id="inputGroupSelect01" disabled>
-                  <option selected>Seleccionar uno</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Departamento" aria-label="Departamento" aria-describedby="basic-addon1" formControlName="departamento">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Telefono</span>
-                <input type="tex*t" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1" formControlName="telefono">
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
-                <select class="form-select" id="inputGroupSelect01" disabled>
-                  <option selected>Seleccionar uno</option>
-                </select>
+                <input type="text" class="form-control" placeholder="Municipio" aria-label="Municipio" aria-describedby="basic-addon1" formControlName="municipio">
+                
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Complemento</span>
-                <input type="tex*t" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1" disabled>
+                <input type="text" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1" formControlName="complemento">
               </div>
             </div>
-            
           </div>
         </div>
       </mat-tab>
@@ -652,7 +646,6 @@
                 <input type="tex*t" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
               </div>
             </div>
-
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Tipo documento</label>
@@ -666,7 +659,6 @@
                 </select>
               </div>
             </div>
-
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">N° de documento</span>
@@ -682,8 +674,22 @@
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
+                <select class="form-select" id="inputGroupSelect01" formControlName="departamento">
+                  <option value="">Seleccionar uno</option>
+                  <option value="Ahuachapán">Ahuachapán</option>
+                  <option value="Santa Ana">Santa Ana</option>
+                  <option value="Sonsonate">Sonsonate</option>
+                  <option value="Chalatenango">Chalatenango</option>
+                  <option value="La Libertad">La Libertad</option>
+                  <option value="San Salvador">San Salvador</option>
+                  <option value="Cuscatlán">Cuscatlán</option>
+                  <option value="La Paz">La Paz</option>
+                  <option value="Cabañas">Cabañas</option>
+                  <option value="San Vicente">San Vicente</option>
+                  <option value="Usulután">Usulután</option>
+                  <option value="San Miguel">San Miguel</option>
+                  <option value="Morazán">Morazán</option>
+                  <option value="La Unión">La Unión</option>
                 </select>
               </div>
             </div>
@@ -691,7 +697,32 @@
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
                 <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
+                  <option value="Otro País">Otro País</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  <option value="AHUACHAPÁN">AHUACHAPÁN</option>
+                  <option value="APANECA">APANECA</option>
+                  <option value="ATIQUIZAYA">ATIQUIZAYA</option>
+                  
                 </select>
               </div>
             </div>
@@ -748,7 +779,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -780,7 +818,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -812,7 +857,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -844,7 +896,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -876,7 +935,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -908,7 +974,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -940,7 +1013,14 @@
                         <input type="text" placeholder="X" />
                       </td>
                       <td>
-                        <input type="text" />
+                        <select class="form-select">
+                          <option value="">Seleccione una opcion</option>
+                          <option value="">Tornillos</option>
+                          <option value="">Clavos</option>
+                          <option value="">Llaves inglesas</option>
+                          <option value="">Destornilladores</option>
+                          <option value="">Taladros</option>
+                        </select>
                       </td>
                       <td>
                         <div>
@@ -1095,10 +1175,71 @@
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon>send</mat-icon>
-          <h4 style="margin-left: 10px;margin-top: 18px;">ENVIO</h4>
+          <h4 style="margin-left: 10px; margin-top: 18px;">ENVIO</h4>
         </ng-template>
-        <p>I'm visible because I am open</p>
+        
+        <br>
+        
+        <div class="col-12">
+          <!-- Sección de Resumen -->
+          <div class="resumen-container" style="border: 1px solid #ff0000; padding: 15px; border-radius: 5px; background-color: #f9f9f9;">
+            <h3 style="margin-bottom: 15px;">Resumen de la Facturacion</h3>
+            <div class="resumen-content" style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+              <p style="margin: 5px 0; font-size: 1.1em;">
+                <strong>Fecha:</strong> 
+                <span style="color: #555;"> 13 de julio de 2024</span>
+              </p>
+              <p style="margin: 5px 0; font-size: 1.1em;">
+                <strong>Receptor:</strong>
+                <span style="color: #555;"> Juan Pérez</span>
+              </p>
+              <p style="margin: 5px 0; font-size: 1.1em;">
+                <strong>Emisor:</strong> 
+                <span style="color: #555;"> DF PROYECTOS S.A. DE C.V.</span>
+              </p>
+              <p style="margin: 5px 0; font-size: 1.1em;">
+                <strong>Tipo de Pago:</strong> 
+                <span style="color: #555;"> Contado</span>
+              </p>
+              <p style="margin: 5px 0; font-size: 1.1em;"><strong>Productos:</strong></p>
+              <ul style="padding-left: 20px; margin: 10px 0; list-style-type: disc;">
+                <li style="margin: 5px 0; font-size: 1em;">
+                  Producto 1 - TORTILOS 
+                  <span style="color: #555;">Cantidad: 1</span> - 
+                  <span style="color: #555;">Precio: $10.00</span> - 
+                  <span style="color: #555;">Total: $20.00</span>
+                </li>
+                <li style="margin: 5px 0; font-size: 1em;">
+                  Producto 2 - CLAVOS
+                  <span style="color: #555;">Cantidad: 1</span> - 
+                  <span style="color: #555;">Precio: $15.00</span> - 
+                  <span style="color: #555;">Total: $10.00</span>
+                </li>
+                <li style="margin: 5px 0; font-size: 1em;">
+                  Producto 3 - LLAVE INGLESA
+                  <span style="color: #555;">Cantidad: 1</span> - 
+                  <span style="color: #555;">Precio: $20.00</span> - 
+                  <span style="color: #555;">Total: $20.00</span>
+                </li>
+              </ul>
+              <p style="margin: 5px 0; font-size: 1.1em;">
+                <strong>Total:</strong> 
+                <span style="color: #555;"> $ 50.00</span>
+              </p>
+            </div>
+            
+          </div>
+          
+          <br>
+          
+          <div class="col-12 d-flex justify-content-end">
+            <a class="btn btn-success ml-auto" (click)="realizarEnvio()">ENVIAR DTE</a>
+          </div>
+        </div>
+        
+        
       </mat-tab>
+      
       <mat-tab>
         <ng-template mat-tab-label>
           <mat-icon>not_interested</mat-icon>
@@ -1338,7 +1479,7 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">Actividad</label>
+                <label class="input-group-text" for="inputGroupSelect01">Actividadd</label>
                 <select class="form-select" id="inputGroupSelect01">
                   <option selected>Seleccionar uno</option>
                 </select>

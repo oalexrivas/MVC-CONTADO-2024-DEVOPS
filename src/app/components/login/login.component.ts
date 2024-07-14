@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit {
         result => {
           if (result.data && result.data.iniciarSesion && result.data.iniciarSesion.token) {
             const token = result.data.iniciarSesion.token;
+            console.log(token);
             this.setCookie('token', token, 7);
             resolve(true);
           } else {

@@ -421,4 +421,26 @@ input[type=text] {
   .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
     margin-left: 8px;
   }
+  .resumen-container {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .resumen-container h5 {
+    margin-bottom: 15px;
+  }
+  
+  .resumen-content p {
+    margin: 5px 0;
+  }
+  
+  .resumen-content ul {
+    padding-left: 20px;
+  }
+  
+  .resumen-content ul li {
+    margin: 5px 0;
+  }
   
