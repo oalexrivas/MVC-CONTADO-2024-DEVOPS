@@ -19,6 +19,8 @@ import { MatTabsModule} from '@angular/material/tabs';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
 import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
+import { RegistroEmisorComponent } from './registroemisor/registroemisor.component';
+import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,7 +43,9 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrosComponent,
     FacturasujetoexcluidoComponent,
     RegistroTokenComponent,
-    RegistroUsuarioComponent
+    RegistroUsuarioComponent,
+    RegistroEmisorComponent,
+    RegistroReceptorComponent
   ],
   imports: [
     CommonModule,

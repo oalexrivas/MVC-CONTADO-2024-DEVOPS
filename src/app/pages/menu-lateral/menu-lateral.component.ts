@@ -41,12 +41,11 @@ export class MenuLateralComponent implements OnInit {
       "registro": [
         {titulo: "Registros", logo: "../assets/iconos/registroInformacion.png"},
         {titulo: "Registro Usuario", logo: "../assets/iconos/agregar.png", ruta: "/contabilidad/registrousuario"},
-        {titulo: "Registro Emisor", logo: "../assets/iconos/emisor.png", ruta: "/contabilidad/registrousuario"},
-        {titulo: "Registro Receptor", logo: "../assets/iconos/receptor.png", ruta: "/contabilidad/registrousuario"}
+        {titulo: "Registro Emisor", logo: "../assets/iconos/emisor.png", ruta: "/contabilidad/registroemisor"},
+        {titulo: "Registro Receptor", logo: "../assets/iconos/receptor.png", ruta: "/contabilidad/registroreceptor"}
       ],
       "contabilidad":[
         {titulo: "Contabilidad", logo: "../../../assets/iconos/contabilidad.png"},
-        {titulo: "Registros", logo: "../../../assets/iconos/lista-de-verificacion.png",ruta: "/contabilidad/registros"},
         {titulo: "Factura Electronica", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/consumidorfinal"},
         {titulo: "Comprobante de crédito fiscal", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/creditofiscal"},
         {titulo: "Nota de remisión", logo: "../../../assets/iconos/factura.png",ruta: "/contabilidad/documentodte/notaremision"},

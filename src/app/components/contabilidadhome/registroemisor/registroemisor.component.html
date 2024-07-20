@@ -1,0 +1,133 @@
+<div class="contenedor bg-custom-soft d-flex flex-column">
+
+  <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
+    <p class="fs-4">Registros Emisor</p>
+  </div>
+  <form [formGroup]="formulario">
+
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">NIT</span>
+        <input type="text" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">NCR</span>
+        <input type="text" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Nombre</span>
+        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Cod. Actividad</label>
+        <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Des. Actividad</label>
+        <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Nombre Comercial</span>
+        <input type="text" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
+        <input type="text" class="form-control" placeholder="Departamento" aria-label="Departamento" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
+        <input type="text" class="form-control" placeholder="Municipio" aria-label="Municipio" aria-describedby="basic-addon1">
+        
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Complemento</span>
+        <input type="text" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Telefono</span>
+        <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Correo</span>
+        <input type="text" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
+      </div>
+    </div>
+  </div>
+  <div class="row pb-3">
+    <div class="col-12 d-flex justify-content-end">
+      <button type="button" class="btn btn-success ml-auto" (click)="ingresarUsuario()">Crear Emisor</button>
+    </div>
+  </div>
+</form>
+  <div>
+    <div>
+      <div class="p-2 row shadow-2 card">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover text-center">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">NIT</th>
+                <th scope="col">NRC</th>
+                <th scope="col">CORREO</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let usuario of lista">
+                <td>{{usuario.id}}</td>
+                <td>{{usuario.token}}</td>
+                <td>{{usuario.creacion}}</td>
+                <td></td>
+                <td>
+                  <button class="btn"><i class='bx bx-show'></i></button>
+                  <button class="btn"><i class='bx bxs-pencil'></i></button>
+                  <button class="btn"  data-bs-toggle="modal" data-bs-target="#confirmacionModal" ><i class='bx bx-trash'></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal confirmar eliminación -->
+  <div class="modal fade" id="confirmacionModal" aria-hidden="true" aria-labelledby="confirmacionModalLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="confirmacionModalLabel">Confirmación de eliminación</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="seleccionado!=null">
+          Está seguro que desea eliminar al registro <b>{{seleccionado.nombre?seleccionado.nombre:''}}</b>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Cancelar</button>
+          <button class="btn btn-danger" data-bs-target="#confirmacionModal" data-bs-toggle="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
