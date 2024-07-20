@@ -15,6 +15,7 @@ import { RegistroTokenComponent } from './registrotoken/registrotoken.component'
 import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 import { RegistroEmisorComponent } from './registroemisor/registroemisor.component';
 import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.component';
+import { RegistroEstablecimientoComponent } from './registroestablecimiento/registroestablecimiento.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'registrousuario', component:RegistroUsuarioComponent},
   {path: 'registroemisor', component:RegistroEmisorComponent},
   {path: 'registroreceptor', component:RegistroReceptorComponent},
+  {path: 'registroestablecimiento', component:RegistroEstablecimientoComponent},
   {path: 'documentodte/consumidorfinal', component:ConsumidorfinalComponent},
   {path: 'documentodte/creditofiscal', component:CreditofiscalComponent},
   {path: 'documentodte/notaremision', component:NotaremisionComponent},

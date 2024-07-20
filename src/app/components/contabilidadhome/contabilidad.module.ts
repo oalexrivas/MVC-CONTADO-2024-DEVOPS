@@ -21,6 +21,7 @@ import { RegistroTokenComponent } from './registrotoken/registrotoken.component'
 import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 import { RegistroEmisorComponent } from './registroemisor/registroemisor.component';
 import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.component';
+import { RegistroEstablecimientoComponent } from './registroestablecimiento/registroestablecimiento.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegistroTokenComponent,
     RegistroUsuarioComponent,
     RegistroEmisorComponent,
-    RegistroReceptorComponent
+    RegistroReceptorComponent,
+    RegistroEstablecimientoComponent
   ],
   imports: [
     CommonModule,
