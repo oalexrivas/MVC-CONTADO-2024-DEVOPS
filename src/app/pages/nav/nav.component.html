@@ -42,11 +42,11 @@
             </div>
             <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
               <img class="img-menu-conf" src="../assets/iconos/configuraciones.png" alt="User">
-              <p>Configuración</p>
+              <p>Historiales Generales</p>
             </div>
             <div class="config-option" *ngIf="userRole === 'administrador'" (click)="opcionMenu('registro'); dataService.toggleMenuOption(0);">
               <img class="img-menu-conf" src="../assets/iconos/registroInformacion.png" alt="User">
-              <p>Registros</p>
+              <p>Registro Inicial</p>
             </div>
             <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
               <img class="img-menu-conf" src="../assets/iconos/cerrar-sesion.png" alt="User">
