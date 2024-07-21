@@ -1,40 +1,51 @@
 <div class="contenedor bg-custom-soft d-flex flex-column">
 
   <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
-    <p class="fs-4">REGISTRO ESTABLECIMIENTO</p>
+    <p class="fs-4">REGISTRO PRODUCTOSERVICIO</p>
   </div>
   <form [formGroup]="formulario">
 
   <div class="row">
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
+      <div class="input-group mb-6">
         <span class="input-group-text" id="basic-addon1">Descripcion</span>
-        <input type="text" class="form-control" placeholder="Descripcion" aria-label="Nombre" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="productoservicio" aria-label="NIT" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Precio</span>
+        <input type="text" class="form-control" placeholder="precio" aria-label="NCR" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">U. Medida</label>
+        <select class="form-select" id="inputGroupSelect01">
+          <option value="">Seleccionar uno</option>
+        </select>
       </div>
     </div>
     <div class="col-12 col-md-6">
       <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
-        <input type="text" class="form-control" placeholder="Departamento" aria-label="Departamento" aria-describedby="basic-addon1">
+        <label class="input-group-text" for="inputGroupSelect01">Codigo Producto</label>
+        <input type="text" class="form-control" placeholder="codigo producto" aria-label="Actividad" aria-describedby="basic-addon1">
       </div>
     </div>
     <div class="col-12 col-md-6">
       <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
-        <input type="text" class="form-control" placeholder="Municipio" aria-label="Municipio" aria-describedby="basic-addon1">
-        
-      </div>
-    </div>
-    <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Complemento</span>
-        <input type="text" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
+        <label class="input-group-text" for="inputGroupSelect01">Tipo Item</label>
+        <select class="form-select" id="inputGroupSelect01">
+          <option value="">Seleccionar uno</option>
+          <option value="">Producto</option>
+          <option value="">Servicio</option>
+        </select>
       </div>
     </div>
   </div>
   <div class="row pb-3">
     <div class="col-12 d-flex justify-content-end">
-      <button type="button" class="btn btn-success ml-auto" (click)="ingresarUsuario()">Crear Establecimiento</button>
+      <button type="button" class="btn btn-success ml-auto" (click)="ingresarUsuario()">Crear ProductoServicio</button>
     </div>
   </div>
 </form>
