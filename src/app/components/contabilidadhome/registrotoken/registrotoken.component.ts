@@ -63,7 +63,7 @@ export class RegistroTokenComponent implements OnInit {
   
     this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
       next: result => {
-        this.tokenData = result.data.obtenerRegistroToken;  
+        this.tokenData = result.data.obtenerRegistroToken;
         this.lista = this.tokenData.map((item: any) => ({
           id: item.id,
           tipo: "tipoNoDisponible",  

@@ -39,33 +39,6 @@ export class RegistroUsuarioComponent implements OnInit {
       creacion: fb.control(usuario.creacion, []),
     });
   }
-  ingresarUsuario(): void {
-    const query = `
-      mutation CrearUsuario($parametros: usuarioInput) {
-        crearUsuario(parametros: $parametros) {
-          apellidos
-          codUsuario
-          correo
-          clave
-          nombre
-        }
-      }
-    `;
-    const variables = {
-      parametros: {
-        nombre: this.formulario.get('nombre')?.value,
-        apellidos: this.formulario.get('apellido')?.value,
-        correo: this.formulario.get('correo')?.value,
-        clave: this.formulario.get('password')?.value,
-        nrc: "",
-        codUsuario: this.formulario.get('codUsuario')?.value
-      }
-    };
-    this.http.post<any>('http://localhost:4000/', { query, variables }).subscribe(result => {
-      alert("Usuario Creado");
-    }); 
-
-  } 
   realizarEnvio() {
     this.mostrar = 3;
 
