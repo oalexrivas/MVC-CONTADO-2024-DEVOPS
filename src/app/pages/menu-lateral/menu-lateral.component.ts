@@ -34,7 +34,6 @@ export class MenuLateralComponent implements OnInit {
 
       "configuracion": [
         {titulo: "Configuración", logo: "../assets/iconos/configuraciones.png"},
-        {titulo: "Registro Contabilidad", logo: "../assets/iconos/perfil.png", ruta: "/configuracion/registro/contabilidades"},
         {titulo: "Historial DTE", logo: "../assets/iconos/historial-de-transacciones.png", ruta: "/configuracion/registro/usuarios"},
         {titulo: "Historial TOKEN", logo: "../../../assets/iconos/historial-de-transacciones.png",ruta: "/contabilidad/registrotoken"}
       ],
@@ -44,6 +43,7 @@ export class MenuLateralComponent implements OnInit {
         {titulo: "Registro Emisor", logo: "../assets/iconos/emisor.png", ruta: "/contabilidad/registroemisor"},
         {titulo: "Registro Receptor", logo: "../assets/iconos/receptor.png", ruta: "/contabilidad/registroreceptor"},
         {titulo: "Registro Establecimiento", logo: "../assets/iconos/establecimiento.png", ruta: "/contabilidad/registroestablecimiento"},
+        {titulo: "Registro Contabilidad", logo: "../assets/iconos/perfil.png", ruta: "/configuracion/registro/contabilidades"},
         {titulo: "Registro ProductoServicios", logo: "../assets/iconos/producto.png", ruta: "/contabilidad/registroproductoservicio"}
       ],
       "contabilidad":[
