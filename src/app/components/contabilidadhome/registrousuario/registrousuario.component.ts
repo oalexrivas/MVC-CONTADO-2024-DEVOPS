@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+
 import Swal from 'sweetalert2';
 
 interface RegistroUsuario {
@@ -8,7 +12,29 @@ interface RegistroUsuario {
   apellidos: string;
   codUsuario: string;
   idTipoUsuario: number;
+  dui: string;
+  nit: string;
+  nrc: string;
+  correo: string;
+  password: string;
 }
+
+export interface UserData {
+  id: string;
+  name: string;
+  progress: string;
+  color: string;
+}
+
+const ELEMENT_DATA: UserData[] = [
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
+  // más datos aquí
+];
 
 @Component({
   selector: 'app-registros',
@@ -23,18 +49,35 @@ export class RegistroUsuarioComponent implements OnInit {
   lista: RegistroUsuario[] = [];
   usuarioData: any = null;
   public mostrar: number = 1;
+  public mostrarPassword: boolean = false;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  dataSource = new MatTableDataSource<UserData>();
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+
+  constructor(private router: Router, private fb: FormBuilder, private http: HttpClient) {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
       apellidos: ['', Validators.required],
       codUsuario: ['', Validators.required],
-      idTipoUsuario: ['', Validators.required]
+      idTipoUsuario: ['', Validators.required],
+      dui: ['', Validators.required],
+      nit: ['', Validators.required],
+      nrc: ['', Validators.required],
+      correo: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 
   ngOnInit() {
     this.obtenerUsuarios();
+    //this.dataSource.paginator = this.paginator;
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
   obtenerUsuarios(): void {
@@ -46,6 +89,9 @@ export class RegistroUsuarioComponent implements OnInit {
         apellidos
         codUsuario
         idTipoUsuario
+        correo
+        dui
+        nrc
       }
     }
     `;
@@ -57,21 +103,21 @@ export class RegistroUsuarioComponent implements OnInit {
   
     this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
       next: result => {
-        this.usuarioData = result.data.obtenerUsuario;
-        this.lista = this.usuarioData.map((item: any) => ({
-          nombre: item.nombre,
-          apellidos: item.apellidos,
-          codUsuario: item.codUsuario,
-          idTipoUsuario: item.idTipoUsuario
+        const usuarioData = result.data.obtenerUsuario;
+        const lista = usuarioData.map((item: any) => ({
+          id: item.correo,
+          name: `${item.nombre} ${item.apellidos}`,
+          progress: item.apellidos, 
+          color: item.dui 
         }));
-        console.log(JSON.stringify(this.lista));  
+        this.dataSource.data = lista;
+        console.log(JSON.stringify(this.dataSource.data));  
       },
       error: error => {
         console.error('Error fetching data:', error);
       }
     });
   }
-
   getCookie(name: string): string | null {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
@@ -82,7 +128,46 @@ export class RegistroUsuarioComponent implements OnInit {
     }
     return null;
   }
-
+  guardarUsuario(): void{
+    const token = this.getCookie('token');
+    console.log(token);
+    const query = `
+      mutation CrearUsuario($parametros: usuarioInput) {
+        crearUsuario(parametros: $parametros) {
+          nombre
+          apellidos
+          codUsuario
+          idTipoUsuario
+          dui
+          nit
+          correo
+          clave
+          nrc
+        }
+      }
+    `;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    const variables = {
+      parametros: {
+        nombre: this.formulario.get('nombre')?.value,
+        apellidos: this.formulario.get('apellidos')?.value,
+        codUsuario: this.formulario.get('codUsuario')?.value,
+        idTipoUsuario: Number(this.formulario.get('idTipoUsuario')?.value),
+        dui: this.formulario.get('dui')?.value,
+        nit: this.formulario.get('nit')?.value,
+        correo: this.formulario.get('correo')?.value,
+        clave: this.formulario.get('password')?.value,
+        nrc: this.formulario.get('nrc')?.value,
+      },
+    };
+    console.log(variables);
+    this.http.post<any>('http://localhost:4000/', { query,variables },{headers}).subscribe(result => {
+      console.log("token guardado")
+    });
+  }
   realizarEnvio() {
     this.mostrar = 3;
 
@@ -97,11 +182,13 @@ export class RegistroUsuarioComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.guardarUsuario();
         Swal.fire(
           'Enviado',
           'El usuario se registró correctamente',
           'success'
         )
+        this.router.navigate(['/contabilidad/registrousuario']);
       }
     });
   }

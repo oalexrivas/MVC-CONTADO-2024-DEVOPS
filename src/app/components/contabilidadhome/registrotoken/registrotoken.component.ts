@@ -60,17 +60,53 @@ export class RegistroTokenComponent implements OnInit {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
+
+    console.log(headers);
   
     this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
+
+
+
       next: result => {
         this.tokenData = result.data.obtenerRegistroToken;
+
+        /* const query = `
+          query ObtenerUsuario {
+            obtenerUsuario {
+              idTipoUsuario
+              ipUsuario
+              correo
+            }
+          }
+        `;
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
+        this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
+          next: (response) => {
+            const usuario = response.data.obtenerUsuario;
+            const idTipoUsuario = usuario.idTipoUsuario;
+            const ipUsuario = usuario.ipUsuario;
+            const correo = usuario.correo;
+        
+            console.log('ID Tipo Usuario:', idTipoUsuario);
+            console.log('IP Usuario:', ipUsuario);
+            console.log('Correo:', correo);
+        
+            // Puedes utilizar las variables aquí según tus necesidades
+          },
+          error: (error) => {
+            console.error('Error al obtener el usuario:', error);
+          }
+        }); */
+        
         this.lista = this.tokenData.map((item: any) => ({
           id: item.id,
           tipo: "tipoNoDisponible",  
           token: item.tokenActual,
           creacion: item.fechaGeneracion
-        }));
-        console.log(JSON.stringify(this.lista));  
+        }));  
       },
       error: error => {
         console.error('Error fetching data:', error);

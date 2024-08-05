@@ -9,7 +9,7 @@
           <span class="input-group-text" id="basic-addon1">Nombre</span>
           <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
           <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="text-danger">
-            Nombre es requerido.
+            Nombres son requeridos.
           </div>
         </div>
       </div>
@@ -24,20 +24,70 @@
       </div>
       <div class="col-12 col-md-6">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Cod-Usuario</span>
-          <input type="text" class="form-control" formControlName="codUsuario" placeholder="Cod-Usuario" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
+          <span class="input-group-text" id="basic-addon1">Usuario</span>
+          <input type="text" class="form-control" formControlName="codUsuario" placeholder="Usuario" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
           <div *ngIf="formulario.get('codUsuario')?.invalid && formulario.get('codUsuario')?.touched" class="text-danger">
-            Código de usuario es requerido.
+            Usuario es requerido.
           </div>
         </div>
       </div>
       <div class="col-12 col-md-6">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">ID Tipo Usuario</span>
-          <input type="number" class="form-control" formControlName="idTipoUsuario" placeholder="ID Tipo Usuario" aria-label="ID Tipo Usuario" aria-describedby="basic-addon1">
+          <label class="input-group-text" for="inputGroupSelect01">Tipo Usuario</label>
+          <select class="form-select" formControlName="idTipoUsuario">
+            <option value="">Seleccionar uno</option>
+            <option value="1">ADMIN</option>
+            <option value="2">EMPRENDEDOR</option>
+            <option value="3">CONTADOR</option>
+          </select>
           <div *ngIf="formulario.get('idTipoUsuario')?.invalid && formulario.get('idTipoUsuario')?.touched" class="text-danger">
-            ID Tipo Usuario es requerido.
+            Seleccione una opcion.
           </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">DUI</span>
+          <input type="text" class="form-control" formControlName="dui" placeholder="dui" aria-label="dui" aria-describedby="basic-addon1">
+          <div *ngIf="formulario.get('dui')?.invalid && formulario.get('dui')?.touched" class="text-danger">
+            DUI es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">NIT</span>
+          <input type="text" class="form-control" formControlName="nit" placeholder="nit" aria-label="nit" aria-describedby="basic-addon1">
+          <div *ngIf="formulario.get('nit')?.invalid && formulario.get('nit')?.touched" class="text-danger">
+            NIT es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">NRC</span>
+          <input type="text" class="form-control" formControlName="nrc" placeholder="nrc" aria-label="nrc" aria-describedby="basic-addon1">
+          <div *ngIf="formulario.get('nrc')?.invalid && formulario.get('nrc')?.touched" class="text-danger">
+            NRC es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Correo</span>
+          <input type="text" class="form-control" formControlName="correo" placeholder="correo" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
+          <div *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched" class="text-danger">
+            Correo es requerido.
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 d-flex align-items-center">
+        <span class="input-group-text" id="basic-addon1">Contraseña</span>
+        <div class="input-group" id="show_hide_password">
+          <input [type]="mostrarPassword ? 'text' : 'password'" class="form-control border-end-0" formControlName="password" placeholder="Ingresar contraseña">
+          <a (click)="mostrarPassword = !mostrarPassword" class="input-group-text bg-transparent">
+            <i class="bx" [ngClass]="mostrarPassword ? 'bxs-show' : 'bx-hide'"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -51,30 +101,37 @@
     <div>
       <div class="p-2 row shadow-2 card">
         <div class="table-responsive">
-          <table class="table table-striped table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Cod-Usuario</th>
-                <th scope="col">ID Tipo Usuario</th>
-                <th scope="col">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let usuario of lista">
-                <td>{{usuario.nombre}}</td>
-                <td>{{usuario.apellidos}}</td>
-                <td>{{usuario.codUsuario}}</td>
-                <td>{{usuario.idTipoUsuario}}</td>
-                <td>
-                  <button class="btn"><i class='bx bx-show'></i></button>
-                  <button class="btn"><i class='bx bxs-pencil'></i></button>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#confirmacionModal"><i class='bx bx-trash'></i></button>
-                </td>
-              </tr>
-            </tbody>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef> Correo </th>
+              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombres </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="progress">
+              <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+              <td mat-cell *matCellDef="let element"> {{element.progress}} </td>
+            </ng-container>
+
+            <!-- Color Column -->
+            <ng-container matColumnDef="color">
+              <th mat-header-cell *matHeaderCellDef> DUI </th>
+              <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
       </div>
     </div>

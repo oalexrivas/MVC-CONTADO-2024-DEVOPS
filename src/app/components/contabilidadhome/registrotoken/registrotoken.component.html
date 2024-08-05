@@ -10,25 +10,28 @@
           <table class="table table-striped table-hover text-center">
             <thead>
               <tr>
-                <th scope="col">ID Token</th>
-                <th scope="col">Token</th>
-                <th scope="col">Fecha Generacion</th>
-                <th>Acciones</th>
+                <th scope="col" style="width: 40%;">Token Generado</th>
+                <th scope="col" style="width: 10%;">Usuario</th>
+                <th scope="col" style="width: 30%;">Fecha Generacion</th>
+                <th scope="col" style="width: 20%;">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let usuario of lista">
+                <td style="word-wrap: break-word; word-break: break-word;">{{usuario.token}}</td>
                 <td>{{usuario.id}}</td>
-                <td>{{usuario.token}}</td>
+                
                 <td>{{usuario.creacion}}</td>
                 <td>
                   <button class="btn"><i class='bx bx-show'></i></button>
                   <button class="btn"><i class='bx bxs-pencil'></i></button>
-                  <button class="btn"  data-bs-toggle="modal" data-bs-target="#confirmacionModal" ><i class='bx bx-trash'></i></button>
+                  <button class="btn" data-bs-toggle="modal" data-bs-target="#confirmacionModal"><i class='bx bx-trash'></i></button>
                 </td>
               </tr>
             </tbody>
           </table>
+          
+          
         </div>
       </div>
     </div>
