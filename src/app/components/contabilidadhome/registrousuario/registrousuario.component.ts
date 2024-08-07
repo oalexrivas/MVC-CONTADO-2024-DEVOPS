@@ -20,21 +20,11 @@ interface RegistroUsuario {
 }
 
 export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
+  correo: string;
+  nombre: string;
+  apellido: string;
+  dui: string;
 }
-
-const ELEMENT_DATA: UserData[] = [
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  {id: '1', name: 'Hydrogen', progress: '100%', color: 'red'},
-  // más datos aquí
-];
 
 @Component({
   selector: 'app-registros',
@@ -51,7 +41,7 @@ export class RegistroUsuarioComponent implements OnInit {
   public mostrar: number = 1;
   public mostrarPassword: boolean = false;
 
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  displayedColumns: string[] = ['correo', 'nombre', 'apellido', 'dui'];
   dataSource = new MatTableDataSource<UserData>();
 
   @ViewChild(MatPaginator)
@@ -70,16 +60,12 @@ export class RegistroUsuarioComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-
   ngOnInit() {
     this.obtenerUsuarios();
-    //this.dataSource.paginator = this.paginator;
   }
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-
   obtenerUsuarios(): void {
     const token = this.getCookie('token'); // Asumiendo que tienes una función getCookie
     const query = `
@@ -105,10 +91,10 @@ export class RegistroUsuarioComponent implements OnInit {
       next: result => {
         const usuarioData = result.data.obtenerUsuario;
         const lista = usuarioData.map((item: any) => ({
-          id: item.correo,
-          name: `${item.nombre} ${item.apellidos}`,
-          progress: item.apellidos, 
-          color: item.dui 
+          correo: item.correo,
+          nombre: `${item.nombre} ${item.apellidos}`,
+          apellido: item.apellidos, 
+          dui: item.dui 
         }));
         this.dataSource.data = lista;
         console.log(JSON.stringify(this.dataSource.data));  

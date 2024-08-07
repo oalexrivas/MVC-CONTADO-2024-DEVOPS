@@ -11,6 +11,22 @@
   margin: 0;
 }
 .form-group.required .form-label:after {
-  content:" *";
-  color:red;
+  content: " *";
+  color: red;
 }
+
+.token-column {
+  width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.usuario-column {
+  width: 20%;
+}
+
+.fecha-column {
+  width: 20%;
+}
+

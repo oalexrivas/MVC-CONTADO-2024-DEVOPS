@@ -1,37 +1,28 @@
 <div class="contenedor bg-custom-soft d-flex flex-column">
-
   <div class="head bg-custom-medium d-flex justify-content-center py-3 mb-4">
     <p class="fs-4">Registros Token</p>
   </div>
   <div>
     <div>
-      <div class="p-2 row shadow-2 card">
+      <div class="p-2 row card">
         <div class="table-responsive">
-          <table class="table table-striped table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 40%;">Token Generado</th>
-                <th scope="col" style="width: 10%;">Usuario</th>
-                <th scope="col" style="width: 30%;">Fecha Generacion</th>
-                <th scope="col" style="width: 20%;">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let usuario of lista">
-                <td style="word-wrap: break-word; word-break: break-word;">{{usuario.token}}</td>
-                <td>{{usuario.id}}</td>
-                
-                <td>{{usuario.creacion}}</td>
-                <td>
-                  <button class="btn"><i class='bx bx-show'></i></button>
-                  <button class="btn"><i class='bx bxs-pencil'></i></button>
-                  <button class="btn" data-bs-toggle="modal" data-bs-target="#confirmacionModal"><i class='bx bx-trash'></i></button>
-                </td>
-              </tr>
-            </tbody>
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="usuario">
+              <th mat-header-cell *matHeaderCellDef class="usuario-column"><strong>USUARIO</strong></th>
+              <td mat-cell *matCellDef="let element" class="usuario-column"> {{element.usuario}} </td>
+            </ng-container>
+            <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef class="fecha-column"><strong>FECHA</strong></th>
+              <td mat-cell *matCellDef="let element" class="fecha-column"> {{element.fecha}} </td>
+            </ng-container>
+            <ng-container matColumnDef="token">
+              <th mat-header-cell *matHeaderCellDef class="token-column"><strong>TOKEN</strong></th>
+              <td mat-cell *matCellDef="let element" class="token-column"> {{element.token}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-          
-          
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
       </div>
     </div>

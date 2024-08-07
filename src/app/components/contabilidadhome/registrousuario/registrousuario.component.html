@@ -99,38 +99,28 @@
   </form>
   <div>
     <div>
-      <div class="p-2 row shadow-2 card">
+      <div class="p-2 row card">
         <div class="table-responsive">
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-            <!-- ID Column -->
-            <ng-container matColumnDef="id">
-              <th mat-header-cell *matHeaderCellDef> Correo </th>
-              <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            <ng-container matColumnDef="correo">
+              <th mat-header-cell *matHeaderCellDef><strong>CORREO</strong></th>
+              <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
             </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Nombres </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef><strong>NOMBRES</strong></th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
             </ng-container>
-
-            <!-- Progress Column -->
-            <ng-container matColumnDef="progress">
-              <th mat-header-cell *matHeaderCellDef> Apellidos </th>
-              <td mat-cell *matCellDef="let element"> {{element.progress}} </td>
+            <ng-container matColumnDef="apellido">
+              <th mat-header-cell *matHeaderCellDef><strong>APELLIDOS</strong></th>
+              <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
             </ng-container>
-
-            <!-- Color Column -->
-            <ng-container matColumnDef="color">
-              <th mat-header-cell *matHeaderCellDef> DUI </th>
-              <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+            <ng-container matColumnDef="dui">
+              <th mat-header-cell *matHeaderCellDef><strong>DUI</strong></th>
+              <td mat-cell *matCellDef="let element"> {{element.dui}} </td>
             </ng-container>
-
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>
       </div>
