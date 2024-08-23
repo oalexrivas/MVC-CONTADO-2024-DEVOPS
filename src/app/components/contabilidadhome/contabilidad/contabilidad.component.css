@@ -141,6 +141,8 @@ p, h5 {
     outline: none;
 }
 
+
+  
 /*--------------------------------------------------------------*/
 /*--------------------------------------------------------------*/
 /*--------------------------------------------------------------*/
@@ -197,6 +199,15 @@ th, td:first-child {
 }
 .contenido-tabla > td input:first-child {
     text-align: center;
+}
+.tabla_factura .tabla-head th p {
+    color: #f4f4f4; 
+    background-color: #2F5958;
+    font-weight: normal;
+}
+
+.info{
+    background-color: #2F5958;
 }
 
 .tabla_factura > tr:nth-child(even) {
@@ -278,7 +289,7 @@ input[type=text] {
     background: #e8e8e8;
 }
 .division .info {
-    background: #529bc6;
+    background: #2F5958;
     color: #fff;
 }
 .division .signo {
@@ -443,4 +454,123 @@ input[type=text] {
   .resumen-content ul li {
     margin: 5px 0;
   }
+  
+
+  .tab-active {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    background-color: #172F3F; /* Color de fondo solicitado */
+    padding: 8px 12px;
+    color: white; /* Para que el texto sea legible */
+  }
+  
+  
+  
+.btn-dte{
+background-color: #E85D0C ;
+outline: none;
+    color: rgb(255, 255, 255);
+    margin: 0; /* Elimina todos los márgenes */
+}
+
+
+  .btn-siguiente {
+    background-color:#F9BC01;
+    outline: none;
+    color: black;
+    margin: 0; /* Elimina todos los márgenes */
+  }
+
+  .btn-siguiente:focus {
+    border: 2px solid #333333; /* Gris oscuro */
+}
+
+  .btn-atras {
+    background-color: #2F5958;
+    color: white;
+  }
+
+  .col-12.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+     /* Espacio entre los botones */
+  }
+
+/* Cambia el color del borde y el fondo cuando el botón está enfocado */
+.btn-siguiente:focus{
+    border: 2px solid #333333; /* Usa un color gris oscuro, por ejemplo */
+    background-color: #F9BC01; /* Mantén el fondo amarillo */
+}
+
+.btn-atras:active  {
+    border: 2px solid #333333;
+    background-color: #2F5958;
+}
+
+.btn-siguiente:active{
+    background-color: #E0A800; /* Un color ligeramente más oscuro para el efecto de clic */
+    border: 2px solid #E0A800; /* Cambia también el color del borde cuando está activo */
+}
+
+/* Asegúrate de que no haya borde azul por defecto */
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus {
+    outline: none !important; /* Elimina el borde azul */
+    box-shadow: none !important; /* Elimina cualquier sombra azul */
+    border: 2px solid #333333 !important; /* Añade un borde personalizado */
+}
+
+  
+
+
+
+
+
+
+/* Modal overlay to darken the background */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  /* Modal container */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  /* Modal content */
+  .modal-content h3 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .modal-footer .btn {
+    margin-left: 10px;
+  }
+  
   

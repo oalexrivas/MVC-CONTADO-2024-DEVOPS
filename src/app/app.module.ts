@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
@@ -15,13 +14,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { HomeComponent } from './components/home/home.component';
 import { DistribucioncompletaComponent } from './components/distribucioncompleta/distribucioncompleta.component';
-
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DistribucioncompletaComponent
+    DistribucioncompletaComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -36,6 +36,8 @@ import { DistribucioncompletaComponent } from './components/distribucioncompleta
     MatInputModule,
     MatPaginatorModule,
     MatAutocompleteModule,
+    MatCardModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

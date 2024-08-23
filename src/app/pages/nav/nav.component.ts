@@ -58,6 +58,10 @@ export class NavComponent {
       this.encontrados = this.dataService.arregloFiltrado;
     }
   }
+
+  navigateTo(route: string) {
+    this.router.navigate([route]);
+  }
   seleccionarBusqueda(seleccionado: string) {
     this.dataService.busquedaSeleccionado = seleccionado;
     console.log(seleccionado)
@@ -106,4 +110,6 @@ export class NavComponent {
     
     console.log('Token generado:', token);
   }
+
+
 }

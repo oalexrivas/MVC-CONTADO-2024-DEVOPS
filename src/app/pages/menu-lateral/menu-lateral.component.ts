@@ -39,6 +39,7 @@ export class MenuLateralComponent implements OnInit {
       ],
       "registro": [
         {titulo: "Registros", logo: "../assets/iconos/registroInformacion.png"},
+        {titulo: "Inicio", logo: "../../../assets/iconos/inicio.png",ruta: "/contabilidad/registroinicio"},
         {titulo: "Registro Usuario", logo: "../assets/iconos/agregar.png", ruta: "/contabilidad/registrousuario"},
         {titulo: "Registro Emisor", logo: "../assets/iconos/emisor.png", ruta: "/contabilidad/registroemisor"},
         {titulo: "Registro Receptor", logo: "../assets/iconos/receptor.png", ruta: "/contabilidad/registroreceptor"},

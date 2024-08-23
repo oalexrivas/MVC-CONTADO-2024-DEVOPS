@@ -1,31 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from 'src/app/services/data.service';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-contabilidad',
   templateUrl: './contabilidad.component.html',
   styleUrls: ['./contabilidad.component.css'],
-  animations: [
-    trigger('fade', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter, :leave', [
-        animate('0.5s')
-      ]),
-    ]),
-  ]
 })
 export class ContabilidadComponent implements OnInit {
+  @ViewChild('finalizarDialog') finalizarDialog!: TemplateRef<any>;
+
   panelOpenState = false;
   form: FormGroup;
+  emisorForm: FormGroup;
 
   creditdoFiscal: boolean = false;
   consumidorFinal: boolean = true;
   public mostrar: number = 1;
   selectedTabIndex = 0;
-  
+
   empresas: { [key: string]: { nombre: string; nombreComercial: string; actividad: string; ncr: string; nit: string; correo: string; departamento: string; telefono: string; municipio: string; complemento: string; } } = {
     'DF PROYECTOS S.A. DE C.V.': {
       nombre: 'Nombre DF Proyectos',
@@ -65,7 +61,13 @@ export class ContabilidadComponent implements OnInit {
     }
   };
 
-  constructor(public service: DataService, private fb: FormBuilder) {
+  displayedColumns: string[] = ['cantidad', 'descripcion', 'precioUnitario', 'ventasNoSujetas', 'ventasExentas', 'ventasAfectas'];
+
+  constructor(
+    public service: DataService,
+    private fb: FormBuilder,
+    public dialog: MatDialog
+  ) {
     this.form = this.fb.group({
       comprador: [''],
       nombre: [{ value: '', disabled: true }],
@@ -78,6 +80,19 @@ export class ContabilidadComponent implements OnInit {
       telefono: [{ value: '', disabled: true }],
       municipio: [{ value: '', disabled: true }],
       complemento: [{ value: '', disabled: true }]
+    });
+
+    this.emisorForm = this.fb.group({
+      nombre: ['', Validators.required],
+      nombreComercial: ['', Validators.required],
+      actividad: ['', Validators.required],
+      ncr: ['', Validators.required],
+      nit: ['', Validators.required],
+      departamento: ['', Validators.required],
+      municipio: ['', Validators.required],
+      complemento: ['', Validators.required],
+      telefono: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+      correo: ['', [Validators.required, Validators.email]]
     });
   }
 
@@ -107,23 +122,33 @@ export class ContabilidadComponent implements OnInit {
     console.log(content2);
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(this.finalizarDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.realizarEnvio(); // Llama a la función para finalizar el proceso
+      }
+    });
+  }
+
   realizarEnvio() {
     this.mostrar = 3;
 
     Swal.fire({
-      title: '¿Estas seguro de terminar el proceso?',
-      text: "No podras revertir este proceso!",
+      title: '¿Estás seguro de terminar el proceso?',
+      text: "¡No podrás revertir este proceso!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Si',
+      confirmButtonText: 'Sí',
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire(
           'Enviado',
-          'El DTE se envio correctamente',
+          'El DTE se envió correctamente',
           'success'
         )
       }
@@ -155,4 +180,27 @@ export class ContabilidadComponent implements OnInit {
   isTabActive(index: number) {
     return this.selectedTabIndex === index ? 'active' : 'inactive';
   }
+
+  goToSpecificTab(tabGroup: MatTabGroup, tabIndex: number) {
+    if (this.isEmisorFormValid()) {
+      if (tabIndex < tabGroup._tabs.length) {
+        tabGroup.selectedIndex = tabIndex;
+      } else {
+        console.warn('Índice de pestaña fuera de rango');
+      }
+    } else {
+      alert('Por favor complete todos los campos requeridos del Emisor.');
+    }
+  }
+
+  isEmisorFormValid(): boolean {
+    return this.form.valid;
+  }
+  
+
+  isReceptorFormValid(): boolean {
+    return this.form.valid;
+  } 
+
+ 
 }
