@@ -62,6 +62,7 @@ export class ContabilidadComponent implements OnInit {
   };
 
   displayedColumns: string[] = ['cantidad', 'descripcion', 'precioUnitario', 'ventasNoSujetas', 'ventasExentas', 'ventasAfectas'];
+productos: any;
 
   constructor(
     public service: DataService,

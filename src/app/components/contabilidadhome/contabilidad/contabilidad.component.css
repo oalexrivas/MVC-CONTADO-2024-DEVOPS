@@ -455,16 +455,45 @@ input[type=text] {
     margin: 5px 0;
   }
   
+  .mat-tab-group.mat-primary .mat-tab-label {
+    display: flex;  /* Usar flexbox para alineación */
+    align-items: center; /* Centrar verticalmente */
+    padding: 8px 16px; /* Ajuste de padding según necesites */
+    background-color: #ff0000; /* Color de fondo para las pestañas no activas */
+    border-bottom: 2px solid #ff0000 !important;
+    transition: background-color 0.3s ease; /* Transición suave para cambio de color */
+}
 
-  .tab-active {
+.mat-tab-group.mat-primary .mat-tab-label.mat-tab-label-active {
+    background-color: #f60000; /* Color de fondo para pestaña activa */
+    font-weight: bold;
+    color: white; /* Asegura que el texto sea legible */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para pestaña activa */
+}
+.tab-active {
+    display: flex;  /* Asegura que el contenido esté alineado con flexbox */
+    align-items: center; /* Centrar verticalmente */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     background-color: #172F3F; /* Color de fondo solicitado */
-    padding: 8px 12px;
+    padding: 2px 12px;
     color: white; /* Para que el texto sea legible */
-  }
-  
-  
+}
+
+.tab-active-icon {
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #172F3F; /* Color de fondo solicitado */
+    color: white; /* Para que el texto sea legible */
+    padding: 3px 0; /* Elimina el margen derecho */
+    margin: 4px; /* Asegúrate de eliminar cualquier margen alrededor del icono */
+}
+
+
+
+
+
   
 .btn-dte{
 background-color: #E85D0C ;

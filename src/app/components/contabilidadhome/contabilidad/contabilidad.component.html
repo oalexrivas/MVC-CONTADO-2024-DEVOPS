@@ -528,13 +528,18 @@
     [ngClass]="consumidorFinal == false ? 'toggleClass' : ''"
   >
     <mat-card class="main-head">
-      <mat-card-title class="text-center"> Factura Consumidor Final </mat-card-title>
+      <mat-card-title class="text-center">
+        Factura Consumidor Final
+      </mat-card-title>
     </mat-card>
 
     <mat-tab-group (selectedTabChange)="tabChanged($event.index)" #tabGroup>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(0) }">EMISOR</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">record_voice_over</mat-icon>
+            <span>EMISOR</span>
+          </div>
         </ng-template>
         <div class="p-3" [formGroup]="form">
           <!-- Agrupamos los campos en tarjetas para una mejor organización -->
@@ -689,7 +694,10 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(1) }">RECEPTOR</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">hearing</mat-icon>
+            <span>RECEPTOR</span>
+          </div>
         </ng-template>
 
         <div class="p-3" style="background-color: white; border-radius: 8px">
@@ -821,7 +829,10 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(2) }">Descripcion</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">description</mat-icon>
+            <span>DESCRIPCION</span>
+          </div>
         </ng-template>
         <div class="p-3">
           <div class="row">
@@ -1258,7 +1269,10 @@
       </mat-tab>
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(3) }">Envio</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">send</mat-icon>
+            <span>Envío</span>
+          </div>
         </ng-template>
 
         <br />
@@ -1334,7 +1348,10 @@
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(4) }">Contingencia</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">crop</mat-icon>
+            <span>CONTINGENCIA</span>
+          </div>
         </ng-template>
         <div class="p-3">
           <div class="row">
@@ -1551,37 +1568,34 @@
                   aria-label="NCR"
                   aria-describedby="basic-addon1"
                 />
-
-                
               </div>
-              
-    
             </div>
-            
           </div>
-
         </div>
         <div class="col-12 text-center" style="margin-top: 20px">
-        <button
-        class="btn btn-primary btn-siguiente"
-        (click)="goToSpecificTab(tabGroup, 5)"
-        [disabled]="!isEmisorFormValid()"
-      >
-        Siguiente
-      </button>
-      <button
-        class="btn btn-secondary btn-atras"
-        (click)="goToSpecificTab(tabGroup, 3)"
-        [disabled]="!isEmisorFormValid()"
-      >
-        Atras
-      </button>
-    </div>
+          <button
+            class="btn btn-primary btn-siguiente"
+            (click)="goToSpecificTab(tabGroup, 5)"
+            [disabled]="!isEmisorFormValid()"
+          >
+            Siguiente
+          </button>
+          <button
+            class="btn btn-secondary btn-atras"
+            (click)="goToSpecificTab(tabGroup, 3)"
+            [disabled]="!isEmisorFormValid()"
+          >
+            Atras
+          </button>
+        </div>
       </mat-tab>
 
       <mat-tab>
         <ng-template mat-tab-label>
-          <span [ngClass]="{ 'tab-active': isTabActive(5) }">Invalidacion</span>
+          <div class="tab-active">
+            <mat-icon class="tab-active-icon">not_interested</mat-icon>
+            <span>INVALIDACION</span>
+          </div>
         </ng-template>
         <div class="p-3">
           <div class="row">
