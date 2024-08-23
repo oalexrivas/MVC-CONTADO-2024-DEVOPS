@@ -10,6 +10,7 @@ import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { PdfViewComponent } from '../components/pdf-view/pdf-view.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PdfViewComponent } from '../components/pdf-view/pdf-view.component';
     CommonModule,
     FormsModule,
     RouterModule,
-    PdfViewComponent
+    PdfViewComponent,
+    MatIconModule,
   ],
   exports: [
     NavComponent,
@@ -34,4 +36,5 @@ import { PdfViewComponent } from '../components/pdf-view/pdf-view.component';
     MenuIntermedioComponent,
   ],
 })
-export class PagesModule {}
+export class PagesModule { }
+

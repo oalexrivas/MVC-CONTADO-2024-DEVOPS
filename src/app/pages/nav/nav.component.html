@@ -29,32 +29,40 @@
       </div>
       
       <div class="contenedor-sesion">
-        <img class="icono-menu invert-img-color" src="../assets/iconos/navUser.svg" alt="Usuario">
+        <mat-icon class="icono-menu invert-img-color">account_circle</mat-icon>
         <div class="menu-vertical bg-custom-soft">
           <div class="menu-vertical-head">
             <h3>Sergio Nortero</h3>
             <p>Admin|Contador 0001</p>
           </div>
           <div class="menu-config">
-            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'" (click)="opcionMenu('contabilidad'); dataService.toggleMenuOption(2);">
-              <img class="img-menu-conf" src="../assets/iconos/avatar.png" alt="User">
+            <div class="config-option"
+                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                 (click)="opcionMenu('contabilidad'); dataService.toggleMenuOption(2);">
+              <mat-icon class="img-menu-conf">home</mat-icon>
               <p>Inicio</p>
             </div>
-            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'" (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
-              <img class="img-menu-conf" src="../assets/iconos/configuraciones.png" alt="User">
+            <div class="config-option"
+                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                 (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <mat-icon class="img-menu-conf">settings</mat-icon>
               <p>Historiales Generales</p>
             </div>
-            <div class="config-option" *ngIf="userRole === 'administrador'" (click)="opcionMenu('registro'); dataService.toggleMenuOption(0);">
-              <img class="img-menu-conf" src="../assets/iconos/registroInformacion.png" alt="User">
+            <div class="config-option"
+                 *ngIf="userRole === 'administrador'"
+                 (click)="opcionMenu('registro'); dataService.toggleMenuOption(0);">
+              <mat-icon class="img-menu-conf">assignment</mat-icon>
               <p>Registro Inicial</p>
             </div>
-            <div class="config-option" *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
-              <img class="img-menu-conf" src="../assets/iconos/cerrar-sesion.png" alt="User">
+            <div class="config-option"
+                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
+              <mat-icon class="img-menu-conf">exit_to_app</mat-icon>
               <p>Cerrar Sesión</p>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   </div>
   <div class="nav-secundario">
