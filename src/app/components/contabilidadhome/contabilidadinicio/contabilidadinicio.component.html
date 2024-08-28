@@ -3,45 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
- 
 </head>
 <body>
-  <div class="contenedor bg-custom-soft d-flex flex-column">
-  <div class="container mt-5">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-4">
-        <div class="card-custom card-admin" (click)="navigateTo('registroadmin')">
-          <h4 class="text-admin">Registrar usuario admin</h4>
-          <img src="../../../../assets/images/registro/admin.png" alt="Checkmark" class="img-fluid my-4">
-          <p>1 emisor</p>
-          <p>50 receptores</p>
-        </div>
-      </div>
+  <div class="contenedor bg-custom-soft">
+    <div class="container-fluid mt-3">
+      <div class="d-flex flex-row flex-nowrap justify-content-start overflow-auto">
 
-      <div class="col-md-4">
-        <div class="card-custom card-contador" (click)="navigateTo('registroemisor')">
-          <h4 class="text-contador">Registrar usuario contador</h4>
-          <img src="../../../../assets/images/registro/contador.png" alt="Checkmark" class="img-fluid my-4">
-          <p>50 emisores</p>
-          <p>40 receptores</p>
+        <div class="card-custom card-persona" (click)="navigateTo('registroadmin')">
+          <h4 class="text-persona">Persona no deducible</h4>
+          <img src="../../../../assets/images/plantilla-consumidorfinal/man.png" alt="Checkmark" class="img-fluid my-2">
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-custom card-emprendedor" (click)="navigateTo('registrousuario')">
-          <h4 class="text-emprendedor">Registrar usuario emprendedor</h4>
-          <img src="../../../../assets/images/registro/emprendimiento.png" alt="Checkmark" class="img-fluid my-4">
-          <p>1 emisor</p>
-          <p>25 receptores</p>
+
+        <div class="card-custom card-empresa" (click)="navigateTo('registroemisor')">
+          <h4 class="text-empresa">Empresa deducible</h4>
+          <img src="../../../../assets/images/plantilla-consumidorfinal/revenue.png" alt="Checkmark" class="img-fluid my-2">
         </div>
+
+        <div class="card-custom card-cooperativa" (click)="navigateTo('registrousuario')">
+          <h4 class="text-cooperativa">Cooperativa productos</h4>
+          <img src="../../../../assets/images/plantilla-consumidorfinal/cooperation.png" alt="Checkmark" class="img-fluid my-2">
+        </div>
+
+        <div class="card-custom card-exportacion-productos" (click)="navigateTo('registrousuario')">
+          <h4 class="text-exportacion-productos">Exportación productos</h4>
+          <img src="../../../../assets/images/plantilla-consumidorfinal/products.png" alt="Checkmark" class="img-fluid my-2">
+        </div>
+
+        <div class="card-custom card-exportacion-servidor" (click)="navigateTo('registrousuario')">
+          <h4 class="text-exportacion-servidor">Exportación servidor</h4>
+          <img src="../../../../assets/images/plantilla-consumidorfinal/product-management.png" alt="Checkmark" class="img-fluid my-2">
+        </div>
+
       </div>
-     
-    
     </div>
   </div>
-</div>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

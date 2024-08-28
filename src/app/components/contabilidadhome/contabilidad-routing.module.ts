@@ -18,7 +18,7 @@ import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.c
 import { RegistroEstablecimientoComponent } from './registroestablecimiento/registroestablecimiento.component';
 import { RegistroProductoservicioComponent } from './registroproductoservicio/registroproductoservicio.component';
 //import { RegistroProductoservicioComponent } from './registroproductoservicio/registroproductoservicio.component';
-
+import { PlantillaConsumidorfinalComponent } from './plantilla-consumidorfinal/plantilla-consumidorfinal.component';
 import { ContabilidadinicioComponent } from './contabilidadinicio/contabilidadinicio.component';
 
 const routes: Routes = [
@@ -41,6 +41,7 @@ const routes: Routes = [
   {path: 'documentodte/facturaexportacion', component:FacturaexportacionComponent},
   {path: 'ingresoconsumidorfinal', component:ContabilidadComponent},
   {path: 'registroinicio', component: ContabilidadinicioComponent },
+  {path: 'registroconsumidor', component: PlantillaConsumidorfinalComponent}
 ];
 
 @NgModule({

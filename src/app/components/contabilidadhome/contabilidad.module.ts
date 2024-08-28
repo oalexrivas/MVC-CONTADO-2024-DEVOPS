@@ -56,7 +56,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     RegistroEmisorComponent,
     RegistroReceptorComponent,
     RegistroEstablecimientoComponent,
-    RegistroProductoservicioComponent
+    RegistroProductoservicioComponent,
+
     //RegistroProductoservicioComponent
   ],
   imports: [
