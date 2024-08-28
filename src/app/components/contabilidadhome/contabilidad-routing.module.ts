@@ -12,6 +12,7 @@ import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
+import { RegistroTokenHaciendaComponent } from './registrotokenHacienda/registrotokenHacienda.component';
 import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 import { RegistroEmisorComponent } from './registroemisor/registroemisor.component';
 import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.component';
@@ -23,6 +24,7 @@ import { RegistroProductoservicioComponent } from './registroproductoservicio/re
 const routes: Routes = [
   {path: 'registros', component:RegistrosComponent},
   {path: 'registrotoken', component:RegistroTokenComponent},
+  {path: 'registrotokenHacienda', component:RegistroTokenHaciendaComponent},
   {path: 'registrousuario', component:RegistroUsuarioComponent},
   {path: 'registroemisor', component:RegistroEmisorComponent},
   {path: 'registroreceptor', component:RegistroReceptorComponent},

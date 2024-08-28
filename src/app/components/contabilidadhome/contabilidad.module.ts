@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { MatTabsModule} from '@angular/material/tabs';
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
+import { RegistroTokenHaciendaComponent } from './registrotokenHacienda/registrotokenHacienda.component';
 import { RegistroUsuarioComponent } from './registrousuario/registrousuario.component';
 import { RegistroEmisorComponent } from './registroemisor/registroemisor.component';
 import { RegistroReceptorComponent } from './registroreceptor/registroreceptor.component';
@@ -47,6 +48,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     RegistrosComponent,
     FacturasujetoexcluidoComponent,
     RegistroTokenComponent,
+    RegistroTokenHaciendaComponent,
     RegistroUsuarioComponent,
     RegistroEmisorComponent,
     RegistroReceptorComponent,

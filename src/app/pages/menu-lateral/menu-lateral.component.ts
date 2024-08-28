@@ -33,7 +33,8 @@ export class MenuLateralComponent implements OnInit {
       "configuracion": [
         { titulo: "Configuración", icono: "assignment" },
         { titulo: "Historial DTE", icono: "history", ruta: "/configuracion/registro/usuarios" },
-        { titulo: "Historial TOKEN", icono: "token", ruta: "/contabilidad/registrotoken" }
+        { titulo: "Historial Usuario", icono: "token", ruta: "/contabilidad/registrotoken" },
+        { titulo: "Historial Hacienda", icono: "token", ruta: "/contabilidad/registrotokenHacienda" },
       ],
       "registro": [
         { titulo: "Registros", icono: "assignment" },

@@ -1,0 +1,32 @@
+.contenedor {
+  padding: 20px;
+  height: 100%;
+  border-radius: 10px;
+}
+.head {
+  border-radius: 5px;
+  border: 1px solid #616161;
+}
+.head p {
+  margin: 0;
+}
+.form-group.required .form-label:after {
+  content: " *";
+  color: red;
+}
+
+.token-column {
+  width: 60%;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.usuario-column {
+  width: 20%;
+}
+
+.fecha-column {
+  width: 20%;
+}
+
