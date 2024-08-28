@@ -1,0 +1,91 @@
+.bg-custom-soft {
+  background-color: #f8f9fa;
+}
+
+.bg-custom-medium {
+  background-color: #343a40;
+  color: white;
+}
+
+.contenedor {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+.card-custom {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 15px; /* Incrementa el margen izquierdo */
+  margin-right: 15px; /* Incrementa el margen derecho */
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+
+.card-custom:hover {
+  transform: scale(1.05);
+}
+
+/* Updated class names */
+.card-persona {
+  border-color: #ff6347;
+}
+
+.card-empresa {
+  border-color: #b0b0b0;
+}
+
+.card-cooperativa {
+  border-color: #2196f3;
+}
+
+.card-exportacion-productos {
+  border-color: #4caf50;
+}
+
+.card-exportacion-servidor {
+  border-color: #ff9800;
+}
+
+/* Updated text color classes */
+.text-persona {
+  color: #ff6347;
+}
+
+.text-empresa {
+  color: #b0b0b0;
+}
+
+.text-cooperativa {
+  color: #2196f3;
+}
+
+.text-exportacion-productos {
+  color: #4caf50;
+}
+
+.text-exportacion-servidor {
+  color: #ff9800;
+}
+
+.card-custom img {
+  width: 40%;
+  height: auto;
+}
+
+.card-custom button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}

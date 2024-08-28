@@ -1,0 +1,61 @@
+.bg-custom-soft {
+    background-color: #f8f9fa;
+  }
+  .bg-custom-medium {
+    background-color: #343a40;
+    color: white;
+  }
+  .contenedor {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .card-custom {
+    margin-top: 10px;
+    border: 2px solid #007bff; /* Ajusta el color del borde según tu diseño */
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .card-custom:hover {
+    transform: scale(1.05);
+  }
+  .card-emprendedor {
+    border-color: #2196f3;
+  }
+  .card-contador {
+    border-color: #b0b0b0;
+  }
+  .card-admin {
+    border-color: #ff6347;
+  }
+  .text-emprendedor {
+    color: #2196f3;
+  }
+  .text-contador {
+    color: #b0b0b0;
+  }
+
+  
+  .text-admin {
+    color: #ff6347;
+  }
+  .card-custom img {
+    width: 50%; 
+    height: auto; 
+  }
+  .card-custom button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }

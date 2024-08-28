@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-contabilidadinicio',
-  templateUrl: './contabilidadinicio.component.html',
-  styleUrls: ['./contabilidadinicio.component.css']
+  selector: 'app-plantilla-consumidorfinal',
+  standalone: true,
+  imports: [],
+  templateUrl: './plantilla-consumidorfinal.component.html',
+  styleUrl: './plantilla-consumidorfinal.component.css'
 })
-export class ContabilidadinicioComponent {
+export class PlantillaConsumidorfinalComponent {
   constructor(private router: Router) { }
 
   navigateTo(route: string) {
@@ -17,5 +19,4 @@ export class ContabilidadinicioComponent {
    redirectToLink(url: string): void {
     window.location.assign(url);
   }
-  
 }

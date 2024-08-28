@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '', component: HomeComponent, children: distribucion_rutas },
   { path: '', component: DistribucioncompletaComponent, children: distribucion_completa_rutas },
+  { path: '', redirectTo: '/contabilidad/registroinicio', pathMatch: 'full' },
 ];
 
 @NgModule({

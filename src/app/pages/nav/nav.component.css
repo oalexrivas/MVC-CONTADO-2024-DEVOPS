@@ -16,6 +16,10 @@
 /* -------- FIN NAV PRIMARIO -------- */
 
 /* -------- INICIO MENU HAMBURGUESA -------- */
+.pointer {
+  cursor: pointer;
+}
+
 .menu-hamburguesa {
   padding: 10px 0px;
   display: flex;
