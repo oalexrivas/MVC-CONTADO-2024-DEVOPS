@@ -75,7 +75,8 @@ export class LoginComponent implements OnInit {
           if (result.data && result.data.iniciarSesion && result.data.iniciarSesion.token) {
             const token = result.data.iniciarSesion.token;
             console.log(token);
-            this.setCookie('token', token, 7);
+            // Guarda el token en localStorage
+            localStorage.setItem('token', token);
             resolve(true);
           } else {
             alert('Usuario o Contraseña incorrecto');
@@ -89,7 +90,7 @@ export class LoginComponent implements OnInit {
         }
       );
     });
-  }
+  }  
   setCookie(name: string, value: string, days: number): void {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));

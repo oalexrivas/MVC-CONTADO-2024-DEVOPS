@@ -67,7 +67,8 @@ export class RegistroUsuarioComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   obtenerUsuarios(): void {
-    const token = this.getCookie('token'); 
+    //const token = this.getCookie('token'); 
+    const token = localStorage.getItem('token');
     console.log(token); // Asumiendo que tienes una función getCookie
     const query = `
     query ObtenerUsuario {
