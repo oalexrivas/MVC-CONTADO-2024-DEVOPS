@@ -3,99 +3,81 @@
     <p class="fs-4">REGISTRO USUARIO</p>
   </div>
   <form [formGroup]="formulario">
+
     <div class="row">
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Nombre</span>
-          <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched" class="text-danger">
-            Nombres son requeridos.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>Nombres</mat-label>
+          <input matInput formControlName="nombre"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Apellidos</span>
-          <input type="text" class="form-control" formControlName="apellidos" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('apellidos')?.invalid && formulario.get('apellidos')?.touched" class="text-danger">
-            Apellidos son requeridos.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>Apellidos</mat-label>
+          <input matInput formControlName="apellidos"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Usuario</span>
-          <input type="text" class="form-control" formControlName="codUsuario" placeholder="Usuario" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('codUsuario')?.invalid && formulario.get('codUsuario')?.touched" class="text-danger">
-            Usuario es requerido.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>Usuario</mat-label>
+          <input matInput formControlName="codUsuario"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <label class="input-group-text" for="inputGroupSelect01">Tipo Usuario</label>
-          <select class="form-select" formControlName="idTipoUsuario">
-            <option value="">Seleccionar uno</option>
-            <option value="1">ADMIN</option>
-            <option value="2">EMPRENDEDOR</option>
-            <option value="3">CONTADOR</option>
-          </select>
-          <div *ngIf="formulario.get('idTipoUsuario')?.invalid && formulario.get('idTipoUsuario')?.touched" class="text-danger">
-            Seleccione una opcion.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Tipo de Documento</mat-label>
+          <mat-select>
+            <mat-option value="" disabled>Seleccionar uno</mat-option>
+            <mat-option value="1">ADMIN</mat-option>
+            <mat-option value="2">EMPRENDEDOR</mat-option>
+            <mat-option value="3">CONTADOR</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">DUI</span>
-          <input type="text" class="form-control" formControlName="dui" placeholder="dui" aria-label="dui" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('dui')?.invalid && formulario.get('dui')?.touched" class="text-danger">
-            DUI es requerido.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>DUI</mat-label>
+          <input matInput formControlName="dui"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">NIT</span>
-          <input type="text" class="form-control" formControlName="nit" placeholder="nit" aria-label="nit" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('nit')?.invalid && formulario.get('nit')?.touched" class="text-danger">
-            NIT es requerido.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>NIT</mat-label>
+          <input matInput formControlName="nit"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">NRC</span>
-          <input type="text" class="form-control" formControlName="nrc" placeholder="nrc" aria-label="nrc" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('nrc')?.invalid && formulario.get('nrc')?.touched" class="text-danger">
-            NRC es requerido.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>NRC</mat-label>
+          <input matInput formControlName="nrc"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Correo</span>
-          <input type="text" class="form-control" formControlName="correo" placeholder="correo" aria-label="Cod-Usuario" aria-describedby="basic-addon1">
-          <div *ngIf="formulario.get('correo')?.invalid && formulario.get('correo')?.touched" class="text-danger">
-            Correo es requerido.
-          </div>
-        </div>
+        <mat-form-field class="w-100" appearance="outline"><mat-label>Correo</mat-label>
+          <input matInput formControlName="correo"/>
+        </mat-form-field>
       </div>
       <div class="col-12 col-md-6 d-flex align-items-center">
-        <span class="input-group-text" id="basic-addon1">Contraseña</span>
-        <div class="input-group" id="show_hide_password">
-          <input [type]="mostrarPassword ? 'text' : 'password'" class="form-control border-end-0" formControlName="password" placeholder="Ingresar contraseña">
-          <a (click)="mostrarPassword = !mostrarPassword" class="input-group-text bg-transparent">
-            <i class="bx" [ngClass]="mostrarPassword ? 'bxs-show' : 'bx-hide'"></i>
-          </a>
-        </div>
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"/>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="margin-right: 10px;">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>                
+      </div>
+      <div class="col-12 col-md-6 d-flex align-items-center">
+        <mat-form-field class="w-100" appearance="outline">
+          <mat-label>Confirmar Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" />
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" style="margin-right: 10px;">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
       </div>
     </div>
+
+    <br>
     <div class="row pb-3">
-      <div class="col-12 d-flex justify-content-end">
-        <button type="button" class="btn btn-success ml-auto" (click)="realizarEnvio()">Crear Usuario</button>
+      <div class="col d-flex justify-content-end gap-3">
+        <button type="button" class="btn btn-success" style="width: 180px;" (click)="realizarEnvio()">Crear Usuario</button>
+        <button type="button" class="btn btn-primary" style="width: 180px;" (click)="obtenerUsuarios()">Mostrar Registros</button>
       </div>
-    </div>
+    </div>                        
   </form>
   <div>
     <div>

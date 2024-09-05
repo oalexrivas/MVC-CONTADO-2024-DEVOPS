@@ -57,7 +57,8 @@
               <p>Registro Inicial</p>
             </div>
             <div class="config-option"
-                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
+                *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                (click)="navigateTo('/')">
               <mat-icon class="img-menu-conf">exit_to_app</mat-icon>
               <p>Cerrar Sesión</p>
             </div>

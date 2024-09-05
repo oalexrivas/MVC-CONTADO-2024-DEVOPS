@@ -35,6 +35,7 @@ export class RegistroUsuarioComponent implements OnInit {
   public formulario: FormGroup;
   public opcion: number = 1;
   editable = false;
+  hide = true;
   seleccionado: any = null;
   lista: RegistroUsuario[] = [];
   usuarioData: any = null;
@@ -57,11 +58,12 @@ export class RegistroUsuarioComponent implements OnInit {
       nit: ['', Validators.required],
       nrc: ['', Validators.required],
       correo: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
     });
   }
   ngOnInit() {
-    this.obtenerUsuarios();
+    //this.obtenerUsuarios();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
