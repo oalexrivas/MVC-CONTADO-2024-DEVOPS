@@ -53,7 +53,6 @@ export class RegistroReceptorComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.obtenerUsuarios();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

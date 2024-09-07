@@ -52,7 +52,7 @@ export class RegistroEmisorComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.obtenerUsuarios();
+    
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

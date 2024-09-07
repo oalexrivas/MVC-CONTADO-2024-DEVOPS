@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import Swal from 'sweetalert2';
 
-interface RegistroUsuario {
+export interface RegistroUsuario {
   nombre: string;
   apellidos: string;
   codUsuario: string;
@@ -63,7 +63,6 @@ export class RegistroUsuarioComponent implements OnInit {
     });
   }
   ngOnInit() {
-    //this.obtenerUsuarios();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -118,6 +117,20 @@ export class RegistroUsuarioComponent implements OnInit {
     }
     return null;
   }
+  limpiarFormulario() {
+    this.formulario.reset({
+      nombre: '',
+      apellidos: '',
+      codUsuario: '',
+      idTipoUsuario: '',
+      dui: '',
+      nit: '',
+      nrc: '',
+      correo: '',
+      password: '',
+      confirmPassword: ''
+    });
+  }
   guardarUsuario(): void{
     const token = this.getCookie('token');
     console.log(token);
@@ -130,9 +143,9 @@ export class RegistroUsuarioComponent implements OnInit {
           idTipoUsuario
           dui
           nit
+          nrc
           correo
           clave
-          nrc
         }
       }
     `;
@@ -148,9 +161,9 @@ export class RegistroUsuarioComponent implements OnInit {
         idTipoUsuario: Number(this.formulario.get('idTipoUsuario')?.value),
         dui: this.formulario.get('dui')?.value,
         nit: this.formulario.get('nit')?.value,
-        correo: this.formulario.get('correo')?.value,
-        clave: this.formulario.get('password')?.value,
         nrc: this.formulario.get('nrc')?.value,
+        correo: this.formulario.get('correo')?.value,
+        clave: this.formulario.get('password')?.value, 
       },
     };
     console.log(variables);
@@ -160,7 +173,6 @@ export class RegistroUsuarioComponent implements OnInit {
   }
   realizarEnvio() {
     this.mostrar = 3;
-
     Swal.fire({
       title: '¿Estás seguro de registrar el usuario?',
       text: "¡No podrás revertir este proceso!",
@@ -173,6 +185,7 @@ export class RegistroUsuarioComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.guardarUsuario();
+        this.limpiarFormulario();
         Swal.fire(
           'Enviado',
           'El usuario se registró correctamente',
