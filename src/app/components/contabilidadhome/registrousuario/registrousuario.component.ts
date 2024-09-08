@@ -38,8 +38,10 @@ export class RegistroUsuarioComponent implements OnInit {
   hide = true;
   seleccionado: any = null;
   lista: RegistroUsuario[] = [];
+  listaUsuariosCompletos: any[] = [];
   usuarioData: any = null;
   public mostrar: number = 1;
+  isEditMode: boolean = false;
   public mostrarPassword: boolean = false;
 
   displayedColumns: string[] = ['correo', 'nombre', 'apellido', 'dui'];
@@ -69,11 +71,11 @@ export class RegistroUsuarioComponent implements OnInit {
   }
   obtenerUsuarios(): void {
     const token = this.getCookie('token'); 
-    //const token = localStorage.getItem('token');
-    console.log(token); // Asumiendo que tienes una función getCookie
+    console.log(token); 
     const query = `
     query ObtenerUsuario {
       obtenerUsuario {
+        id
         nombre
         apellidos
         codUsuario
@@ -81,6 +83,8 @@ export class RegistroUsuarioComponent implements OnInit {
         correo
         dui
         nrc
+        nit
+        clave
       }
     }
     `;
@@ -93,6 +97,8 @@ export class RegistroUsuarioComponent implements OnInit {
     this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
       next: result => {
         const usuarioData = result.data.obtenerUsuario;
+        console.log(usuarioData);
+        this.listaUsuariosCompletos = usuarioData;
         const lista = usuarioData.map((item: any) => ({
           correo: item.correo,
           nombre: `${item.nombre} ${item.apellidos}`,
@@ -107,6 +113,36 @@ export class RegistroUsuarioComponent implements OnInit {
       }
     });
   }
+  onRowClick(row: any): void {
+    console.log('Fila seleccionada:', row);
+    console.log('Lista de usuarios completos:', this.listaUsuariosCompletos);
+    // Buscar el usuario completo en la listaUsuariosCompletos usando un identificador único (ej: correo)
+    const usuarioSeleccionado = this.listaUsuariosCompletos.find(user => user.correo === row.correo);
+    
+    if (usuarioSeleccionado) {
+      // Verifica los datos del usuario seleccionado
+      console.log('Usuario seleccionado:', usuarioSeleccionado);
+  
+      // Rellenar el formulario con los datos completos del usuario
+      this.formulario.patchValue({
+        nombre: usuarioSeleccionado.nombre,
+        apellidos: usuarioSeleccionado.apellidos,
+        codUsuario: usuarioSeleccionado.codUsuario,
+        idTipoUsuario: usuarioSeleccionado.idTipoUsuario || '',  // Asegúrate de que el valor exista
+        dui: usuarioSeleccionado.dui,
+        nit: usuarioSeleccionado.nit,
+        nrc: usuarioSeleccionado.nrc,
+        correo: usuarioSeleccionado.correo,
+        password: '',  // No se debe rellenar por seguridad
+        confirmPassword: ''  // No se debe rellenar por seguridad
+      });
+      
+      // Cambiar el estado a modo edición
+      this.isEditMode = true;
+    } else {
+      console.error('Usuario no encontrado en la lista completa.');
+    }
+  }  
   getCookie(name: string): string | null {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
@@ -130,6 +166,10 @@ export class RegistroUsuarioComponent implements OnInit {
       password: '',
       confirmPassword: ''
     });
+  }
+  backEdit(): void {
+    this.isEditMode = false;
+    this.limpiarFormulario();
   }
   guardarUsuario(): void{
     const token = this.getCookie('token');
