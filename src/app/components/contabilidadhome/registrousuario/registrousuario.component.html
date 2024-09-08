@@ -72,9 +72,9 @@
     <br>
     <div class="row pb-3">
       <div class="col d-flex justify-content-end gap-3">
-        <button *ngIf="!isEditMode" type="button" class="btn btn-success" style="width: 180px;" (click)="realizarEnvio()">Crear Usuario</button>
+        <button *ngIf="!isEditMode" type="button" class="btn btn-success" style="width: 180px;" (click)="realizarEnvio()">Guardar Usuario</button>
         <button *ngIf="isEditMode" type="button" class="btn btn-warning" style="width: 60px;" (click)="backEdit()"><mat-icon style="margin-top: 8px;">arrow_back</mat-icon></button>        
-        <button *ngIf="isEditMode" type="button" class="btn btn-warning" style="width: 180px;" (click)="realizarEnvio()">Actualizar Usuario</button>
+        <button *ngIf="isEditMode" type="button" class="btn btn-warning" style="width: 180px;" (click)="realizarActualizacion()">Editar Usuario</button>
         <button type="button" class="btn btn-primary" style="width: 180px;" (click)="obtenerUsuarios()">Mostrar Registros</button>
       </div>
     </div>                            

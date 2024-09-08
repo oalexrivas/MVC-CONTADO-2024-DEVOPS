@@ -231,7 +231,30 @@ export class RegistroUsuarioComponent implements OnInit {
           'El usuario se registró correctamente',
           'success'
         )
-        this.router.navigate(['/contabilidad/registrousuario']);
+      }
+    });
+  }
+  realizarActualizacion() {
+    this.mostrar = 3;
+    Swal.fire({
+      title: '¿Estás seguro de actualizar el usuario?',
+      text: "¡No podrás revertir este proceso!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.guardarUsuario();
+        this.limpiarFormulario();
+        this.isEditMode = false;
+        Swal.fire(
+          'Enviado',
+          'El usuario se actualizo correctamente',
+          'success'
+        )
       }
     });
   }
