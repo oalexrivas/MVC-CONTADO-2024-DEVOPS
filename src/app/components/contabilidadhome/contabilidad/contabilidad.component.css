@@ -202,7 +202,7 @@ th, td:first-child {
 }
 .tabla_factura .tabla-head th p {
     color: #f4f4f4; 
-    background-color: #2F5958;
+    background-color: #535e5e;
     font-weight: normal;
 }
 
@@ -371,7 +371,45 @@ input[type=text] {
 .consumidorFinal > .fila > .botonesContenedor >.botonesConsumidorL > button:last-child {
   margin: 0;
 }
-
+.resumen-container {
+    background-color: #f9f9f9; /* Color de fondo suave */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 20px; /* Espacio superior */
+  }
+  
+  .resumen-titulo {
+    font-size: 1rem; /* Tamaño de fuente más grande */
+    margin-bottom: 30px; /* Espacio inferior */
+    color: #333; /* Color de texto */
+  }
+  
+  .datos-seccion {
+    margin-bottom: 20px; /* Espacio entre secciones */
+  }
+  
+  .datos-titulo {
+    font-size: 1rem; /* Tamaño de fuente para los títulos */
+    color: #007bff; /* Color distintivo para los títulos */
+    margin-bottom: 10px; /* Espacio inferior */
+  }
+  
+  .datos-contenido p {
+    margin: 5px 0; /* Espaciado vertical */
+    line-height: 1.6; /* Altura de línea para legibilidad */
+    color: #555; /* Color de texto */
+  }
+  
+  .datos-contenido p strong {
+    color: #333; /* Color de texto más oscuro para énfasis */
+  }
+  
+  .datos-contenido {
+    padding-left: 10px; /* Espaciado interno a la izquierda */
+    border-left: 3px solid #007bff; /* Línea decorativa a la izquierda */
+  }
+  
 
 .consumidorFinal > .consumidorInfo > .head {
     margin-top: 5px;
@@ -380,7 +418,7 @@ input[type=text] {
 }
 .consumidorFinal > .consumidorInfo > .head > p {
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
 }
 
 .consumidorFinal > .consumidorInfo > .contenido > .info {
@@ -470,36 +508,52 @@ input[type=text] {
     color: white; /* Asegura que el texto sea legible */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para pestaña activa */
 }
+
 .tab-active {
-    display: flex;  /* Asegura que el contenido esté alineado con flexbox */
-    align-items: center; /* Centrar verticalmente */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
-    background-color: #172F3F; /* Color de fondo solicitado */
-    padding: 2px 12px;
-    color: white; /* Para que el texto sea legible */
+    display: flex;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+    padding: 8px 15px;
+    color: rgb(0, 0, 0);
+    border-color: #454545;
+    border-radius: 15px;
+    border: 0.5px solid #8f8f8f;
+    /* Ajuste del box-shadow para evitar borrosidad */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Menor difuminado */
 }
 
+.tab-active-contingencia{
+
+
+    
+}
 .tab-active-icon {
     display: flex;
     align-items: center;
-    border-radius: 4px;
-    background-color: #172F3F; /* Color de fondo solicitado */
-    color: white; /* Para que el texto sea legible */
-    padding: 3px 0; /* Elimina el margen derecho */
-    margin: 4px; /* Asegúrate de eliminar cualquier margen alrededor del icono */
+    justify-content: center; /* Centra el icono */
+    border-radius: 50%; /* Esto hace que el ícono también esté redondeado */
+    background-color: rgb(234, 234, 234); 
+    color: rgb(0, 0, 0); 
+    padding: 10px; /* Ajusta el tamaño del ícono */
+    margin: 4px;
 }
 
 
 
 
 
+/* Ocultar el campo de archivo real */
+input[type="file"] {
+  display: none;
+}
+
   
 .btn-dte{
-background-color: #E85D0C ;
+background-color: #EDC664 ;
 outline: none;
-    color: rgb(255, 255, 255);
+    color: rgb(95, 92, 92);
     margin: 0; /* Elimina todos los márgenes */
+    float: right;
 }
 
 
@@ -552,11 +606,6 @@ input[type="reset"]:focus {
     box-shadow: none !important; /* Elimina cualquier sombra azul */
     border: 2px solid #333333 !important; /* Añade un borde personalizado */
 }
-
-  
-
-
-
 
 
 

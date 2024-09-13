@@ -21,7 +21,7 @@ import { RegistroProductoservicioComponent } from './registroproductoservicio/re
 //import { RegistroProductoservicioComponent } from './registroproductoservicio/registroproductoservicio.component';
 import { PlantillaConsumidorfinalComponent } from './plantilla-consumidorfinal/plantilla-consumidorfinal.component';
 import { ContabilidadinicioComponent } from './contabilidadinicio/contabilidadinicio.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {path: 'registros', component:RegistrosComponent},
   {path: 'registrotoken', component:RegistroTokenComponent},

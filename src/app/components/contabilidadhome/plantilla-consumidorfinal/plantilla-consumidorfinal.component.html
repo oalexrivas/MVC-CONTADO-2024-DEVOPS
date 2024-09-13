@@ -4,40 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
 </head>
 <body>
-  <div class="contenedor bg-custom-soft d-flex flex-column">
-    <div class="container mt-3">
-      <div class="row justify-content-center g-3"> <!-- Agrega clase de Bootstrap g-3 para espaciado -->
+  <div class="contenedor bg-custom-soft">
+    <div class="container-fluid mt-3">
+      <div class="d-flex flex-row flex-nowrap justify-content-center overflow-auto ">
 
-        <div class="col-md-3"> <!-- Reduce el tamaño de las columnas -->
-          <div class="card-custom card-persona" (click)="navigateTo('registroadmin')">
-            <h4 class="text-persona">Persona no deducible</h4>
-            <img src="../../../../assets/images/plantilla-consumidorfinal/man.png" alt="Checkmark" class="img-fluid my-4">
-          </div>
+        <div class="card-custom card-persona" (click)="navigateTo('registroadmin')">
+          <h4 class="text-persona">Cliente no deducible</h4>
+          <i class="bi bi-person-circle icon-persona img-fluid my-2" style="font-size: 5rem;"></i>  
         </div>
-        
-        <div class="col-md-3">
-          <div class="card-custom card-empresa" (click)="navigateTo('registroemisor')">
-            <h4 class="text-empresa">Empresa deducible</h4>
-            <img src="../../../../assets/images/plantilla-consumidorfinal/revenue.png" alt="Checkmark" class="img-fluid my-4">
-          </div>
+
+        <div class="card-custom card-empresa" (click)="navigateTo('registroemisor')">
+          <h4 class="text-empresa">Empresa deducible</h4>
+          <i class="bi bi-building icon-empresa img-fluid my-2" style="font-size: 5rem;"></i> 
         </div>
-        
-        <div class="col-md-3">
-          <div class="card-custom card-cooperativa" (click)="navigateTo('registrousuario')">
-            <h4 class="text-cooperativa">Cooperativa productos</h4>
-            <img src="../../../../assets/images/plantilla-consumidorfinal/cooperation.png" alt="Checkmark" class="img-fluid my-4">
-          </div>
+
+        <div class="card-custom card-cooperativa" (click)="navigateTo('registrousuario')">
+          <h4 class="text-cooperativa">Cooperativa productos</h4>
+          <i class="bi bi-people icon-cooperativa img-fluid my-2" style="font-size: 5rem;"></i> 
         </div>
-        
-        <div class="col-md-3">
-          <div class="card-custom card-exportacion-productos" (click)="navigateTo('registrousuario')">
-            <h4 class="text-exportacion-productos">Exportación productos</h4>
-            <img src="../../../../assets/images/plantilla-consumidorfinal/products.png" alt="Checkmark" class="img-fluid my-4">
-          </div>
+
+        <div class="card-custom card-exportacion-productos" (click)="navigateTo('registrousuario')">
+          <h4 class="text-exportacion-productos">Exportación productos</h4>
+          <i class="bi bi-box-seam icon-productos img-fluid my-2" style="font-size: 5rem;"></i> 
         </div>
-        
+
+        <div class="card-custom card-exportacion-servidor" (click)="navigateTo('registrousuario')">
+          <h4 class="text-exportacion-servidor">Exportación servicios</h4>
+          <i class="bi bi-archive icon-exportacion img-fluid my-2" style="font-size: 5rem;"></i> 
+        </div>
 
       </div>
     </div>

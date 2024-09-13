@@ -36,6 +36,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -59,6 +61,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     RegistroReceptorComponent,
     RegistroEstablecimientoComponent,
     RegistroProductoservicioComponent,
+  
 
     //RegistroProductoservicioComponent
   ],
@@ -79,7 +82,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSelectModule,
     MatFormFieldModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatStepperModule,
+    MatButtonModule,
+    MatIconModule,
   ]
 })
 export class ContabilidadModule { }

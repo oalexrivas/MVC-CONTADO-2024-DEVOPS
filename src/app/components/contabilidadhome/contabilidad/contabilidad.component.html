@@ -160,8 +160,9 @@
             <th><p>Cantidad</p></th>
             <th><p>Descripción</p></th>
             <th><p>Precio Unitario</p></th>
-            <th><p>Ventas No Sujetas</p></th>
+
             <th><p>Ventas Exentas</p></th>
+            <th><p>Ventas No Sujetas</p></th>
             <th><p>Ventas Afectas</p></th>
           </tr>
           <tr class="contenido-tabla">
@@ -533,827 +534,685 @@
       </mat-card-title>
     </mat-card>
 
-    <mat-tab-group (selectedTabChange)="tabChanged($event.index)" #tabGroup>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">record_voice_over</mat-icon>
-            <span>EMISOR</span>
-          </div>
-        </ng-template>
-        <div class="p-3" [formGroup]="form">
-          <!-- Agrupamos los campos en tarjetas para una mejor organización -->
-          <mat-card class="mb-3">
-            <mat-card-content>
-              <p class="fw-bold" style="margin-bottom: 20px">
-                Datos del Emisor
-              </p>
-              <div class="row gx-1">
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Comprador</mat-label>
-                    <mat-select formControlName="comprador">
-                      <mat-option value="">Seleccionar uno</mat-option>
-                      <mat-option value="DF PROYECTOS S.A. DE C.V."
-                        >DF PROYECTOS S.A. DE C.V.</mat-option
-                      >
-                      <mat-option value="DG REMODELACIONES, S.A. DE C.V."
-                        >DG REMODELACIONES, S.A. DE C.V.</mat-option
-                      >
-                      <mat-option value="DIARPA, S.A DE C.V"
-                        >DIARPA, S.A DE C.V</mat-option
-                      >
-                    </mat-select>
-                  </mat-form-field>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <!-- Otra tarjeta para los campos restantes -->
-          <mat-card class="mb-3">
-            <mat-card-content>
-              <div class="row gx-2">
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Nombre</mat-label>
-                    <input
-                      matInput
-                      placeholder="Nombre"
-                      formControlName="nombre"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Nombre Comercial</mat-label>
-                    <input
-                      matInput
-                      placeholder="Nombre Comercial"
-                      formControlName="nombreComercial"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Actividad</mat-label>
-                    <input
-                      matInput
-                      placeholder="Actividad"
-                      formControlName="actividad"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>NCR</mat-label>
-                    <input matInput placeholder="NCR" formControlName="ncr" />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>NIT</mat-label>
-                    <input matInput placeholder="NIT" formControlName="nit" />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Correo</mat-label>
-                    <input
-                      matInput
-                      placeholder="Correo"
-                      formControlName="correo"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Departamento</mat-label>
-                    <input
-                      matInput
-                      placeholder="Departamento"
-                      formControlName="departamento"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Teléfono</mat-label>
-                    <input
-                      matInput
-                      placeholder="Teléfono"
-                      formControlName="telefono"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Municipio</mat-label>
-                    <input
-                      matInput
-                      placeholder="Municipio"
-                      formControlName="municipio"
-                    />
-                  </mat-form-field>
-                </div>
-
-                <div class="col-12 col-md-6">
-                  <mat-form-field class="mat-full-width">
-                    <mat-label>Complemento</mat-label>
-                    <input
-                      matInput
-                      placeholder="Complemento"
-                      formControlName="complemento"
-                    />
-                  </mat-form-field>
-                </div>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <!-- Botón de navegación -->
-          <div class="text-center mt-4">
-            <button
-              class="btn btn-primary btn-siguiente"
-              (click)="goToSpecificTab(tabGroup, 1)"
-              [disabled]="!isEmisorFormValid()"
-            >
-              Siguiente
-            </button>
-          </div>
-        </div>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">hearing</mat-icon>
-            <span>RECEPTOR</span>
-          </div>
-        </ng-template>
-
-        <div class="p-3" style="background-color: white; border-radius: 8px">
-          <div class="row">
-            <p class="fw-bold" style="margin-bottom: 20px">
-              Datos del Receptor
-            </p>
-
-            <!-- Nombre -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombre" />
-              </mat-form-field>
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <!-- Primer paso: Datos del Emisor -->
+      <mat-step [stepControl]="form">
+        <form [formGroup]="form">
+          <ng-template matStepLabel>
+            <div class="tab-active">
+              <mat-icon class="tab-active-icon">record_voice_over</mat-icon>
+              <span>EMISOR</span>
             </div>
-
-            <!-- Tipo Documento -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Tipo de Documento</mat-label>
-                <mat-select>
-                  <mat-option value="" disabled>Seleccionar uno</mat-option>
-                  <mat-option value="36">NIT</mat-option>
-                  <mat-option value="13">DUI</mat-option>
-                  <mat-option value="37">Otro</mat-option>
-                  <mat-option value="03">Pasaporte</mat-option>
-                  <mat-option value="02">Carnet de residente</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <!-- N° de Documento -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>N° de Documento</mat-label>
-                <input matInput placeholder="N° de documento" />
-              </mat-form-field>
-            </div>
-
-            <!-- NRC -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>NRC</mat-label>
-                <input matInput placeholder="NRC" />
-              </mat-form-field>
-            </div>
-
-            <!-- Departamento -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Departamento</mat-label>
-                <mat-select formControlName="departamento">
-                  <mat-option value="">Seleccionar uno</mat-option>
-                  <mat-option value="Ahuachapán">Ahuachapán</mat-option>
-                  <mat-option value="Santa Ana">Santa Ana</mat-option>
-                  <!-- Agregar más opciones aquí -->
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <!-- Municipio -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Municipio</mat-label>
-                <mat-select>
-                  <mat-option value="Otro País">Otro País</mat-option>
-                  <mat-option value="AHUACHAPÁN">AHUACHAPÁN</mat-option>
-                  <mat-option value="APANECA">APANECA</mat-option>
-                  <!-- Agregar más opciones aquí -->
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <!-- Complemento -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Complemento</mat-label>
-                <input matInput placeholder="Dirección" />
-              </mat-form-field>
-            </div>
-
-            <!-- Teléfono -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Teléfono</mat-label>
-                <input matInput placeholder="Teléfono" />
-              </mat-form-field>
-            </div>
-
-            <!-- Actividad -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Actividad</mat-label>
-                <mat-select>
-                  <mat-option value="" disabled>Seleccionar uno</mat-option>
-                  <!-- Agregar opciones de actividad aquí -->
-                </mat-select>
-              </mat-form-field>
-            </div>
-
-            <!-- Correo -->
-            <div class="col-12 col-md-6">
-              <mat-form-field class="w-100" appearance="outline">
-                <mat-label>Correo</mat-label>
-                <input matInput placeholder="Correo" />
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 text-center" style="margin-top: 20px">
-          <button
-            class="btn btn-primary btn-siguiente"
-            (click)="goToSpecificTab(tabGroup, 2)"
-            [disabled]="!isEmisorFormValid()"
-          >
-            Siguiente
-          </button>
-
-          <button
-            class="btn btn-primary btn-atras"
-            (click)="goToSpecificTab(tabGroup, 0)"
-            [disabled]="!isEmisorFormValid()"
-          >
-            Atrás
-          </button>
-        </div>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">description</mat-icon>
-            <span>DESCRIPCION</span>
-          </div>
-        </ng-template>
-        <div class="p-3">
-          <div class="row">
-            <div class="col-12">
-              <div>
-                <form class="contenido-ingreso_factura">
-                  <table class="tabla_factura">
-                    <tr class="tabla-head">
-                      <th><p>Cantidad</p></th>
-                      <th><p>Descripción</p></th>
-                      <th><p>Precio Unitario</p></th>
-                      <th><p>Ventas No Sujetas</p></th>
-                      <th><p>Ventas Exentas</p></th>
-                      <th><p>Ventas Afectas</p></th>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <select class="form-select">
-                          <option value="">Seleccione una opcion</option>
-                          <option value="">Tornillos</option>
-                          <option value="">Clavos</option>
-                          <option value="">Llaves inglesas</option>
-                          <option value="">Destornilladores</option>
-                          <option value="">Taladros</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <div class="masInfo-factura">
-                    <div class="info-content">
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                      <div class="datos">
-                        <table>
-                          <tr>
-                            <th>Operacion Superior a: $ 00.00</th>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="recieveFor">Recibido por: </label>
-                              <input type="text" name="recieveFor" />
-                            </td>
-                            <td>
-                              <label for="givenFor">Entregado por: </label>
-                              <input type="text" name="givenFor" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="name">Nombre: </label>
-                              <input type="text" name="name" />
-                            </td>
-                            <td>
-                              <label for="nameEntregado">Nombre: </label>
-                              <input type="text" name="nameEntregado" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="identificacion">DUI o NIT: </label>
-                              <input type="text" name="identificacion" />
-                            </td>
-                            <td>
-                              <label for="identificacionEntregadp"
-                                >DUI o NIT:
-                              </label>
-                              <input
-                                type="text"
-                                name="identificacionEntregadp"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="firma">Firma: </label>
-                              <input type="text" name="firma" />
-                            </td>
-                            <td>
-                              <label for="firmaEntregado">Firma: </label>
-                              <input type="text" name="firmaEntregado" />
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                    </div>
-                    <aside>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                    </aside>
-                  </div>
-
-                  <div class="botones">
-                    <button>Borrar</button>
-                    <button>Guardar Local</button>
-                    <button>Enviar a MH</button>
-                  </div>
-                  <div class="col-12 text-center" style="margin-top: 20px">
-                    <button
-                      class="btn btn-primary btn-siguiente"
-                      (click)="goToSpecificTab(tabGroup, 3)"
-                      [disabled]="!isEmisorFormValid()"
-                    >
-                      Siguiente
-                    </button>
-                    <button
-                      class="btn btn-secondary btn-atras"
-                      (click)="goToSpecificTab(tabGroup, 1)"
-                      [disabled]="!isEmisorFormValid()"
-                    >
-                      Atras
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">send</mat-icon>
-            <span>Envío</span>
-          </div>
-        </ng-template>
-
-        <br />
-
-        <div class="col-12">
-          <!-- Sección de Resumen -->
-          <mat-card class="resumen-container">
-            <mat-card-header>
-              <mat-card-title>Resumen de la Facturación</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <div class="resumen-content" style="line-height: 1.6">
-                <p><strong>Fecha:</strong> <span>13 de julio de 2024</span></p>
-                <p><strong>Receptor:</strong> <span>Juan Pérez</span></p>
-                <p>
-                  <strong>Emisor:</strong>
-                  <span>DF PROYECTOS S.A. DE C.V.</span>
+          </ng-template>
+          <div class="p-3">
+            <!-- Agrupamos los campos en tarjetas para una mejor organización -->
+            <mat-card class="mb-3">
+              <mat-card-content>
+                <p class="fw-bold" style="margin-bottom: 20px">
+                  Datos del Emisor
                 </p>
-                <p><strong>Tipo de Pago:</strong> <span>Contado</span></p>
-                <p><strong>Productos:</strong></p>
-                <mat-list>
-                  <mat-list-item>
-                    Producto 1 - TORTILOS
-                    <span class="mat-list-item-content">
-                      <span>Cantidad: 1</span> - <span>Precio: $10.00</span> -
-                      <span>Total: $20.00</span>
-                    </span>
-                  </mat-list-item>
-                  <mat-list-item>
-                    Producto 2 - CLAVOS
-                    <span class="mat-list-item-content">
-                      <span>Cantidad: 1</span> - <span>Precio: $15.00</span> -
-                      <span>Total: $10.00</span>
-                    </span>
-                  </mat-list-item>
-                  <mat-list-item>
-                    Producto 3 - LLAVE INGLESA
-                    <span class="mat-list-item-content">
-                      <span>Cantidad: 1</span> - <span>Precio: $20.00</span> -
-                      <span>Total: $20.00</span>
-                    </span>
-                  </mat-list-item>
-                </mat-list>
-                <p><strong>Total:</strong> <span>$50.00</span></p>
-              </div>
-            </mat-card-content>
-          </mat-card>
+                <div class="row gx-1">
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Usuario de la contabilidad</mat-label>
+                      <mat-select formControlName="comprador">
+                        <mat-option value="">Seleccionar uno</mat-option>
+                        <mat-option value="DF PROYECTOS S.A. DE C.V.">
+                          DF PROYECTOS S.A. DE C.V.
+                        </mat-option>
+                        <mat-option value="DG REMODELACIONES, S.A. DE C.V.">
+                          DG REMODELACIONES, S.A. DE C.V.
+                        </mat-option>
+                        <mat-option value="DIARPA, S.A DE C.V">
+                          DIARPA, S.A DE C.V
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
 
-          <br />
-          <div class="col-12 text-center" style="margin-top: 20px">
-            <button class="btn btn-primary btn-dte" (click)="realizarEnvio()">
-              ENVIAR DTE
-            </button>
+            <!-- Otra tarjeta para los campos restantes -->
+            <mat-card class="mb-3">
+              <mat-card-content>
+                <div class="row gx-2">
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Nombre</mat-label>
+                      <input
+                        matInput
+                        placeholder="Nombre"
+                        formControlName="nombre"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Nombre Comercial</mat-label>
+                      <input
+                        matInput
+                        placeholder="Nombre Comercial"
+                        formControlName="nombreComercial"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Actividad</mat-label>
+                      <input
+                        matInput
+                        placeholder="Actividad"
+                        formControlName="actividad"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>nrc</mat-label>
+                      <input matInput placeholder="nrc" formControlName="nrc" />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>NIT</mat-label>
+                      <input matInput placeholder="NIT" formControlName="nit" />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Correo</mat-label>
+                      <input
+                        matInput
+                        placeholder="Correo"
+                        formControlName="correo"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Departamento</mat-label>
+                      <input
+                        matInput
+                        placeholder="Departamento"
+                        formControlName="departamento"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Teléfono</mat-label>
+                      <input
+                        matInput
+                        placeholder="Teléfono"
+                        formControlName="telefono"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Municipio</mat-label>
+                      <input
+                        matInput
+                        placeholder="Municipio"
+                        formControlName="municipio"
+                      />
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <mat-form-field class="mat-full-width">
+                      <mat-label>Complemento</mat-label>
+                      <input
+                        matInput
+                        placeholder="Complemento"
+                        formControlName="complemento"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+
+            <!-- Botón de Siguiente -->
+            <div class="col-12 text-center" style="margin-top: 20px">
+              <button
+                class="btn btn-primary btn-siguiente"
+                (click)="goToSpecificStep2(stepper, 1)"
+              >
+                Siguiente
+              </button>
+              <button
+                class="btn btn-secondary btn-atras"
+                (click)="goToSpecificStep2(stepper, 0)"
+                [disabled]="!isEmisorFormValid()"
+              >
+                Atrás
+              </button>
+            </div>
           </div>
-          <div class="col-12 text-center" style="margin-top: 20px">
-            <button
-              class="btn btn-primary btn-siguiente"
-              (click)="goToSpecificTab(tabGroup, 5)"
-              [disabled]="!isEmisorFormValid()"
-            >
-              Siguiente
-            </button>
-            <button
-              class="btn btn-primary btn-atras"
-              (click)="goToSpecificTab(tabGroup, 2)"
-              [disabled]="!isEmisorFormValid()"
-            >
-              Atrás
-            </button>
+        </form>
+      </mat-step>
+
+  
+     <!-- Segundo paso: Datos del Receptor -->
+<mat-step [stepControl]="receptorForm">
+  <form [formGroup]="receptorForm">
+    <ng-template matStepLabel>
+      <div class="tab-active">
+        <mat-icon class="tab-active-icon">hearing</mat-icon>
+        <span>RECEPTOR</span>
+      </div>
+    </ng-template>
+
+    <!-- Agrupamos los campos en tarjetas para una mejor organización -->
+    <mat-card class="mb-3">
+      <mat-card-content>
+        <p class="fw-bold" style="margin-bottom: 20px">Datos del Receptor</p>
+        <div class="row gx-1">
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Usuario de la contabilidad</mat-label>
+              <mat-select formControlName="comprador">
+                <mat-option value="">Seleccionar uno</mat-option>
+                <mat-option value="Carlos Martínez">Carlos Martínez</mat-option>
+                <mat-option value="Laura Pérez">Laura Pérez</mat-option>
+                <mat-option value="Mario López">Mario López</mat-option>
+              </mat-select>
+            </mat-form-field>
           </div>
         </div>
-      </mat-tab>
+      </mat-card-content>
+    </mat-card>
 
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">crop</mat-icon>
-            <span>CONTINGENCIA</span>
+    <!-- Otra tarjeta para los campos restantes -->
+    <mat-card class="mb-3">
+      <mat-card-content>
+        <div class="row gx-2">
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Nombre" formControlName="nombre" />
+            </mat-form-field>
           </div>
-        </ng-template>
-        <div class="p-3">
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Tipo de Documento</mat-label>
+              <mat-select formControlName="tipoDocumento">
+                <mat-option value="" disabled>Seleccionar uno</mat-option>
+                <mat-option value="36">NIT</mat-option>
+                <mat-option value="13">DUI</mat-option>
+                <mat-option value="37">Otro</mat-option>
+                <mat-option value="03">Pasaporte</mat-option>
+                <mat-option value="02">Carnet de residente</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>N° de Documento</mat-label>
+              <input
+                matInput
+                placeholder="N° de documento"
+                formControlName="numeroDocumento"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>NRC</mat-label>
+              <input matInput placeholder="NRC" formControlName="nrc" />
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Departamento</mat-label>
+              <mat-select formControlName="departamento">
+                <mat-option value="">Seleccionar uno</mat-option>
+                <mat-option value="Ahuachapán">Ahuachapán</mat-option>
+                <!-- Añadir más opciones aquí -->
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Municipio</mat-label>
+              <mat-select formControlName="municipio">
+                <mat-option value="Otro País">Otro País</mat-option>
+                <mat-option value="AHUACHAPÁN">AHUACHAPÁN</mat-option>
+                <mat-option value="APANECA">APANECA</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Complemento</mat-label>
+              <input
+                matInput
+                placeholder="Complemento"
+                formControlName="complemento"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Teléfono</mat-label>
+              <input
+                matInput
+                placeholder="Teléfono"
+                formControlName="telefono"
+              />
+            </mat-form-field>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <mat-form-field class="mat-full-width">
+              <mat-label>Correo</mat-label>
+              <input matInput placeholder="Correo" formControlName="correo" />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Botones de navegación -->
+    <div class="col-12 text-center" style="margin-top: 20px">
+      <button
+        class="btn btn-primary btn-siguiente"
+        (click)="goToSpecificStep2(stepper, 2)"
+      >
+        Siguiente
+      </button>
+      <button
+        class="btn btn-secondary btn-atras"
+        (click)="goToSpecificStep2(stepper, 0)"
+      >
+        Atrás
+      </button>
+    </div>
+  </form>
+</mat-step>
+  
+
+      <mat-step [stepControl]="receptorForm">
+        <form [formGroup]="receptorForm">
+          <ng-template matStepLabel>
+            <div class="tab-active">
+              <mat-icon class="tab-active-icon">description</mat-icon>
+              <span>DESCRIPCION</span>
+            </div>
+          </ng-template>
+
+          <div class="p-3">
+            <div class="p-3 resumen-container">
+              <p class="fw-bold resumen-titulo">Resumen de Datos</p>
+              <!-- Botón personalizado para subir logo con ícono -->
+              <p>
+                <label class="custom-file-upload">
+                  <button mat-raised-button color="primary">
+                    <mat-icon>cloud_upload</mat-icon> Subir Logo
+                    <input
+                      type="file"
+                      (change)="onLogoUpload($event)"
+                      accept="image/*"
+                    />
+                  </button>
+                </label>
+              </p>
+
+              <!-- Mostrar el logo si ha sido cargado -->
+              <div *ngIf="logoUrl">
+                <h5>Logo del Emisor:</h5>
+                <img
+                  [src]="logoUrl"
+                  alt="Logo del Emisor"
+                  style="
+                    max-width: 200px;
+                    height: auto;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                  "
+                />
+              </div>
+              <div *ngIf="emisorDatos" class="datos-seccion">
+                <h4 class="datos-titulo">Datos del Emisor</h4>
+                <div class="datos-contenido">
+                  <p><strong>Nombre:</strong> {{ emisorDatos.nombre }}</p>
+                  <p>
+                    <strong>Nombre Comercial:</strong>
+                    {{ emisorDatos.nombreComercial }}
+                  </p>
+                  <p>
+                    <strong>Actividad Economica:</strong>
+                    {{ emisorDatos.actividad }}
+                  </p>
+                  <p><strong>NIT:</strong> {{ emisorDatos.nit }}</p>
+                  <p><strong>NRC:</strong> {{ emisorDatos.nrc }}</p>
+                  <p>
+                    <strong>Dirección:</strong>
+                    {{
+                      emisorDatos.departamento + ", " + emisorDatos.municipio
+                    }}
+                  </p>
+                </div>
+              </div>
+
+              <div *ngIf="receptorDatos" class="datos-seccion">
+                <h4 class="datos-titulo">Datos del Receptor</h4>
+                <div class="datos-contenido">
+                  <p><strong>Nombre:</strong> {{ receptorDatos.nombre }}</p>
+                  <p>
+                    <strong>Tipo de Documento:</strong>
+                    {{ receptorDatos.tipoDocumento }}
+                  </p>
+                  <p>
+                    <strong>N° de Documento:</strong>
+                    {{ receptorDatos.numeroDocumento }}
+                  </p>
+                  <p><strong>NRC:</strong> {{ receptorDatos.nrc }}</p>
+                  <p>
+                    <strong>Actividad Economica:</strong>
+                    {{ receptorDatos.actividad }}
+                  </p>
+                  <p>
+                    <strong>Dirección:</strong>
+                    {{
+                      receptorDatos.departamento +
+                        ", " +
+                        receptorDatos.municipio
+                    }}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div>
+                  <form class="contenido-ingreso_factura">
+                    <table class="tabla_factura">
+                      <tr class="tabla-head">
+                        <th><p>Cantidad</p></th>
+                        <th><p>Descripción</p></th>
+                        <th><p>Precio Unitario</p></th>
+                  
+                        <th><p>Ventas Exentas</p></th>
+                        <th><p>Ventas No Sujetas</p></th>
+                        <th><p>Ventas Afectas</p></th>
+                      </tr>
+                      <tr
+                        class="contenido-tabla"
+                        *ngFor="let producto of productos; let i = index"
+                      >
+                        <td>
+                          <input
+                            type="number"
+                            [(ngModel)]="producto.cantidad"
+                            (input)="actualizarTotalProducto(i)"
+                            placeholder="X"
+                            name="cantidad{{ i }}"
+                          />
+                        </td>
+                        <td>
+                          <select
+                            class="form-select"
+                            [(ngModel)]="producto.descripcion"
+                            (change)="actualizarPrecioUnitario(i)"
+                            name="descripcion{{ i }}"
+                          >
+                            <option value="">Seleccione una opcion</option>
+                            <option
+                              *ngFor="let key of objectKeys(precios)"
+                              [value]="key"
+                            >
+                              {{ key }}
+                            </option>
+                          </select>
+                        </td>
+                        <td>
+                          <div>
+                            <p>$</p>
+                            <input
+                              type="number"
+                              [(ngModel)]="producto.precioUnitario"
+                              disabled
+                              placeholder="X"
+                              name="precioUnitario{{ i }}"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <p>$</p>
+                            <input
+                              type="number"
+                              [(ngModel)]="producto.total"
+                              disabled
+                              placeholder="X"
+                              name="total{{ i }}"
+                            />
+                          </div>
+                        </td>
+                        
+                      </tr>
+                    </table>
+
+                    <div class="masInfo-factura">
+                      <div class="info-content">
+                        <div class="texto">
+                          <label for="text">Son:</label>
+                          <textarea></textarea>
+                        </div>
+                        <div class="datos">
+                          <table>
+                            <tr>
+                              <th>Operacion Superior a: $ 25,000</th>
+                              <th></th>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="recieveFor">Recibido por: </label>
+                                <input type="text" name="recieveFor" />
+                              </td>
+                              <td>
+                                <label for="givenFor">Entregado por: </label>
+                                <input type="text" name="givenFor" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="name">Nombre: </label>
+                                <input type="text" name="name" />
+                              </td>
+                              <td>
+                                <label for="nameEntregado">Nombre: </label>
+                                <input type="text" name="nameEntregado" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="identificacion">DUI o NIT: </label>
+                                <input type="text" name="identificacion" />
+                              </td>
+                              <td>
+                                <label for="identificacionEntregadp"
+                                  >DUI o NIT:
+                                </label>
+                                <input
+                                  type="text"
+                                  name="identificacionEntregadp"
+                                />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <label for="firma">Firma: </label>
+                                <input type="text" name="firma" />
+                              </td>
+                              <td>
+                                <label for="firmaEntregado">Firma: </label>
+                                <input type="text" name="firmaEntregado" />
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <div class="texto">
+                          <label for="text">Son:</label>
+                          <textarea></textarea>
+                        </div>
+                      </div>
+                      <aside>
+                        <div class="division">
+                          <div class="fondoblanco">
+                            <p class="info">IVA</p>
+                          </div>
+                          <p class="signo">$</p>
+                          <p class="total">
+                            {{ calcularTotalIVA() | currency }}
+                          </p>
+                        </div>
+                        <div class="division">
+                          <div class="fondoblanco">
+                            <p class="info">Total con IVA</p>
+                          </div>
+                          <p class="signo">$</p>
+                          <p class="total">
+                            {{ calcularTotalVentasAfectas() | currency }}
+                          </p>
+                        </div>
+                      </aside>
+                    </div>
+
+                    <div class="botones">
+                      <button>Borrar</button>
+                      <button>Guardar Local</button>
+                      <button>Enviar a MH</button>
+                    </div>
+                       <!-- Botones de navegación -->
+    <div class="col-12 text-center" style="margin-top: 20px">
+      <button
+        class="btn btn-primary btn-siguiente"
+        (click)="goToSpecificStep2(stepper, 3)"
+      >
+        Siguiente
+      </button>
+      <button
+        class="btn btn-secondary btn-atras"
+        (click)="goToSpecificStep2(stepper, 1)"
+      >
+        Atrás
+      </button>
+    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="receptorForm">
+        <form [formGroup]="receptorForm">
+          <ng-template matStepLabel>
+            <div class="tab-active">
+              <mat-icon class="tab-active-icon">send</mat-icon>
+              <span>ENVIO</span>
+            </div>
+          </ng-template>
+          <div class="col-12">
+            <!-- Sección de Resumen -->
+            <mat-card class="resumen-container">
+              <mat-card-header>
+                <mat-card-title>Resumen de la Facturación</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="resumen-content" style="line-height: 1.6">
+                  <p>
+                    <strong>Fecha:</strong> <span>13 de julio de 2024</span>
+                  </p>
+                  <p><strong>Receptor:</strong> <span>Juan Pérez</span></p>
+                  <p>
+                    <strong>Emisor:</strong>
+                    <span>DF PROYECTOS S.A. DE C.V.</span>
+                  </p>
+                  <p><strong>Tipo de Pago:</strong> <span>Contado</span></p>
+                  <p><strong>Productos:</strong></p>
+                  <mat-list>
+                    <mat-list-item>
+                      Producto 1 - TORTILOS
+                      <span class="mat-list-item-content">
+                        <span>Cantidad: 1</span> - <span>Precio: $10.00</span> -
+                        <span>Total: $20.00</span>
+                      </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                      Producto 2 - CLAVOS
+                      <span class="mat-list-item-content">
+                        <span>Cantidad: 1</span> - <span>Precio: $15.00</span> -
+                        <span>Total: $10.00</span>
+                      </span>
+                    </mat-list-item>
+                    <mat-list-item>
+                      Producto 3 - LLAVE INGLESA
+                      <span class="mat-list-item-content">
+                        <span>Cantidad: 1</span> - <span>Precio: $20.00</span> -
+                        <span>Total: $20.00</span>
+                      </span>
+                    </mat-list-item>
+                  </mat-list>
+                  <p><strong>Total:</strong> <span>$50.00</span></p>
+                </div>
+              </mat-card-content>
+              <div class="col-12 text-center" style="margin-top: 20px">
+                <button class="btn btn-primary btn-dte" (click)="realizarEnvio()">
+                  ENVIAR DTE
+                </button>
+              </div>
+            </mat-card>
+
+            <br />
+         
+             <!-- Botones de navegación -->
+    <div class="col-12 text-center" style="margin-top: 20px">
+      <button
+        class="btn btn-primary btn-siguiente"
+        (click)="goToSpecificStep2(stepper, 4)"
+      >
+        Siguiente
+      </button>
+      <button
+        class="btn btn-secondary btn-atras"
+        (click)="goToSpecificStep2(stepper, 2)"
+      >
+        Atrás
+      </button>
+    </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="receptorForm">
+        <form [formGroup]="receptorForm">
+          <ng-template matStepLabel>
+            <div class="tab-active">
+              <mat-icon class="tab-active-icon">crop</mat-icon>
+              <span>CONTINGENCIA</span>
+            </div>
+          </ng-template>
           <div class="row">
             <p class="fw-bold" style="margin-bottom: 20px">EMISOR</p>
             <div class="col-12 col-md-6">
@@ -1409,12 +1268,12 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">NCR</span>
+                <span class="input-group-text" id="basic-addon1">nrc</span>
                 <input
                   type="tex*t"
                   class="form-control"
-                  placeholder="NCR"
-                  aria-label="NCR"
+                  placeholder="nrc"
+                  aria-label="nrc"
                   aria-describedby="basic-addon1"
                 />
               </div>
@@ -1538,66 +1397,66 @@
                 />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="p-3">
-          <div class="row">
-            <p class="fw-bold" style="margin-bottom: 20px">DOCUMENTOS</p>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >DTE</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected></option>
-                  <option selected>FACTURA ELECTRONICA</option>
-                  <option selected>CREDITO FISCAL</option>
-                  <option selected>CONSUMIDOR FINAL</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >Seleccionar archivo</span
-                >
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="Ningun archivo selec."
-                  aria-label="NCR"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 text-center" style="margin-top: 20px">
-          <button
-            class="btn btn-primary btn-siguiente"
-            (click)="goToSpecificTab(tabGroup, 5)"
-            [disabled]="!isEmisorFormValid()"
-          >
-            Siguiente
-          </button>
-          <button
-            class="btn btn-secondary btn-atras"
-            (click)="goToSpecificTab(tabGroup, 3)"
-            [disabled]="!isEmisorFormValid()"
-          >
-            Atras
-          </button>
-        </div>
-      </mat-tab>
 
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <div class="tab-active">
-            <mat-icon class="tab-active-icon">not_interested</mat-icon>
-            <span>INVALIDACION</span>
+            <div class="p-3">
+              <div class="row">
+                <p class="fw-bold" style="margin-bottom: 20px">DOCUMENTOS</p>
+                <div class="col-12 col-md-6">
+                  <div class="input-group mb-3">
+                    <label class="input-group-text" for="inputGroupSelect01"
+                      >DTE</label
+                    >
+                    <select class="form-select" id="inputGroupSelect01">
+                      <option selected></option>
+                      <option selected>FACTURA ELECTRONICA</option>
+                      <option selected>CREDITO FISCAL</option>
+                      <option selected>CONSUMIDOR FINAL</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"
+                      >Seleccionar archivo</span
+                    >
+                    <input
+                      type="tex*t"
+                      class="form-control"
+                      placeholder="Ningun archivo selec."
+                      aria-label="nrc"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+               <!-- Botones de navegación -->
+    <div class="col-12 text-center" style="margin-top: 20px">
+      <button
+        class="btn btn-primary btn-siguiente"
+        (click)="goToSpecificStep2(stepper, 5)"
+      >
+        Siguiente
+      </button>
+      <button
+        class="btn btn-secondary btn-atras"
+        (click)="goToSpecificStep2(stepper, 3)"
+      >
+        Atrás
+      </button>
+    </div>
           </div>
-        </ng-template>
-        <div class="p-3">
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="receptorForm">
+        <form [formGroup]="receptorForm">
+          <ng-template matStepLabel>
+            <div class="tab-active">
+              <mat-icon class="tab-active-icon">not_interested</mat-icon>
+              <span>INVALIDACION</span>
+            </div>
+          </ng-template>
           <div class="row">
             <p class="fw-bold" style="margin-bottom: 20px">EMISOR</p>
             <div class="col-12 col-md-6">
@@ -1630,8 +1489,8 @@
             </div>
             <div class="col-12 col-md-6">
               <mat-form-field appearance="outline" class="w-100 mb-3">
-                <mat-label>NCR</mat-label>
-                <input matInput placeholder="NCR" />
+                <mat-label>nrc</mat-label>
+                <input matInput placeholder="nrc" />
               </mat-form-field>
             </div>
             <div class="col-12 col-md-6">
@@ -1657,1064 +1516,11 @@
               Finalizar
             </button>
           </div>
-        </div>
-      </mat-tab>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
 
-      <div></div>
-    </mat-tab-group>
+    
   </div>
-  <div
-    class="contenedor-main bg-custom-soft"
-    [ngClass]="creditdoFiscal == false ? 'toggleClass' : ''"
-  >
-    <div class="row main-head">
-      <div class="row pb-4 d-flex justify-content-center">
-        <div class="col-11 titulo-main bg-custom-medium">
-          <div class="row">
-            <div class="d-flex justify-content-center"></div>
-          </div>
-        </div>
-        <div class="adelante"></div>
-      </div>
-      <div class="row pb-3 justify-content-center">
-        <div class="col-6 d-flex justify-content-end"></div>
-        <div class="col-6 d-flex justify-content-start"></div>
-      </div>
-    </div>
-
-    <mat-tab-group>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">record_voice_over</mat-icon>
-          EMISOR
-        </ng-template>
-
-        <div class="p-3">
-          <div class="row">
-            <p class="fw-bold">Datos del Emisor</p>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Nombre</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nombre"
-                  aria-label="Nombre"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >Nombre Comercial</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Nombre Comercial"
-                  aria-label="Nombre Comercial"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Actividadd</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-2">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">NCR</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="NCR"
-                  aria-label="NCR"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">NIT</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="NIT"
-                  aria-label="NIT"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Departamento</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Municipio</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >Complemento</span
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Complemento"
-                  aria-label="Complemento"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Telefono</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Telefono"
-                  aria-label="Telefono"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Correo</span>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Correo"
-                  aria-label="Correo"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-
-            <!-- Botón de Siguiente -->
-            <div class="col-12 text-center" style="margin-top: 20px">
-              <button
-                class="btn btn-primary btn-siguiente"
-                (click)="goToSpecificTab(tabGroup, 1)"
-                [disabled]="!isEmisorFormValid()"
-              >
-                Siguiente
-              </button>
-              <button
-                class="btn btn-secondary btn-atras"
-                (click)="goToSpecificTab(tabGroup, 3)"
-                [disabled]="!isEmisorFormValid()"
-              >
-                Atras
-              </button>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">hearing</mat-icon>
-          RECEPTOR
-        </ng-template>
-        <div class="p-3">
-          <div class="row">
-            <p class="fw-bold">Datos del Receptor</p>
-
-            <div class="col-12 col-md6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Nombre</span>
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="Nombre"
-                  aria-label="Nombre"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Tipo documento</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                  <option value="36">NIT</option>
-                  <option value="13">DUI</option>
-                  <option value="37">Otro</option>
-                  <option value="03">Pasaporte</option>
-                  <option value="02">Carnet de residente</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >N° de documento</span
-                >
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="N° de documento"
-                  aria-label="DUI"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-2">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">NRC</span>
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="NRC"
-                  aria-label="DUI"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Departamento</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-3">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Municipio</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"
-                  >Complemento</span
-                >
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="Dirección"
-                  aria-label="Dirección"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Telefono</span>
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="Telefono"
-                  aria-label="Dirección"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"
-                  >Actividad</label
-                >
-                <select class="form-select" id="inputGroupSelect01">
-                  <option selected>Seleccionar uno</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12 col-md-4">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Correo</span>
-                <input
-                  type="tex*t"
-                  class="form-control"
-                  placeholder="Correo"
-                  aria-label="Dirección"
-                  aria-describedby="basic-addon1"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">description</mat-icon>
-          DESCRIPCIÓN
-        </ng-template>
-        <div class="p-3">
-          <div class="row">
-            <div class="col-12">
-              <div>
-                <form class="contenido-ingreso_factura">
-                  <table class="tabla_factura">
-                    <tr class="tabla-head">
-                      <th><p>Cantidad</p></th>
-                      <th><p>Descripción</p></th>
-                      <th><p>Precio Unitario</p></th>
-                      <th><p>Ventas No Sujetas</p></th>
-                      <th><p>Ventas Exentas</p></th>
-                      <th><p>Ventas Afectas</p></th>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <div class="masInfo-factura">
-                    <div class="info-content">
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                      <div class="datos">
-                        <table>
-                          <tr>
-                            <th>Operacion Superior a: $ 00.00</th>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="recieveFor">Recibido por: </label>
-                              <input type="text" name="recieveFor" />
-                            </td>
-                            <td>
-                              <label for="givenFor">Entregado por: </label>
-                              <input type="text" name="givenFor" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="name">Nombre: </label>
-                              <input type="text" name="name" />
-                            </td>
-                            <td>
-                              <label for="nameEntregado">Nombre: </label>
-                              <input type="text" name="nameEntregado" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="identificacion">DUI o NIT: </label>
-                              <input type="text" name="identificacion" />
-                            </td>
-                            <td>
-                              <label for="identificacionEntregadp"
-                                >DUI o NIT:
-                              </label>
-                              <input
-                                type="text"
-                                name="identificacionEntregadp"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="firma">Firma: </label>
-                              <input type="text" name="firma" />
-                            </td>
-                            <td>
-                              <label for="firmaEntregado">Firma: </label>
-                              <input type="text" name="firmaEntregado" />
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                    </div>
-                    <aside class="suma">
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                    </aside>
-                  </div>
-
-                  <div class="botones">
-                    <button>Borrar</button>
-                    <button>Guardar Local</button>
-                    <button>Enviar a MH</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">send</mat-icon>
-          ENVIO
-        </ng-template>
-        <div class="p-3">
-          <div class="row">
-            <div class="col-12">
-              <div>
-                <form class="contenido-ingreso_factura">
-                  <table class="tabla_factura">
-                    <tr class="tabla-head">
-                      <th><p>Cantidad</p></th>
-                      <th><p>Descripción</p></th>
-                      <th><p>Precio Unitario</p></th>
-                      <th><p>Ventas No Sujetas</p></th>
-                      <th><p>Ventas Exentas</p></th>
-                      <th><p>Ventas Afectas</p></th>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="contenido-tabla">
-                      <td>
-                        <input type="text" placeholder="X" />
-                      </td>
-                      <td>
-                        <input type="text" />
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                      <td>
-                        <div>
-                          <p>$</p>
-                          <input type="number" placeholder="X" />
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-
-                  <div class="masInfo-factura">
-                    <div class="info-content">
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                      <div class="datos">
-                        <table>
-                          <tr>
-                            <th>Operacion Superior a: $ 00.00</th>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="recieveFor">Recibido por: </label>
-                              <input type="text" name="recieveFor" />
-                            </td>
-                            <td>
-                              <label for="givenFor">Entregado por: </label>
-                              <input type="text" name="givenFor" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="name">Nombre: </label>
-                              <input type="text" name="name" />
-                            </td>
-                            <td>
-                              <label for="nameEntregado">Nombre: </label>
-                              <input type="text" name="nameEntregado" />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="identificacion">DUI o NIT: </label>
-                              <input type="text" name="identificacion" />
-                            </td>
-                            <td>
-                              <label for="identificacionEntregadp"
-                                >DUI o NIT:
-                              </label>
-                              <input
-                                type="text"
-                                name="identificacionEntregadp"
-                              />
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label for="firma">Firma: </label>
-                              <input type="text" name="firma" />
-                            </td>
-                            <td>
-                              <label for="firmaEntregado">Firma: </label>
-                              <input type="text" name="firmaEntregado" />
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                      <div class="texto">
-                        <label for="text">Son:</label>
-                        <textarea></textarea>
-                      </div>
-                    </div>
-                    <aside>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                      <div class="division">
-                        <div class="fondoblanco">
-                          <p class="info">Sumas</p>
-                        </div>
-                        <p class="signo">$</p>
-                        <p class="total">00.00</p>
-                      </div>
-                    </aside>
-                  </div>
-
-                  <div class="botones">
-                    <button>Borrar</button>
-                    <button>Guardar Local</button>
-                    <button>Enviar a MH</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-    </mat-tab-group>
-  </div>
+ 
 </main>

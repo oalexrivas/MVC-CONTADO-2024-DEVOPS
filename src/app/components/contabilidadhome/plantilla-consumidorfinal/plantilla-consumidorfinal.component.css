@@ -1,4 +1,4 @@
-.bg-custom-soft {
+persona.bg-custom-soft {
   background-color: #f8f9fa;
 }
 
@@ -36,24 +36,34 @@
 }
 
 /* Updated class names */
-.card-persona {
+.card-persona,.icon-persona {
   border-color: #ff6347;
+  color: #ff6347;
+  width: 200px;
 }
 
-.card-empresa {
+.card-empresa,.icon-empresa {
   border-color: #b0b0b0;
+  color:#b0b0b0;
+  width: 200px;
 }
 
-.card-cooperativa {
+.card-cooperativa,.icon-cooperativa {
   border-color: #2196f3;
+  color:#2196f3;
+  width: 200px;
 }
 
-.card-exportacion-productos {
+.card-exportacion-productos,.icon-productos {
   border-color: #4caf50;
+  color:#4caf50;
+  width: 200px;
 }
 
-.card-exportacion-servidor {
+.card-exportacion-servidor,.icon-exportacion {
   border-color: #ff9800;
+  color:#ff9800;
+  width: 200px;
 }
 
 /* Updated text color classes */
@@ -65,7 +75,7 @@
   color: #b0b0b0;
 }
 
-.text-cooperativa {
+.text-cooperativa{
   color: #2196f3;
 }
 
@@ -89,3 +99,5 @@
   text-align: center;
   padding: 0;
 }
+
+
