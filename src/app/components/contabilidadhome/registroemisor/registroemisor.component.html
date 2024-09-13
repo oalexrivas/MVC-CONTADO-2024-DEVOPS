@@ -6,123 +6,105 @@
   <form [formGroup]="formulario">
 
   <div class="row">
-    <div class="col-12 col-md-3">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">NIT</span>
-        <input type="text" class="form-control" placeholder="NIT" aria-label="NIT" aria-describedby="basic-addon1">
-      </div>
-    </div>
-    <div class="col-12 col-md-3">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">NCR</span>
-        <input type="text" class="form-control" placeholder="NCR" aria-label="NCR" aria-describedby="basic-addon1">
-      </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Nombre Comercial</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Nombre</span>
-        <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>NIT</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Cod. Actividad</label>
-        <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>NCR</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Des. Actividad</label>
-        <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Nombre</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Nombre Comercial</span>
-        <input type="text" class="form-control" placeholder="Nombre Comercial" aria-label="Nombre Comercial" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Cod. Actividad</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Departamento</label>
-        <select class="form-select" id="inputGroupSelect01">
-          <option value="">Seleccionar uno</option>
-        </select>
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Des. Actividad</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Municipio</label>
-        <select class="form-select" id="inputGroupSelect01">
-          <option value="">Seleccionar uno</option>
-        </select>
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Departamento</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Complemento</span>
-        <input type="text" class="form-control" placeholder="Complemento" aria-label="Complemento" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Municipio</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Telefono</span>
-        <input type="text" class="form-control" placeholder="Telefono" aria-label="Telefono" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Complemento</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Correo</span>
-        <input type="text" class="form-control" placeholder="Correo" aria-label="Correo" aria-describedby="basic-addon1">
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Telefono</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
     <div class="col-12 col-md-6">
-      <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Establecimiento</label>
-        <select class="form-select" id="inputGroupSelect01" formControlName="comprador">
-          <option value="">Seleccionar uno</option>
-        </select>
-      </div>
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Correo</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-6">
+      <mat-form-field class="w-100" appearance="outline"><mat-label>Establecimiento</mat-label>
+        <input matInput />
+      </mat-form-field>
     </div>
   </div>
+
+  <br>
   <div class="row pb-3">
-    <div class="col-12 d-flex justify-content-end">
-      <button type="button" class="btn btn-success ml-auto" (click)="ingresarUsuario()">Crear Emisor</button>
+    <div class="col d-flex justify-content-end gap-3">
+      <button type="button" class="btn btn-success" style="width: 180px;" >Crear Emisor</button>
+      <button type="button" class="btn btn-primary" style="width: 180px;" (click)="obtenerUsuarios()">Mostrar Registros</button>
     </div>
   </div>
 </form>
+<div>
   <div>
-    <div>
-      <div class="p-2 row shadow-2 card">
-        <div class="table-responsive">
-          <table class="table table-striped table-hover text-center">
-            <thead>
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">NIT</th>
-                <th scope="col">NRC</th>
-                <th scope="col">CORREO</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let usuario of lista">
-                <td>{{usuario.id}}</td>
-                <td>{{usuario.token}}</td>
-                <td>{{usuario.creacion}}</td>
-                <td></td>
-                <td>
-                  <button class="btn"><i class='bx bx-show'></i></button>
-                  <button class="btn"><i class='bx bxs-pencil'></i></button>
-                  <button class="btn"  data-bs-toggle="modal" data-bs-target="#confirmacionModal" ><i class='bx bx-trash'></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    <div class="p-2 row card">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="correo">
+            <th mat-header-cell *matHeaderCellDef><strong>NOMBRE COMERCIAL</strong></th>
+            <td mat-cell *matCellDef="let element"> {{element.correo}} </td>
+          </ng-container>
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef><strong>NIT</strong></th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+          <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef><strong>NRC</strong></th>
+            <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+          </ng-container>
+          <ng-container matColumnDef="dui">
+            <th mat-header-cell *matHeaderCellDef><strong>CORREO</strong></th>
+            <td mat-cell *matCellDef="let element"> {{element.dui}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
     </div>
   </div>
+</div>
   <!-- Modal confirmar eliminación -->
   <div class="modal fade" id="confirmacionModal" aria-hidden="true" aria-labelledby="confirmacionModalLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">

@@ -45,19 +45,26 @@
               <p>Inicio</p>
             </div>
             <div class="config-option"
-                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
-                 (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
-              <mat-icon class="img-menu-conf">settings</mat-icon>
-              <p>Historiales Generales</p>
-            </div>
-            <div class="config-option"
                  *ngIf="userRole === 'administrador'"
                  (click)="opcionMenu('registro'); dataService.toggleMenuOption(0);">
               <mat-icon class="img-menu-conf">assignment</mat-icon>
-              <p>Registro Inicial</p>
+              <p>Modulo de Registros</p>
             </div>
             <div class="config-option"
-                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'">
+                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                 (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <mat-icon class="img-menu-conf">settings</mat-icon>
+              <p>Modulo de MH</p>
+            </div>
+            <div class="config-option"
+                 *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                 (click)="opcionMenu('configuracion'); dataService.toggleMenuOption(0);">
+              <mat-icon class="img-menu-conf">settings</mat-icon>
+              <p>Soporte Tecnico</p>
+            </div>
+            <div class="config-option"
+                *ngIf="userRole === 'administrador' || userRole === 'emprendedor' || userRole === 'contador'"
+                (click)="navigateTo('/')">
               <mat-icon class="img-menu-conf">exit_to_app</mat-icon>
               <p>Cerrar Sesión</p>
             </div>

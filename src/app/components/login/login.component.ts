@@ -76,7 +76,8 @@ export class LoginComponent implements OnInit {
             const token = result.data.iniciarSesion.token;
             console.log(token);
             // Guarda el token en localStorage
-            localStorage.setItem('token', token);
+            this.setCookie('token', token, 7);
+            //localStorage.setItem('token', token);
             resolve(true);
           } else {
             alert('Usuario o Contraseña incorrecto');

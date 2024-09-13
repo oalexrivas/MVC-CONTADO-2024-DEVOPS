@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import Swal from 'sweetalert2';
 
-interface RegistroUsuario {
+export interface RegistroUsuario {
   nombre: string;
   apellidos: string;
   codUsuario: string;
@@ -35,10 +35,13 @@ export class RegistroUsuarioComponent implements OnInit {
   public formulario: FormGroup;
   public opcion: number = 1;
   editable = false;
+  hide = true;
   seleccionado: any = null;
   lista: RegistroUsuario[] = [];
+  listaUsuariosCompletos: any[] = [];
   usuarioData: any = null;
   public mostrar: number = 1;
+  isEditMode: boolean = false;
   public mostrarPassword: boolean = false;
 
   displayedColumns: string[] = ['correo', 'nombre', 'apellido', 'dui'];
@@ -57,22 +60,22 @@ export class RegistroUsuarioComponent implements OnInit {
       nit: ['', Validators.required],
       nrc: ['', Validators.required],
       correo: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
     });
   }
   ngOnInit() {
-    this.obtenerUsuarios();
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
   obtenerUsuarios(): void {
-    //const token = this.getCookie('token'); 
-    const token = localStorage.getItem('token');
-    console.log(token); // Asumiendo que tienes una función getCookie
+    const token = this.getCookie('token'); 
+    console.log(token); 
     const query = `
     query ObtenerUsuario {
       obtenerUsuario {
+        id
         nombre
         apellidos
         codUsuario
@@ -80,6 +83,8 @@ export class RegistroUsuarioComponent implements OnInit {
         correo
         dui
         nrc
+        nit
+        clave
       }
     }
     `;
@@ -92,6 +97,8 @@ export class RegistroUsuarioComponent implements OnInit {
     this.http.post<any>('http://localhost:4000/', { query }, { headers }).subscribe({
       next: result => {
         const usuarioData = result.data.obtenerUsuario;
+        console.log(usuarioData);
+        this.listaUsuariosCompletos = usuarioData;
         const lista = usuarioData.map((item: any) => ({
           correo: item.correo,
           nombre: `${item.nombre} ${item.apellidos}`,
@@ -106,6 +113,36 @@ export class RegistroUsuarioComponent implements OnInit {
       }
     });
   }
+  onRowClick(row: any): void {
+    console.log('Fila seleccionada:', row);
+    console.log('Lista de usuarios completos:', this.listaUsuariosCompletos);
+    // Buscar el usuario completo en la listaUsuariosCompletos usando un identificador único (ej: correo)
+    const usuarioSeleccionado = this.listaUsuariosCompletos.find(user => user.correo === row.correo);
+    
+    if (usuarioSeleccionado) {
+      // Verifica los datos del usuario seleccionado
+      console.log('Usuario seleccionado:', usuarioSeleccionado);
+  
+      // Rellenar el formulario con los datos completos del usuario
+      this.formulario.patchValue({
+        nombre: usuarioSeleccionado.nombre,
+        apellidos: usuarioSeleccionado.apellidos,
+        codUsuario: usuarioSeleccionado.codUsuario,
+        idTipoUsuario: usuarioSeleccionado.idTipoUsuario || '',  // Asegúrate de que el valor exista
+        dui: usuarioSeleccionado.dui,
+        nit: usuarioSeleccionado.nit,
+        nrc: usuarioSeleccionado.nrc,
+        correo: usuarioSeleccionado.correo,
+        password: '',  // No se debe rellenar por seguridad
+        confirmPassword: ''  // No se debe rellenar por seguridad
+      });
+      
+      // Cambiar el estado a modo edición
+      this.isEditMode = true;
+    } else {
+      console.error('Usuario no encontrado en la lista completa.');
+    }
+  }  
   getCookie(name: string): string | null {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
@@ -115,6 +152,24 @@ export class RegistroUsuarioComponent implements OnInit {
       if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
+  }
+  limpiarFormulario() {
+    this.formulario.reset({
+      nombre: '',
+      apellidos: '',
+      codUsuario: '',
+      idTipoUsuario: '',
+      dui: '',
+      nit: '',
+      nrc: '',
+      correo: '',
+      password: '',
+      confirmPassword: ''
+    });
+  }
+  backEdit(): void {
+    this.isEditMode = false;
+    this.limpiarFormulario();
   }
   guardarUsuario(): void{
     const token = this.getCookie('token');
@@ -128,9 +183,9 @@ export class RegistroUsuarioComponent implements OnInit {
           idTipoUsuario
           dui
           nit
+          nrc
           correo
           clave
-          nrc
         }
       }
     `;
@@ -146,9 +201,9 @@ export class RegistroUsuarioComponent implements OnInit {
         idTipoUsuario: Number(this.formulario.get('idTipoUsuario')?.value),
         dui: this.formulario.get('dui')?.value,
         nit: this.formulario.get('nit')?.value,
-        correo: this.formulario.get('correo')?.value,
-        clave: this.formulario.get('password')?.value,
         nrc: this.formulario.get('nrc')?.value,
+        correo: this.formulario.get('correo')?.value,
+        clave: this.formulario.get('password')?.value, 
       },
     };
     console.log(variables);
@@ -158,7 +213,6 @@ export class RegistroUsuarioComponent implements OnInit {
   }
   realizarEnvio() {
     this.mostrar = 3;
-
     Swal.fire({
       title: '¿Estás seguro de registrar el usuario?',
       text: "¡No podrás revertir este proceso!",
@@ -171,12 +225,36 @@ export class RegistroUsuarioComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.guardarUsuario();
+        this.limpiarFormulario();
         Swal.fire(
           'Enviado',
           'El usuario se registró correctamente',
           'success'
         )
-        this.router.navigate(['/contabilidad/registrousuario']);
+      }
+    });
+  }
+  realizarActualizacion() {
+    this.mostrar = 3;
+    Swal.fire({
+      title: '¿Estás seguro de actualizar el usuario?',
+      text: "¡No podrás revertir este proceso!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.guardarUsuario();
+        this.limpiarFormulario();
+        this.isEditMode = false;
+        Swal.fire(
+          'Enviado',
+          'El usuario se actualizo correctamente',
+          'success'
+        )
       }
     });
   }
