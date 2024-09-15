@@ -1449,7 +1449,7 @@
         </form>
       </mat-step>
 
-      <mat-step [stepControl]="receptorForm">
+      <mat-step [stepControl]="receptorForm" [editable]="true" class="my-custom-stepper">
         <form [formGroup]="receptorForm">
           <ng-template matStepLabel>
             <div class="tab-active">

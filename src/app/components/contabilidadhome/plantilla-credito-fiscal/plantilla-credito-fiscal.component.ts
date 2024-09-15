@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 @Component({
-  selector: 'app-plantilla-consumidorfinal',
+  selector: 'app-plantilla-credito-fiscal',
   standalone: true,
-  imports: [  MatToolbarModule,],
-  templateUrl: './plantilla-consumidorfinal.component.html',
-  styleUrl: './plantilla-consumidorfinal.component.css'
+  imports: [MatToolbarModule],
+  templateUrl: './plantilla-credito-fiscal.component.html',
+  styleUrl: './plantilla-credito-fiscal.component.css'
 })
-export class PlantillaConsumidorfinalComponent {
+export class PlantillaCreditoFiscalComponent {
   constructor(private router: Router) { }
-
   navigateTo(route: string) {
     this.router.navigate([route]);
   }

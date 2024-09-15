@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-plantilla-consumidorfinal',
+  selector: 'app-comprobante-donacion',
   standalone: true,
-  imports: [  MatToolbarModule,],
-  templateUrl: './plantilla-consumidorfinal.component.html',
-  styleUrl: './plantilla-consumidorfinal.component.css'
+  imports: [MatToolbarModule],
+  templateUrl: './comprobante-donacion.component.html',
+  styleUrl: './comprobante-donacion.component.css'
 })
-export class PlantillaConsumidorfinalComponent {
+export class ComprobanteDonacionComponent {
   constructor(private router: Router) { }
-
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
-
-
+  
+  
    redirectToLink(url: string): void {
     window.location.assign(url);
   }

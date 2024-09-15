@@ -20,8 +20,11 @@ import { RegistroEstablecimientoComponent } from './registroestablecimiento/regi
 import { RegistroProductoservicioComponent } from './registroproductoservicio/registroproductoservicio.component';
 //import { RegistroProductoservicioComponent } from './registroproductoservicio/registroproductoservicio.component';
 import { PlantillaConsumidorfinalComponent } from './plantilla-consumidorfinal/plantilla-consumidorfinal.component';
+import { PlantillaCreditoFiscalComponent } from './plantilla-credito-fiscal/plantilla-credito-fiscal.component';
+import { PlantillaFacturaExportacionComponent } from './plantilla-factura-exportacion/plantilla-factura-exportacion.component';
 import { ContabilidadinicioComponent } from './contabilidadinicio/contabilidadinicio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComprobanteDonacionComponent } from './comprobante-donacion/comprobante-donacion.component';
 const routes: Routes = [
   {path: 'registros', component:RegistrosComponent},
   {path: 'registrotoken', component:RegistroTokenComponent},
@@ -43,7 +46,11 @@ const routes: Routes = [
   {path: 'documentodte/facturaexportacion', component:FacturaexportacionComponent},
   {path: 'ingresoconsumidorfinal', component:ContabilidadComponent},
   {path: 'registroinicio', component: ContabilidadinicioComponent },
-  {path: 'registroconsumidor', component: PlantillaConsumidorfinalComponent}
+  {path: 'registroconsumidor', component: PlantillaConsumidorfinalComponent},
+  {path: 'registrocreditofiscal', component: PlantillaCreditoFiscalComponent},
+  {path:'registrofacturaexportacion', component:PlantillaFacturaExportacionComponent},
+  {path:'comprobante-donacion', component:ComprobanteDonacionComponent}
+  
 ];
 
 @NgModule({

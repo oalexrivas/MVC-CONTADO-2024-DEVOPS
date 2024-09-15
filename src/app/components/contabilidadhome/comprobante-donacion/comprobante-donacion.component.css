@@ -1,0 +1,107 @@
+.persona.bg-custom-soft {
+    background-color: #f8f9fa;
+}
+  
+.bg-custom-medium {
+    background-color: #343a40;
+    color: white;
+}
+  
+.contenedor {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card-custom {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card-custom:hover {
+    transform: scale(1.05);
+}
+
+/* Clases de las tarjetas para donaciones */
+.card-donacion-productos, .icon-donacion-productos {
+    border-color: #4caf50; /* Verde para donación de productos */
+    color: #4caf50;
+    width: 200px;
+}
+
+.card-donacion-servicios, .icon-donacion-servicios {
+    border-color: #2196f3; /* Azul para donación de servicios */
+    color: #2196f3;
+    width: 200px;
+}
+
+.card-donacion-especies, .icon-donacion-especies {
+    border-color: #ff9800; /* Naranja para donación en especies */
+    color: #ff9800;
+    width: 200px;
+}
+
+.card-donacion-dinero, .icon-donacion-dinero {
+    border-color: #9c27b0; /* Morado para donación de dinero */
+    color: #9c27b0;
+    width: 200px;
+}
+
+/* Colores de texto actualizados */
+.text-donacion-productos {
+    color: #4caf50; /* Verde para donación de productos */
+}
+
+.text-donacion-servicios {
+    color: #2196f3; /* Azul para donación de servicios */
+}
+
+.text-donacion-especies {
+    color: #ff9800; /* Naranja para donación en especies */
+}
+
+.text-donacion-dinero {
+    color: #9c27b0; /* Morado para donación de dinero */
+}
+
+.card-custom img {
+    width: 40%;
+    height: auto;
+}
+
+.card-custom button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.custom-toolbar {
+    background: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #0056b3;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  }
+  
+  .title-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }

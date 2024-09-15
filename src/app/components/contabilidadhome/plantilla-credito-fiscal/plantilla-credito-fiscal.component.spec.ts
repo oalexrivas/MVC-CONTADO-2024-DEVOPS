@@ -1,19 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { PlantillaCreditoFiscalComponent } from './plantilla-credito-fiscal.component';
 
-import { PlantillaConsumidorfinalComponent } from './plantilla-consumidorfinal.component';
-
-describe('PlantillaConsumidorfinalComponent', () => {
-  let component: PlantillaConsumidorfinalComponent;
-  let fixture: ComponentFixture<PlantillaConsumidorfinalComponent>;
+describe('PlantillaCreditoFiscalComponent', () => {
+  let component: PlantillaCreditoFiscalComponent;
+  let fixture: ComponentFixture<PlantillaCreditoFiscalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlantillaConsumidorfinalComponent]
+      imports: [PlantillaCreditoFiscalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PlantillaConsumidorfinalComponent);
+    fixture = TestBed.createComponent(PlantillaCreditoFiscalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> 
+</head>
+<body>
+  <mat-toolbar color="primary" class="custom-toolbar">
+    <span class="title-text">Factura Exportacion</span>
+  </mat-toolbar>
+  <div class="contenedor bg-custom-soft">
+    <div class="container-fluid mt-3">
+      <div class="d-flex flex-row flex-nowrap justify-content-center overflow-auto ">
+
+       <!-- Exportación de productos -->
+       <div class="card-custom card-exportacion-productos" (click)="navigateTo('registroproducto')">
+        <h4 class="text-exportacion-productos">Exportación de productos</h4>
+        <i class="bi bi-globe icon-producto img-fluid my-2" style="font-size: 5rem;"></i>  
+      </div>
+
+      <!-- Exportación de servicios -->
+      <div class="card-custom card-exportacion-servicio" (click)="navigateTo('registroservicio')">
+        <h4 class="text-exportacion-servicio">Exportación de servicios</h4>
+        <i class="bi bi-truck icon-servicio img-fluid my-2" style="font-size: 5rem;"></i> 
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
