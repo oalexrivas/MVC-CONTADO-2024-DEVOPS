@@ -49,14 +49,17 @@ export class MenuLateralComponent implements OnInit {
         { titulo: "Contabilidad", icono: "account_balance", logo: "../../../assets/iconos/contabilidad.png" },
         { titulo: "Factura Electronica", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/consumidorfinal" },
         { titulo: "Comprobante de crédito fiscal", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/creditofiscal" },
+        { titulo: "Facturas de exportación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/facturaexportacion" },
+        { titulo: "Comprobante de donación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/comprobantedonacion" },
+      
         { titulo: "Nota de remisión", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/notaremision" },
         { titulo: "Nota de débito", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/notadebito" },
         { titulo: "Comprobante de retención", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/comprobanteretencion" },
         { titulo: "Comprobante de liquidación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/comprobanteliquidacion" },
         { titulo: "Documento contable de liquidación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/documentocontableliquidacion" },
-        { titulo: "Facturas de exportación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/facturaexportacion" },
+      
         { titulo: "Factura de sujeto excluido", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/facturasujetoexcluido" },
-        { titulo: "Comprobante de donación", icono: "receipt", logo: "../../../assets/iconos/factura.png", ruta: "/contabilidad/documentodte/comprobantedonacion" }
+       
       ],
       "finanzas": [
         { titulo: "Finanzas", logo: "../../../assets/iconos/Logo-Contabilidad.png" },

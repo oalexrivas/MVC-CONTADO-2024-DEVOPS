@@ -10,6 +10,7 @@ import { FacturaexportacionComponent } from './documentodte/facturaexportacion/f
 import { FacturasujetoexcluidoComponent } from './documentodte/facturasujetoexcluido/facturasujetoexcluido.component';
 import { ComprobantedonacionComponent } from './documentodte/comprobantedonacion/comprobantedonacion.component';
 import { ContabilidadComponent } from './contabilidad/contabilidad.component';
+
 import { RegistrosComponent } from './registros/registros.component';
 import { RegistroTokenComponent } from './registrotoken/registrotoken.component';
 import { RegistroTokenHaciendaComponent } from './registrotokenHacienda/registrotokenHacienda.component';
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path: 'documentodte/facturasujetoexcluido', component:FacturasujetoexcluidoComponent},
   {path: 'documentodte/comprobantedonacion', component:ComprobantedonacionComponent},
   {path: 'documentodte/facturaexportacion', component:FacturaexportacionComponent},
-  {path: 'ingresoconsumidorfinal', component:ContabilidadComponent},
+  {path: 'registrocliente', component:ContabilidadComponent},
+  {path: 'ingresoconsumidorfinal', component:PlantillaConsumidorfinalComponent},
   {path: 'registroinicio', component: ContabilidadinicioComponent },
   {path: 'registroconsumidor', component: PlantillaConsumidorfinalComponent},
   {path: 'registrocreditofiscal', component: PlantillaCreditoFiscalComponent},
