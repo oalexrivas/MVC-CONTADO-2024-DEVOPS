@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" [ngClass]="isMobile && !service.isOpen ? 'menu-hidden' : ''">
   <div class="aside bg-custom-medium">
     <div [ngClass]="service.isOpen != true ? 'aside-head' : 'closed-aside-head'">
       <mat-icon>{{ menus[0].icono }}</mat-icon>

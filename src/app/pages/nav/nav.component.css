@@ -216,3 +216,17 @@ span {
 .pointer {
   cursor: pointer;
 }
+
+/* Añade una animación suave para mostrar y ocultar el menú */
+.aside {
+  transition: transform 0.3s ease-in-out;
+}
+
+.aside.hidden {
+  transform: translateX(-100%);
+}
+
+.aside.visible {
+  transform: translateX(0);
+}
+

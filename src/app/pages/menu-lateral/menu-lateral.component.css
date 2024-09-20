@@ -111,3 +111,15 @@
   justify-content: center;
   text-align: center;
 }
+/* Ocultar el menú en pantallas móviles */
+@media (max-width: 768px) {
+  .container-fluid {
+    display: none;
+  }
+
+  .container-fluid.menu-hidden {
+    display: block; /* Mostrar el menú cuando se haga clic en el botón de hamburguesa */
+  }
+}
+
+

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { MenuLateral } from '../interfaces/menu';
 import { MenuOpcionService } from 'src/app/services/menuOpcion/menu-opcion.service';
@@ -13,10 +13,13 @@ export class MenuLateralComponent implements OnInit {
   public tituloS: string = "";
   public menus: Array<MenuLateral> = [];
   public userRole: string = 'administrador';
+  public isMobile: boolean = false; // Nueva propiedad para detectar si es móvil
 
   constructor(public service: DataService, public opcionMenuService: MenuOpcionService, private router: Router) { }
 
   ngOnInit() {
+    this.isMobile = window.innerWidth <= 768; // Si el ancho de la pantalla es menor o igual a 768px, es móvil
+
     this.opcionMenuService.changeString.subscribe((opcion) => {
       this.menus = this.menu(this.opcionMenuService.getDatos());
       this.router.navigate([this.menus[1].ruta]);
@@ -27,6 +30,20 @@ export class MenuLateralComponent implements OnInit {
     this.menus = this.menu("contabilidad");
     this.service.toggleMenuOption(2);
   }
+  // Método para manejar el redimensionamiento de pantalla
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.isMobile = window.innerWidth <= 768;
+  
+  }
+
+  
+
+  // Método para mostrar u ocultar el menú dependiendo del estado móvil
+  toggleMenu() {
+    this.service.isOpen = !this.service.isOpen; // Alterna el estado del menú
+  }
+
 
   menu(valor: string) {
     let menu: object = {
