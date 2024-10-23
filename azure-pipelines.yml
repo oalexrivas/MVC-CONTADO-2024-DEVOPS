@@ -19,3 +19,18 @@ steps:
     npm install
     ng build
   displayName: 'npm install and build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.Repository.LocalPath)/build'
+    includeRootFolder: false
+    archiveType: "zip"
+    archiveFile: '$(Build.ArtifactStagingDirectory)/drop/sgn-$(GitVersion.SemVer).zip'
+    replaceExistingArchive: true
+
+## Publish the zip file
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/drop'
+    ArtifactName: drop
+  displayName: 'Publish artifact'
