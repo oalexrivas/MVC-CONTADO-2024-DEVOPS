@@ -1,0 +1,58 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '20.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+  displayName: 'npm install'
+
+- script: |
+    ng build
+  displayName: 'ng build'
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo "$(Build.Repository.LocalPath)"
+      dir $(Build.Repository.LocalPath)
+
+## Archive the files into a zip file for publishing
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.Repository.LocalPath)'
+    includeRootFolder: false
+    archiveType: "zip"
+    archiveFile: '$(Build.ArtifactStagingDirectory)/drop/front.zip'
+    replaceExistingArchive: true
+
+## Publish the zip file
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/drop'
+    ArtifactName: drop
+  displayName: 'Publish artifact'
+
+##- task: AzureRmWebAppDeployment@4
+##  inputs:
+##    ConnectionType: 'AzureRM'
+##    azureSubscription: 'Suscripción de Azure 1(f50a2420-1b9c-4e6e-a4b5-810f7e26c48f)'
+##    appType: 'webAppLinux'
+##    WebAppName: 'emprendehoytest1'
+##    deployToSlotOrASE: true
+##    ResourceGroupName: 'Emprendehoy_test_RG'
+##    SlotName: 'production'
+##    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+##    RuntimeStack: 'NODE|20-lts'
