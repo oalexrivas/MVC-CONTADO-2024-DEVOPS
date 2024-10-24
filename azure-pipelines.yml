@@ -37,10 +37,13 @@ steps:
       echo "$(Build.SourcesDirectory)"
       tree $(Build.SourcesDirectory)
 
+      echo "$(Build.Repository.LocalPath)"
+      tree $(Build.Repository.LocalPath)
+
 ## Archive the files into a zip file for publishing
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.SourcesDirectory)'
+    rootFolderOrFile: '$(Build.Repository.LocalPath)'
     includeRootFolder: false
     archiveType: "zip"
     archiveFile: '$(Build.ArtifactStagingDirectory)/drop/front.zip'
