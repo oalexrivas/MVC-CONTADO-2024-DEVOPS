@@ -20,11 +20,10 @@ steps:
     ng build
   displayName: 'npm install and build'
 
-
 ## Archive the files into a zip file for publishing
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.Repository.LocalPath)/dist'
+    rootFolderOrFile: './dist'
     includeRootFolder: false
     archiveType: "zip"
     archiveFile: '$(Build.ArtifactStagingDirectory)/drop/front.zip'
