@@ -18,8 +18,11 @@ steps:
 - script:
     npm install -g @angular/cli
     npm install
+  displayName: 'npm install'
+
+- script:
     ng build --prod
-  displayName: 'npm install and build'
+  displayName: 'ng build'
 - task: CmdLine@2
   inputs:
     script: |
