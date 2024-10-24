@@ -22,9 +22,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo "Structure of work folder of this pipeline:"
-      tree $(Agent.WorkFolder) /f
-      
       echo "Build.ArtifactStagingDirectory:" 
       
       echo "$(Build.ArtifactStagingDirectory)"
@@ -38,7 +35,7 @@ steps:
       echo "Build.SourcesDirectory:"
       
       echo "$(Build.SourcesDirectory)"
-      tree $(Build.SourcesDirectory)
+      tree $(Build.SourcesDirectory)/dist
 
 ## Archive the files into a zip file for publishing
 - task: ArchiveFiles@2
