@@ -27,6 +27,6 @@ steps:
 ## Publish the zip file
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.SourcesDirectory)/dist'
+    PathtoPublish: '$(Build.SourcesDirectory)/dist/mvp-v3-0'
     ArtifactName: drop
   displayName: 'Publish artifact'
